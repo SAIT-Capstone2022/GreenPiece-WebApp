@@ -1,1 +1,1 @@
-# Webpage repository for SAIT 2022 Capstone project.
+# WebApp repository for SAIT 2022 Capstone project.
