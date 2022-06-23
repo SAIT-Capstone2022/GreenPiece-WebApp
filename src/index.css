@@ -20,3 +20,10 @@ nav {
 nav a.active {
   font-weight: bold;
 }
+
+#root {
+  height: 100vh;
+    background-image: url("./images/leave_bg.png"), linear-gradient(white, #dcfbca);
+    background-attachment: fixed;
+    background-size: cover;
+}
