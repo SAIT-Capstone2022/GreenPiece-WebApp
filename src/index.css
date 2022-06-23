@@ -15,15 +15,20 @@ code {
 
 nav {
   background-color: #3f573e;
+  align-items: stretch;
 }
 
-nav a.active {
-  font-weight: bold;
+nav li {
+  padding: 0.10rem;
+}
+
+nav li.active {
+  background-color:rgb(48, 66, 47)e;
 }
 
 #root {
   height: 100vh;
-    background-image: url("./images/leave_bg.png"), linear-gradient(white, #dcfbca);
-    background-attachment: fixed;
-    background-size: cover;
+  background-image: url("./images/leave_bg.png"), linear-gradient(white, #dcfbca);
+  background-attachment: fixed;
+  background-size: cover;
 }

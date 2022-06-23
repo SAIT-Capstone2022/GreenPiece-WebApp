@@ -15,7 +15,8 @@ export default class CreateVisitor extends Component {
       email: '',
       password: '',
       username: '',
-      phonenumber: ''
+      phonenumber: '',
+      message: ''
     }
   }
 
@@ -56,52 +57,50 @@ export default class CreateVisitor extends Component {
     console.log(user);
 
     axios.post('http://localhost:5000/users/add', user)
-      .then(res => console.log(res.data));
-
-    this.setState({
-      email: '',
-      password: '',
-      username: '',
-      phonenumber: ''
-    })
+      .then(res => {console.log(res.data) 
+        this.setState({
+          email: '',
+          password: '',
+          username: '',
+          phonenumber: '',
+          message: "Account successfully created."
+        })
+      })
+      .catch(err => {
+        this.setState({
+          email: this.state.email,
+          password: this.state.password,
+          username: this.state.username,
+          phonenumber: this.state.phonenumber,
+          message: "Email already in use, please try a different one."
+        })
+      })
   }
 
   render() {
     return (
-      <div>
-        <h3>User Sign Up!</h3>
+      <div class="container p-4 m-2 mx-auto mt-3 bg-light rounded shadow-lg">
+        <h3>User Sign Up</h3>
         <form onSubmit={this.onSubmit}>
-          <div className="form-group">
-            <label>email: </label>
-            <input type="text" required className="form-control" value={this.state.email} onChange={this.onChangeEmail} />
+          <div className="form-group py-3">
+            <input type="text" required placeholder="Email Address" className="form-control" value={this.state.email} onChange={this.onChangeEmail} />
           </div>
 
-          <div className="form-group">
-            <label>password: </label>
-            <input type="text" required
-              className="form-control"
-              value={this.state.password}
-              onChange={this.onChangePassword} />
+          <div className="form-group py-3">
+            <input type="text" required placeholder="Password" className="form-control" value={this.state.password} onChange={this.onChangePassword} />
           </div>
 
-          <div className="form-group">
-            <label>username: </label>
-            <input type="text" required
-              className="form-control"
-              value={this.state.username}
-              onChange={this.onChangeUsername} />
+          <div className="form-group py-3">
+            <input type="text" required placeholder="Username" className="form-control" value={this.state.username} onChange={this.onChangeUsername} />
           </div>
 
-          <div className="form-group">
-            <label>phonenumber: </label>
-            <input type="text" required
-              className="form-control"
-              value={this.state.phonenumber}
-              onChange={this.onChangePhonenumber} />
+          <div className="form-group py-3">
+            <input type="text" required placeholder="Phone Number" className="form-control" value={this.state.phonenumber} onChange={this.onChangePhonenumber} />
           </div>
 
-          <div className="form-group">
+          <div className="form-group py-3">
             <input type="submit" value="Submit" className="btn btn-primary" />
+            <span className="mx-3 text-success" id='message'>{this.state.message}</span>
           </div>
 
         </form>

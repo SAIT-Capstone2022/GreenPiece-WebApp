@@ -7,7 +7,7 @@ export default class Navbar extends Component {
     return (
         <nav class="navbar navbar-expand-lg navbar-dark shadow-lg bg-gradient">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Green Piece</a>
+            <text class="navbar-brand">Green Piece</text>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -25,7 +25,7 @@ export default class Navbar extends Component {
                     </li>
                 </ul>
                 <span class="navbar-text">
-                    <Link to="/logout" class="nav-item" href="index.html">Logout</Link>
+                    <Link to="/" class="nav-item" href="index.html">Logout</Link>
                 </span>
             </div>
         </div>
