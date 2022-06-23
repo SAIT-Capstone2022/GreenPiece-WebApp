@@ -9,6 +9,9 @@
     "axios": "^0.27.2",
     "boostrap": "^2.0.0",
     "bootstrap": "^5.2.0-beta1",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
@@ -50,6 +53,5 @@
   "bugs": {
     "url": "https://github.com/SAIT-Capstone2022/GreenPiece-WebApp/issues"
   },
-  "homepage": "https://github.com/SAIT-Capstone2022/GreenPiece-WebApp#readme",
-  "devDependencies": {}
+  "homepage": "https://github.com/SAIT-Capstone2022/GreenPiece-WebApp#readme"
 }

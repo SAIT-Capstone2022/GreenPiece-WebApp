@@ -5,7 +5,7 @@ export default class Navbar extends Component {
 
   render() {
     return (
-        <nav class="navbar navbar-expand-lg navbar-dark shadow-lg bg-gradient bg-black">
+        <nav class="navbar navbar-expand-lg navbar-dark shadow-lg bg-gradient">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">Green Piece</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
