@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class CreateVisitor extends Component {
+export default class CreateUser extends Component {
   constructor(props) {
     super(props);
 
@@ -16,7 +16,8 @@ export default class CreateVisitor extends Component {
       password: '',
       username: '',
       phonenumber: '',
-      message: ''
+      message: '',
+      messageType: 'mx-3'
     }
   }
 
@@ -51,19 +52,22 @@ export default class CreateVisitor extends Component {
       email: this.state.email,
       password: this.state.password,
       username: this.state.username,
-      phonenumber: this.state.phonenumber
+      phonenumber: this.state.phonenumber,
+      messageType: 'mx-3'
     }
 
     console.log(user);
 
     axios.post('http://localhost:5000/users/add', user)
-      .then(res => {console.log(res.data) 
+      .then(res => {
+        console.log(res.data)
         this.setState({
           email: '',
           password: '',
           username: '',
           phonenumber: '',
-          message: "Account successfully created."
+          message: "Account successfully created.",
+          messageType: this.state.messageType + ' text-success'
         })
       })
       .catch(err => {
@@ -72,7 +76,8 @@ export default class CreateVisitor extends Component {
           password: this.state.password,
           username: this.state.username,
           phonenumber: this.state.phonenumber,
-          message: "Email already in use, please try a different one."
+          message: "Email already in use, please try a different one.",
+          messageType: this.state.messageType + ' text-danger'
         })
       })
   }
@@ -87,7 +92,7 @@ export default class CreateVisitor extends Component {
           </div>
 
           <div className="form-group py-3">
-            <input type="text" required placeholder="Password" className="form-control" value={this.state.password} onChange={this.onChangePassword} />
+            <input type="password" required placeholder="Password" className="form-control" value={this.state.password} onChange={this.onChangePassword} />
           </div>
 
           <div className="form-group py-3">
@@ -100,7 +105,7 @@ export default class CreateVisitor extends Component {
 
           <div className="form-group py-3">
             <input type="submit" value="Submit" className="btn btn-primary" />
-            <span className="mx-3 text-success" id="message">{this.state.message}</span>
+            <span className={this.state.messageType} id="message">{this.state.message}</span>
           </div>
 
         </form>
