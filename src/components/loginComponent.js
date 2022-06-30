@@ -13,11 +13,11 @@ export default class Login extends Component {
                 
                 <form>
                     <div class="form-outline mb-4">
-                        <input type="email" id="form2Example1" class="form-control" placeholder='Email Address' />
+                        <input type="email" id="form2Example1" class="form-control" placeholder='Email Address' required/>
                     </div>
 
                     <div class="form-outline mb-4">
-                        <input type="password" id="form2Example2" class="form-control" placeholder='Password' />
+                        <input type="password" id="form2Example2" class="form-control" placeholder='Password' required/>
                     </div>
 
                     <div class="form-check">
