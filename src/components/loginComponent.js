@@ -1,82 +1,74 @@
-import React, { Component } from 'react';
 import axios from 'axios';
+import React, { Component } from 'react';
+// import {useNavigate} from 'react-router-dom';
+
 
 export default class Login extends Component {
     constructor(props) {
         super(props);
-    
+
         this.onChangeEmail = this.onChangeEmail.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-    
+        this.handleLogin = this.handleLogin.bind(this);
+
         this.state = {
-          email: '',
-          password: '',
-          users: []
+            email: '',
+            password: '',
+            message: ''
         }
-      }
+    }
 
-      onChangeEmail(e) {
+    onChangeEmail(e) {
         this.setState({
-          email: e.target.value
+            email: e.target.value
         })
-      }
-    
-      onChangePassword(e) {
-        this.setState({
-          password: e.target.value
-        })
-      }
+    }
 
-      onSubmit(e) {
+    onChangePassword(e) {
+        this.setState({
+            password: e.target.value
+        })
+    }
+
+    handleLogin = async (e) => {
         e.preventDefault();
-    
-        axios.get('http://localhost:5000/users/get')
-          .then(res => {console.log(res.data) 
-            this.setState({
-              email: '',
-              password: '',
-              username: '',
-              phonenumber: '',
-              message: "Account successfully created."
-            })
-          })
-          .catch(err => {
-            this.setState({
-              email: this.state.email,
-              password: this.state.password,
-              username: this.state.username,
-              phonenumber: this.state.phonenumber,
-              message: "Email already in use, please try a different one."
-            })
-          })
+        // const navigate = useNavigate();
 
-          const user = {
+        const user = {
             email: this.state.email,
-            password: this.state.password,
-          }
-      
-          console.log(user);
-      }
+            password: this.state.password
+        }
+
+        console.log(user);
+
+        try {
+            const response = await axios.post("http://localhost:5000/auth", user);
+            window.location = "/Dashboard";
+            console.log(response);
+            // navigate("/Dashboard");
+        } catch (error) {
+
+        }
+    }
 
 
     render() {
         return (
-            <div class="container p-4 m-2 mx-auto mt-3 bg-light rounded shadow-lg">
+            <div class="container p-4 m-2 mx-auto mt-3 bg-light rounded shadow-lg" id="login-container">
                 <header>
                     <h1>Welcome to Green Piece</h1>
                 </header>
                 <div class="mb-4">
                     <p>Not a registered? <a href="/Signup">Sign Up</a></p>
                 </div>
-                
-                <form>
+
+                <form onSubmit={this.handleLogin}>
                     <div class="form-outline mb-4">
-                        <input type="email" id="form2Example1" class="form-control" placeholder='Email Address' />
+                        <input type="text" required placeholder="Email Address" className="form-control" value={this.state.email} onChange={this.onChangeEmail} />
                     </div>
 
                     <div class="form-outline mb-4">
-                        <input type="password" id="form2Example2" class="form-control" placeholder='Password' />
+                        <input type="password" required placeholder="Password" className="form-control" value={this.state.password} onChange={this.onChangePassword} />
                     </div>
 
                     <div class="form-check">
@@ -86,9 +78,8 @@ export default class Login extends Component {
                     <div class="mb-4">
                         <a href="#!">Forgot password?</a>
                     </div>
-                    
-                    <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
 
+                    <input type="submit" value="Sign in" class="btn btn-primary btn-block mb-4" />
                 </form>
             </div>
         )
