@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class Login extends Component {
     render() {
         return (
-            <div class="container p-4 m-2 mx-auto mt-3 bg-light rounded shadow-lg">
+            <div class="container p-4 m-2 mx-auto mt-3 bg-light rounded shadow-lg" id="login-container">
                 <header>
                     <h1>Welcome to Green Piece</h1>
                 </header>
