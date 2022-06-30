@@ -79,7 +79,7 @@ export default class CreateVisitor extends Component {
 
   render() {
     return (
-      <div class="container p-4 m-2 mx-auto mt-3 bg-light rounded shadow-lg">
+      <div class="container p-4 m-2 mx-auto mt-3 bg-light rounded shadow-lg" id="signup-component">
         <h3>User Sign Up</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group py-3">
@@ -100,7 +100,7 @@ export default class CreateVisitor extends Component {
 
           <div className="form-group py-3">
             <input type="submit" value="Submit" className="btn btn-primary" />
-            <span className="mx-3 text-success" id='message'>{this.state.message}</span>
+            <span className="mx-3 text-success" id="message">{this.state.message}</span>
           </div>
 
         </form>
