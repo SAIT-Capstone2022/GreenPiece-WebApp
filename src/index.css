@@ -34,5 +34,5 @@ nav li.active {
 }
 
 div #login-container, #signup-component {
-  max-width: 750px;
+  max-width: 600px;
 }

@@ -6,6 +6,7 @@ const bcrypt = require("bcrypt");
 router.post("/", async (req, res) => {
     try {
         const { error } = validate(req.body);
+
         if (error)
             return res.status(400).send({ message: error.details[0].message });
 
@@ -16,10 +17,12 @@ router.post("/", async (req, res) => {
         const validPassword = await bcrypt.compare(
             req.body.password, user.password
         );
+        console.log(validPassword);
         if (!validPassword)
             return res.status(401).send({ message: "Invalid Email or Incorrect Password." });
 
         const token = user.generateAuthToken();
+
         res.status(200).send({ data: token, message: "Logged in Successfully." })
 
     } catch (error) {
@@ -30,7 +33,7 @@ router.post("/", async (req, res) => {
 const validate = (data) => {
     const schema = Joi.object({
         email: Joi.string().email().required().label("Email"),
-        password: Joi.string().email().required().label("Password"),
+        password: Joi.string().required().label("Password"),
     })
     return schema.validate(data);
 }

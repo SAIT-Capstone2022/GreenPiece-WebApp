@@ -17,7 +17,7 @@ export default class CreateUser extends Component {
       username: '',
       phonenumber: '',
       message: '',
-      messageType: 'mx-3'
+      messageType: ''
     }
   }
 
@@ -67,7 +67,7 @@ export default class CreateUser extends Component {
           username: '',
           phonenumber: '',
           message: "Account successfully created.",
-          messageType: this.state.messageType + ' text-success'
+          messageType: 'mx-3 text-success'
         })
       })
       .catch(err => {
@@ -77,7 +77,7 @@ export default class CreateUser extends Component {
           username: this.state.username,
           phonenumber: this.state.phonenumber,
           message: "Email already in use, please try a different one.",
-          messageType: this.state.messageType + ' text-danger'
+          messageType: 'mx-3 text-danger'
         })
       })
   }

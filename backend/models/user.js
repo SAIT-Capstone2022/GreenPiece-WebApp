@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const joi = require('joi');
 const passwordComplexity = require('joi-password-complexity');
-const Joi = require('joi');
 
 const Schema = mongoose.Schema;
 
@@ -32,7 +31,6 @@ const userSchema = new Schema({
     phonenumber: {
         type: String,
         require: true,
-        unique: true,
         trim: true,
         minlength: 3
     },
@@ -50,11 +48,12 @@ const User = mongoose.model('User', userSchema);
 
 const validate = (data) => {
     const schema = joi.object({
-        email: Joi.string().required().label("Email"),
+        email: joi.string().required().label("Email"),
         password: passwordComplexity().required().label("Password"),
-        username: Joi.string().required().label("Username"),
-        phonenumber: Joi.string().required().label("Phone Number"),
-    })
-}
+        username: joi.string().required().label("Username"),
+        phonenumber: joi.string().required().label("Phone Number"),
+    });
+    return schema.validate(data);
+};
 
 module.exports = {User, validate};

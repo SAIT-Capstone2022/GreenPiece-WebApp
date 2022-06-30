@@ -41,8 +41,9 @@ export default class Login extends Component {
         console.log(user);
 
         try {
-            // await axios.post("http://localhost:5000/auth", user);
+            const response = await axios.post("http://localhost:5000/auth", user);
             window.location = "/Dashboard";
+            console.log(response);
             // navigate("/Dashboard");
         } catch (error) {
 
