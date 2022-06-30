@@ -89,11 +89,13 @@ export default class CreateUser extends Component {
         <form onSubmit={this.onSubmit}>
           <div className="form-group py-3">
             <h5>E-mail</h5>
-            <input type="text" required placeholder="Example@example.com" className="form-control" value={this.state.email} onChange={this.onChangeEmail} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$"/>
+            <input type="text" required placeholder="Example@example.com" className="form-control" value={this.state.email} onChange={this.onChangeEmail} pattern="[a-Z0-9._%+-]+@[a-Z0-9.-]+.[a-Z]{2,}$"/>
           </div>
 
           <div className="form-group py-3">
-            <input type="password" required placeholder="Password" className="form-control" value={this.state.password} onChange={this.onChangePassword} />
+          <h5>Password</h5>
+            <input type="password" required placeholder="Password" className="form-control" value={this.state.password} onChange={this.onChangePassword} minLength="8"/>
+
           </div>
 
           <div className="form-group py-3">
@@ -103,7 +105,7 @@ export default class CreateUser extends Component {
 
           <div className="form-group py-3">
           <h5>Phone Number</h5>
-            <input type="text" required placeholder="(xxx)-xxx-xxxx" className="form-control" value={this.state.phonenumber} onChange={this.onChangePhonenumber} pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"/>
+            <input type="text" required placeholder="(xxx)-xxx-xxxx" className="form-control" value={this.state.phonenumber} onChange={this.onChangePhonenumber} pattern="[0-9]{3}?-?[0-9]{3}?-?[0-9]{4}"/>
           </div>
 
           <div className="form-group py-3">
