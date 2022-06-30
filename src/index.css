@@ -32,3 +32,7 @@ nav li.active {
   background-attachment: fixed;
   background-size: cover;
 }
+
+div #login-container, #signup-component {
+  max-width: 600px;
+}
