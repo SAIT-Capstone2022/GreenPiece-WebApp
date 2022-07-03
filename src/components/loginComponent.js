@@ -79,7 +79,7 @@ export default class Login extends Component {
                         <a href="#!">Forgot password?</a>
                     </div>
 
-                    <input type="submit" value="Sign in" class="btn btn-primary btn-block mb-4" />
+                    <input type="submit" value="Sign in" class="btn btn-primary btn-block mb-2" />
                 </form>
             </div>
         )

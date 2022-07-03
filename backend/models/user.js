@@ -6,6 +6,8 @@ const passwordComplexity = require('joi-password-complexity');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
+    // Add randomly generated id, will be used to associate user with hardware data.
+
     email: {
         type: String,
         require: true,
