@@ -6,8 +6,8 @@ const Signup = () => {
 	const [data, setData] = useState({
 		email: "",
 		password: "",
-    username: "",
-    phonenumber: ""
+		username: "",
+		phonenumber: ""
 	});
 	const [error, setError] = useState("");
 	const [msg, setMsg] = useState("");
@@ -21,7 +21,14 @@ const Signup = () => {
 		try {
 			const url = "http://localhost:5000/users";
 			const { data: res } = await axios.post(url, data);
+			setError("");
 			setMsg(res.message);
+			setData({
+				email: "",
+				password: "",
+				username: "",
+				phonenumber: ""
+			});
 		} catch (error) {
 			if (
 				error.response &&
@@ -33,16 +40,16 @@ const Signup = () => {
 		}
 	};
 
-  return (
+	return (
 		<div class="container p-4 m-2 mx-auto mt-3 bg-light rounded shadow-lg" id="signup-component">
-				
-				<h3>Sign Up</h3>
-								
-				<div class="mb-4">
-                    <p>Have an account? <a href="/">Log In</a></p>
-                </div>
+
+			<h3>Sign Up</h3>
+
+			<div class="mb-3">
+				<p>Have an account? <a href="/">Log In</a></p>
+			</div>
 			<form onSubmit={handleSubmit}>
-				<div className="form-group py-3">
+				<div className="form-group py-2">
 					<h5>E-mail</h5>
 					<input
 						type="email"
@@ -55,7 +62,7 @@ const Signup = () => {
 					/>
 				</div>
 
-				<div className="form-group py-3">
+				<div className="form-group py-2">
 					<h5>Password</h5>
 					<input
 						type="password"
@@ -66,9 +73,9 @@ const Signup = () => {
 						required
 						className="form-control"
 					/>
-				</div>	
+				</div>
 
-				<div className="form-group py-3">
+				<div className="form-group py-2">
 					<h5>Username</h5>
 					<input
 						type="text"
@@ -81,7 +88,7 @@ const Signup = () => {
 					/>
 				</div>
 
-				<div className="form-group py-3">
+				<div className="form-group py-2">
 					<h5>Phone Number</h5>
 					<input
 						type="text"
@@ -94,11 +101,11 @@ const Signup = () => {
 					/>
 				</div>
 
-				<div className="form-group py-3">
-					{error && <div >{error}</div>}
-					{msg && <div >{msg}</div>}
+				<div className="form-group py-2">
+					{error && <div className="text-danger">{error}</div>}
+					{msg && <div className="text-success">{msg}</div>}
 
-					<input type="submit" value="Submit" className="btn btn-primary" />
+					<input type="submit" value="Submit" className="mt-3 btn btn-primary" />
 				</div>
 
 			</form>
