@@ -4,16 +4,16 @@ import SignupComponent from "./components/signupComponent";
 import Login from "./components/loginComponent";
 import Navbar from "./components/navbarComponent";
 import Dashboard from "./components/dashboardComponent";
+import Bar from "./components/loginBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
       <Routes>
-        <Route path="/Signup" element={<SignupComponent />} />
-        <Route path="/" element={<Login />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/Signup" element={[<Bar />, <SignupComponent />]} />
+        <Route path="/" element={[<Bar />, <Login />]} />
+        <Route path="/Dashboard" element={[<Navbar />, <Dashboard />]} />
       </Routes>
     </BrowserRouter>
   );
