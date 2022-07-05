@@ -6,7 +6,6 @@ import Login from "./components/loginComponent";
 import Navbar from "./components/navbarComponent";
 import Dashboard from "./components/dashboardComponent";
 import Bar from "./components/logoBar";
-import Chart from "./components/chart";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ForgotPassword from "./components/forgotPassword";
 import PasswordReset from "./components/passwordReset";
