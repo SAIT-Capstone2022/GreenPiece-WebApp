@@ -5,6 +5,7 @@ import EmailVerify from "./components/emailVerify.js";
 import Login from "./components/loginComponent";
 import Navbar from "./components/navbarComponent";
 import Dashboard from "./components/dashboardComponent";
+import Bar from "./components/loginBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ForgotPassword from "./components/forgotPassword";
 import PasswordReset from "./components/passwordReset";
@@ -13,7 +14,6 @@ function App() {
   const user = localStorage.getItem("token")
   return (
     <BrowserRouter>
-      <Navbar />
       <Routes>
         <Route path="/Signup" element={<SignupComponent />} />
         <Route path="/login" element={<Login />} />

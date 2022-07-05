@@ -1,25 +1,17 @@
-import React from "react";
+import React, { Component } from 'react';
 
-const Dashboard = () => {
-	const handleLogout = () => {
-		localStorage.removeItem("token");
-		window.location.reload();
-	};
-
-	return (
-
+export default class DashboardComponent extends Component {
+  render() {
+    return (
       <div className="container p-4 m-2 mx-auto mt-3 bg-light rounded shadow-lg">
         <h2>Name's Dashboard</h2>
-        <div class="my-3">
-          <div id="graph-container">
-            <button  onClick={handleLogout}>
-					  Logout
-				    </button>
-            {/* <input type="submit" value="Log Out" className="btn btn-primary" /> */}
+        <div className="my-3">
+          <div id="chart-container">
+         
           </div>
         </div>
       </div>
-	);
-};
+    );
+  }
+}
 
-export default Dashboard;
