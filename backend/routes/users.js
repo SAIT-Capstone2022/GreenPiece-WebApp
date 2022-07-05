@@ -1,47 +1,64 @@
 const router = require('express').Router();
 const { User, validate } = require('../models/user');
+const Token = require("../models/token");
 const bcrypt = require('bcrypt');
+const sendEmail = require('../utils/sendEmail')
+const crypto = require('crypto')
 
-router.route('/').get((req, res) => {
-  User.find()
-    .then(users => res.json(users))
-    .catch(err => res.status(400).json('Error: ' + err));
+
+router.post("/", async (req, res) => {
+	try {
+		const { error } = validate(req.body);
+		if (error)
+      //  console.log(error);
+			return res.status(400).send({ message: error.details[0].message });
+     
+
+		let user = await User.findOne({ email: req.body.email });
+		if (user)
+			return res
+				.status(409)
+				.send({ message: "User with given email already Exist!" });
+
+		const salt = await bcrypt.genSalt(Number(process.env.SALT));
+		const hashPassword = await bcrypt.hash(req.body.password, salt);
+
+		user = await new User({ ...req.body, password: hashPassword }).save();
+
+		const token = await new Token({
+			userId: user._id,
+			token: crypto.randomBytes(32).toString("hex"),
+		}).save();
+		const url = `${process.env.BASE_URL}users/${user.id}/verify/${token.token}`;
+		await sendEmail(user.email, "Verify Email", url);
+
+		res
+			.status(201)
+			.send({ message: "An Email sent to you please verify" });
+	} catch (error) {
+		console.log(error);
+		res.status(500).send({ message: "Internal Server Error" });
+	}
 });
 
-router.route('/add').post(async (req, res) => {
-  const salt = await bcrypt.genSalt(Number(process.env.SALT));
-  const hashPassword = await bcrypt.hash(req.body.password, salt);
+router.get("/:id/verify/:token/", async (req, res) => {
+	try {
+		const user = await User.findOne({ _id: req.params.id });
+		if (!user) return res.status(400).send({ message: "Invalid link" });
 
-  await new User({ ...req.body, password: hashPassword }).save()
-    .then(() => res.json('User added!'))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
+		const token = await Token.findOne({
+			userId: user._id,
+			token: req.params.token,
+		});
+		if (!token) return res.status(400).send({ message: "Invalid link" });
 
-router.route('/:id').get((req, res) => {
-  User.findById(req.params.id)
-    .then(user => res.json(user))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
+		await User.updateOne({ _id: user._id }, { verified: true });
+		await token.remove();
 
-router.route('/:id').delete((req, res) => {
-  User.findByIdAndDelete(req.params.id)
-    .then(() => res.json('Your username deleted.'))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
-
-router.route('/update/:id').post((req, res) => {
-  User.findById(req.params.id)
-    .then(user => {
-      user.username = req.body.username;
-      user.name = req.body.name;
-      user.password = req.body.password;
-      user.phonenumber = req.body.phonenumber;
-
-      user.save()
-        .then(() => res.json('User updated!'))
-        .catch(err => res.status(400).json('Error: ' + err));
-    })
-    .catch(err => res.status(400).json('Error: ' + err));
+		res.status(200).send({ message: "Email verified successfully" });
+	} catch (error) {
+		res.status(500).send({ message: "Internal Server Error" });
+	}
 });
 
 module.exports = router;
