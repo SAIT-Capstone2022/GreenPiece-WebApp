@@ -31,13 +31,13 @@ const Login = () => {
     return (
         <div class="container p-4 m-2 mx-auto mt-3 bg-light rounded shadow-lg" id="signup-component">
 				
-                <h3>Login</h3>
+                <h3>Green Piece Login</h3>
 
-				<div class="mb-4">
+				<div class="mb-3">
                      <p>Not registered yet? <a href="/Signup">Sign Up</a></p>
                  </div>
 			<form onSubmit={handleSubmit}>
-				<div className="form-group py-3">
+				<div className="form-group py-2">
 					<h5>E-mail</h5>
 					<input
 						type="email"
@@ -50,7 +50,7 @@ const Login = () => {
 					/>
 				</div>
 
-				<div className="form-group py-3">
+				<div className="form-group py-2">
 					<h5>Password</h5>
 					<input
 						type="password"
@@ -63,14 +63,14 @@ const Login = () => {
 					/>
 				</div>
 
-				<div class="mb-4">
+				<div class="mb-2">
                          <a href="/forgot-password">Forgot password?</a>
                 </div>
 
-                <div className="form-group py-3">
-					{error && <div >{error}</div>}
+                <div className="form-group py-2">
+					{error && <div className="text-danger">{error}</div>}
 					
-					<input type="submit" value="Submit" className="btn btn-primary" />
+					<input type="submit" value="Submit" className="mt-3 btn btn-primary" />
 				</div>
 
             </form>
