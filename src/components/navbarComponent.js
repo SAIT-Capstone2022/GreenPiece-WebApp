@@ -17,12 +17,12 @@ export default class Navbar extends Component {
                             <li className="nav-item">
                                 <Link to="/dashboard" className="nav-link" aria-current="page" href="dashboard.html">Dashboard</Link>
                             </li>
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <Link to="/controllers" className="nav-link" href="controllers.html">Controllers</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/settings" className="nav-link" href="settings.html">Settings</Link>
-                            </li>
+                            </li> */}
                         </ul>
                         <span className="navbar-text">
                             <Link to="/" className="nav-link" href="index.html">Logout</Link>

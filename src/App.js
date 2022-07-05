@@ -6,7 +6,6 @@ import Login from "./components/loginComponent";
 import Navbar from "./components/navbarComponent";
 import Dashboard from "./components/dashboardComponent";
 import Bar from "./components/logoBar";
-import Chart from "./components/chart";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ForgotPassword from "./components/forgotPassword";
 import PasswordReset from "./components/passwordReset";
@@ -21,7 +20,7 @@ function App() {
         <Route path="/users/:id/verify/:token" element={[<Bar />, <EmailVerify />]} />
         <Route path="/forgot-password" element={[<Bar />, <ForgotPassword />]} />
         <Route path="/password-reset/:id/:token" element={[<Bar />, <PasswordReset />]} />
-        {user &&<Route path="/Dashboard" element={[<Navbar />, <Dashboard />]} />}
+        {user && <Route path="/Dashboard" element={[<Navbar />, <Dashboard />]} />}
         <Route path="/" exact element={<Navigate replace to = "/login"/>} />
       </Routes>
     </BrowserRouter>
