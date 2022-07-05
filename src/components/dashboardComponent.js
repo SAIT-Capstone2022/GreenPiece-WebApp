@@ -7,7 +7,6 @@ export default class DashboardComponent extends Component {
         <h2>Name's Dashboard</h2>
         <div className="my-3">
           <div id="chart-container">
-         
           </div>
         </div>
       </div>

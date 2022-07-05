@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class loginBar extends Component {
+export default class logoBar extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark shadow-lg bg-gradient">
