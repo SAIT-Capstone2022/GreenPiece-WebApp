@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
+const passwordResetRoutes = require("./routes/passwordReset");
 require('dotenv').config();
 
 const app = express();
@@ -24,6 +25,8 @@ connection.once('open', () => {
 // Routes
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
+app.use('/password-reset', passwordResetRoutes);
+
 
 app.listen(port, () => {
   console.log('Server is running');
