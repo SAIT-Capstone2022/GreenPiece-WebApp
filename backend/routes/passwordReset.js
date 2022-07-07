@@ -38,7 +38,7 @@ router.post("/", async(req,res) => {
         await sendEmail(user.email, "Password Reset", url);
 
                
-        res.status(200).send({message:"Pssword reset link sent to you. Please check your eamil."})
+        res.status(200).send({message:"A password reset link has been sent to you. Please check your email."})
     } catch (error) {
         res.status(500).send({message: "Internal server error"})
     }
@@ -114,7 +114,7 @@ router.post("/:id/:token", async (req, res) => {
         await user.save();
         await token.remove()
 
-        res.status(200).send({message:"Password reset successfully"})
+        res.status(200).send({message:"Password reset successful."})
     } catch (error) {
         console.log(error);
         res.status(500).send({message:"Internal server error"})        
