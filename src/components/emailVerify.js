@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Fragment } from "react/cjs/react.production.min";
 import React from "react";
+import * as ReactBootstrap from 'react-bootstrap';
 
 const EmailVerify = () => {
 	const [validUrl, setValidUrl] = useState(true);
@@ -28,12 +29,14 @@ const EmailVerify = () => {
 			{validUrl ? (
 				<div class="container p-4 m-2 mx-auto mt-3 bg-light rounded shadow-lg">
 					<h1>Email verified successfully</h1>
-					<Link to="/">
-						<button className="btn btn-primary">Login</button>
-					</Link>
+					<ReactBootstrap.Alert variant="success" className="mt-2">
+						Your Email has been successfully verified, pleace proceed to the <ReactBootstrap.Alert.Link href="/">Login Page</ReactBootstrap.Alert.Link>.
+					</ReactBootstrap.Alert>
 				</div>
 			) : (
-				<h1>404 Not Found</h1>
+				<div class="container p-4 m-2 mx-auto mt-3 bg-light rounded shadow-lg">
+					<h1>404 Not Found.</h1>
+				</div>
 			)}
 		</Fragment>
 	);

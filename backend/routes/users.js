@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
 		if (user)
 			return res
 				.status(409)
-				.send({ message: "User with given email already Exist!" });
+				.send({ message: "User with the given email already Exists!" });
 
 		const salt = await bcrypt.genSalt(Number(process.env.SALT));
 		const hashPassword = await bcrypt.hash(req.body.password, salt);
@@ -34,7 +34,7 @@ router.post("/", async (req, res) => {
 
 		res
 			.status(201)
-			.send({ message: "An Email sent to you please verify" });
+			.send({ message: "An Verification link has been sent to your email account, please verify." });
 	} catch (error) {
 		console.log(error);
 		res.status(500).send({ message: "Internal Server Error" });

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import React from "react";
+import * as ReactBootstrap from 'react-bootstrap';
 
 const Signup = () => {
 	const [data, setData] = useState({
@@ -11,6 +12,8 @@ const Signup = () => {
 	});
 	const [error, setError] = useState("");
 	const [msg, setMsg] = useState("");
+	const [showMsg, setShowMsg] = useState(true);
+	const [isLoading, setLoading] = useState(false);
 
 	const handleChange = ({ currentTarget: input }) => {
 		setData({ ...data, [input.name]: input.value });
@@ -18,11 +21,17 @@ const Signup = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		setShowMsg(false);
+		setError("");
+		setMsg("");
+		setLoading(true);
 		try {
 			const url = "http://localhost:5000/users";
 			const { data: res } = await axios.post(url, data);
 			setError("");
 			setMsg(res.message);
+			setShowMsg(true);
+			setLoading(false);
 			setData({
 				email: "",
 				password: "",
@@ -35,7 +44,9 @@ const Signup = () => {
 				error.response.status >= 400 &&
 				error.response.status <= 500
 			) {
+				setLoading(false);
 				setError(error.response.data.message);
+				setShowMsg(true);
 			}
 		}
 	};
@@ -43,11 +54,9 @@ const Signup = () => {
 	return (
 		<div class="container p-4 m-2 mx-auto mt-3 bg-light rounded shadow-lg" id="signup-component">
 
-			<h3>Sign Up</h3>
+			<h3 className="mb-4">Sign Up</h3>
 
-			<div class="mb-3">
-				<p>Have an account? <a href="/">Log In</a></p>
-			</div>
+
 			<form onSubmit={handleSubmit}>
 				<div className="form-group py-2">
 					<h5>E-mail</h5>
@@ -100,14 +109,27 @@ const Signup = () => {
 						className="form-control"
 					/>
 				</div>
-
-				<div className="form-group py-2">
-					{error && <div className="text-danger">{error}</div>}
-					{msg && <div className="text-success">{msg}</div>}
-
-					<input type="submit" value="Submit" className="mt-3 btn btn-primary" />
+				<div class="mb-3">
+					<p>Already have an account? <a href="/">Log In</a></p>
 				</div>
 
+				{error &&
+					<ReactBootstrap.Alert show={showMsg} variant="danger" className="mt-2">
+						{error}
+					</ReactBootstrap.Alert>
+				}
+				{msg &&
+					<ReactBootstrap.Alert show={showMsg} variant="success" className="mt-2">
+						{msg}
+					</ReactBootstrap.Alert>
+				}
+
+				<div className="form-group py-2 mt-2">
+					<input type="submit" value="Submit" className="btn btn-primary" />
+					<span className="m-2 p-2">
+						{isLoading ? <ReactBootstrap.Spinner animation="border" size="sm" variant="secondary" /> : ""}
+					</span>
+				</div>
 			</form>
 		</div>
 	);
