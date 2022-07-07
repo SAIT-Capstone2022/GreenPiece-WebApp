@@ -9,6 +9,7 @@ import Bar from "./components/logoBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ForgotPassword from "./components/forgotPassword";
 import PasswordReset from "./components/passwordReset";
+import Footer from "./components/footer";
 
 function App() {
   const user = localStorage.getItem("token")
@@ -23,6 +24,7 @@ function App() {
         {user && <Route path="/Dashboard" element={[<Navbar />, <Dashboard />]} />}
         <Route path="/" exact element={<Navigate replace to = "/login"/>} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

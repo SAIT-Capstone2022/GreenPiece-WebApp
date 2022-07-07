@@ -71,7 +71,7 @@ const Signup = () => {
 					/>
 				</div>
 
-				<div className="form-group py-2">
+				<div className="form-group pt-2">
 					<h5>Password</h5>
 					<input
 						type="password"
@@ -82,6 +82,9 @@ const Signup = () => {
 						required
 						className="form-control"
 					/>
+					<div>
+					<p id='subText'>Use 8 or more characters. Must have at least one Uppercase, Lowercase, Number and a Symbol</p>
+					</div>
 				</div>
 
 				<div className="form-group py-2">
