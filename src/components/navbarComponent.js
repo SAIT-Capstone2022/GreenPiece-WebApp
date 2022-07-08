@@ -12,21 +12,21 @@ export default class Navbar extends Component {
                         aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className="collapse navbar-collapse" id="navbarText">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <div className="collapse navbar-collapse justify-content-end" id="navbarText">
+                        {/* <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
                                 <Link to="/dashboard" className="nav-link" aria-current="page" href="dashboard.html">Dashboard</Link>
                             </li>
-                            {/* <li className="nav-item">
+                            <li className="nav-item">
                                 <Link to="/controllers" className="nav-link" href="controllers.html">Controllers</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/settings" className="nav-link" href="settings.html">Settings</Link>
-                            </li> */}
-                        </ul>
-                        <span className="navbar-text">
+                            </li>
+                        </ul> */}
+                        <div className="navbar-text">
                             <Link to="/" className="nav-link" href="index.html">Logout</Link>
-                        </span>
+                        </div>
                     </div>
                 </div>
             </nav>

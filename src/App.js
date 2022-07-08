@@ -9,6 +9,7 @@ import Bar from "./components/logoBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ForgotPassword from "./components/forgotPassword";
 import PasswordReset from "./components/passwordReset";
+import Footer from "./components/footer";
 
 function App() {
   const user = localStorage.getItem("token")
@@ -20,9 +21,10 @@ function App() {
         <Route path="/users/:id/verify/:token" element={[<Bar />, <EmailVerify />]} />
         <Route path="/forgot-password" element={[<Bar />, <ForgotPassword />]} />
         <Route path="/password-reset/:id/:token" element={[<Bar />, <PasswordReset />]} />
-        {user &&<Route path="/Dashboard" element={[<Navbar />, <Dashboard />]} />}
+        {user && <Route path="/Dashboard" element={[<Navbar />, <Dashboard />]} />}
         <Route path="/" exact element={<Navigate replace to = "/login"/>} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
