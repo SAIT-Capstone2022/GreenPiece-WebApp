@@ -10,9 +10,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ForgotPassword from "./components/forgotPassword";
 import PasswordReset from "./components/passwordReset";
 import Footer from "./components/footer";
+import ProfileUpdate from "./components/userProfile"
 
 function App() {
   const user = localStorage.getItem("token")
+
   return (
     <BrowserRouter>
       <Routes>
@@ -20,6 +22,7 @@ function App() {
         <Route path="/login" element={[<Bar />, <Login />]} />
         <Route path="/users/:id/verify/:token" element={[<Bar />, <EmailVerify />]} />
         <Route path="/forgot-password" element={[<Bar />, <ForgotPassword />]} />
+        <Route path="/profile" element={[<Bar />, <ProfileUpdate />]} />
         <Route path="/password-reset/:id/:token" element={[<Bar />, <PasswordReset />]} />
         {user && <Route path="/Dashboard" element={[<Navbar />, <Dashboard />]} />}
         <Route path="/" exact element={<Navigate replace to = "/login"/>} />

@@ -44,12 +44,14 @@ router.post("/", async (req, res) => {
 router.get("/:id/verify/:token/", async (req, res) => {
 	try {
 		const user = await User.findOne({ _id: req.params.id });
+
 		if (!user) return res.status(400).send({ message: "Invalid link" });
 
 		const token = await Token.findOne({
 			userId: user._id,
 			token: req.params.token,
 		});
+		
 		if (!token) return res.status(400).send({ message: "Invalid link" });
 
 		await User.updateOne({ _id: user._id }, { verified: true });
@@ -60,5 +62,32 @@ router.get("/:id/verify/:token/", async (req, res) => {
 		res.status(500).send({ message: "Internal Server Error" });
 	}
 });
+
+//profile update method
+
+// to-do setup ensurance that user changing user data is logged in
+
+router.post("/profile-update", async (req, res) => {
+
+	console.log("pre post");
+
+	const post = req.body;
+
+	console.log(post);
+
+	const user = await User.findOne({ _id: post._id });
+
+	console.log("hit")
+
+	if (!user) {
+		res.status(400).send({ message: "User Error Problem" });
+	};
+
+	console.log("hit 2")
+
+	await User.updateOne({ _id: post._id }, { username: post.username, phonenumber: post.phonenumber } );
+
+	res.status(200).send({ message: "Profile successfully updated" });
+})
 
 module.exports = router;
