@@ -1,0 +1,134 @@
+import { useState } from "react";
+import React, { Component } from 'react';
+import axios from "axios";
+import { Spinner, Alert } from 'react-bootstrap';
+
+
+
+//to do verification that we have a user in the first place
+
+const ProfileUpdate = () => {
+  const [isLoading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [msg, setMsg] = useState("");
+  const [showMsg, setShowMsg] = useState(true);
+
+  const user = localStorage.getItem("user");
+  const userobject = JSON.parse(user);
+
+  const [data, setData] = useState({
+    _id: userobject._id,
+    username: userobject.username,
+    phonenumber: userobject.phonenumber
+  });
+
+  const handleChange = ({ currentTarget: input }) => {
+    setData({ ...data, [input.name]: input.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setShowMsg(false);
+    setError("");
+    setMsg("");
+    setLoading(true);
+    try {
+      const url = "http://localhost:5000/users/profile-update";
+      console.log(data);
+      const { data: res } = await axios.post(url, data);
+      setError("");
+      setMsg(res.message);
+      setShowMsg(true);
+      setLoading(false);
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        setLoading(false);
+        setError(error.response.data.message);
+        setShowMsg(true);
+      }
+    }
+  };
+
+  return (
+
+    <div className="container p-4 m-2 mb-5 mx-auto mt-3 bg-light rounded shadow-lg" style={{maxWidth: "600px"}}>
+      <form onSubmit={handleSubmit}>
+        <h1>Profile Information</h1>
+        <div className="form-group py-2">
+          <h5>E-mail</h5>
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            readOnly
+            value={userobject.email}
+            className="form-control"
+          />
+        </div>
+
+        <div className="form-group py-2">
+          <h5>Password</h5>
+          <input
+            type="password"
+            placeholder="password"
+            name="password"
+            readOnly
+            value={"temp"}
+            className="form-control"
+          />
+        </div>
+
+        <div className="form-group py-2">
+          <h5>Username</h5>
+          <input
+            type="username"
+            placeholder="username"
+            name="username"
+            onChange={handleChange}
+            defaultValue={userobject.username}
+            required
+            className="form-control"
+          />
+        </div>
+
+        <div className="form-group py-2">
+          <h5>PhoneNumber</h5>
+          <input
+            type="phonenumber"
+            placeholder="phonenumber"
+            name="phonenumber"
+            onChange={handleChange}
+            defaultValue={userobject.phonenumber}
+            required
+            className="form-control"
+          />
+        </div>
+
+        {error &&
+          <Alert show={showMsg} variant="danger" className="mt-2">
+            {error}
+          </Alert>
+        }
+        {msg &&
+          <Alert show={showMsg} variant="success" className="mt-2">
+            {msg}
+          </Alert>
+        }
+
+        <div className="form-group pt-2">
+          <input type="submit" value="Save" className="btn btn-primary" />
+          <span className="m-2 p-2">
+            {isLoading ? <Spinner animation="border" size="sm" variant="secondary" /> : ""}
+          </span>
+        </div>
+
+      </form>
+    </div>
+  );
+};
+
+export default ProfileUpdate;

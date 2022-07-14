@@ -6,6 +6,8 @@ const sendEmail = require("../utils/sendEmail");
 const bcrypt = require("bcrypt");
 const Joi = require("joi");
 
+//authentication function
+
 router.post("/", async (req, res) => {
 	try {
 		const { error } = validate(req.body);
@@ -13,6 +15,7 @@ router.post("/", async (req, res) => {
 			return res.status(400).send({ message: error.details[0].message });
 
 		const user = await User.findOne({ email: req.body.email });
+
 		if (!user)
 			return res.status(401).send({ message: "Invalid Email or Password" });
 
@@ -20,6 +23,7 @@ router.post("/", async (req, res) => {
 			req.body.password,
 			user.password
 		);
+		
 		if (!validPassword)
 			return res.status(401).send({ message: "Invalid Email or Password" });
 
@@ -36,11 +40,11 @@ router.post("/", async (req, res) => {
 
 			return res
 				.status(400)
-				.send({ message: "An Email has been sent to your account please verify" });
+				.send({ message: "An Verification link has been sent to your email account, please verify." });
 		}
 
 		const token = user.generateAuthToken();
-		res.status(200).send({ data: token, message: "logged in successfully" });
+		res.status(200).send({ data: token, message: "logged in successfully", user: user});
 	} catch (error) {
 		res.status(500).send({ message: "Internal Server Error" });
 	}

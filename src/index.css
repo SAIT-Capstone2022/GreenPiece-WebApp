@@ -14,7 +14,7 @@ code {
 }
 
 nav {
-  background-color: #3f573e;
+  background-color: #546e53;
   align-items: stretch;
 }
 
@@ -23,11 +23,11 @@ nav li {
 }
 
 nav li.active {
-  background-color:rgb(48, 66, 47)e;
+  background-color:rgb(48, 66, 47);
 }
 
 #root {
-  height: 100vh;
+  /* height: 100vh; */
   background-image: url("./images/leave_bg.png"), linear-gradient(white, #dcfbca);
   background-attachment: fixed;
   background-size: cover;
@@ -35,4 +35,19 @@ nav li.active {
 
 div #login-container, #signup-component {
   max-width: 600px;
+}
+
+#subText {
+  font-size: 12px;
+  color: rgb(104, 104, 104);
+}
+
+.footer{
+  margin-top: 1rem;
+  padding: 1rem;
+  background: linear-gradient(rgb(235, 253, 234), white);
+  /* position: fixed; */
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
