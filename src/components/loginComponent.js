@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import React from "react";
-import * as ReactBootstrap from 'react-bootstrap';
+import { Row, Spinner, Alert } from 'react-bootstrap';
 
 const Login = () => {
 	const [data, setData] = useState({ email: "", password: "" });
@@ -68,26 +68,26 @@ const Login = () => {
 					/>
 				</div>
 
-				<ReactBootstrap.Row className="mt-2">
+				<Row className="mt-2">
 					<div class="col-6">
 						<p>Not registered yet? <a href="/Signup">Sign Up</a></p>
 					</div>
 					<div class="col-6 text-end">
 						<a href="/forgot-password">Forgot password?</a>
 					</div>
-				</ReactBootstrap.Row>
+				</Row>
 
 				<div className="form-group py-2">
 					{error &&
-						<ReactBootstrap.Alert show={showErr} variant="danger">
+						<Alert show={showErr} variant="danger">
 							{error}
-						</ReactBootstrap.Alert>
+						</Alert>
 					}
 
 					<div className="form-group">
 						<input type="submit" value="Submit" className="btn btn-primary" />
 						<span className="m-2 p-2">
-							{isLoading ? <ReactBootstrap.Spinner animation="border" size="sm" variant="secondary" /> : ""}
+							{isLoading ? <Spinner animation="border" size="sm" variant="secondary" /> : ""}
 						</span>
 					</div>
 				</div>
