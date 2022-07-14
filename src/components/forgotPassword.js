@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import React from "react";
-import * as ReactBootstrap from 'react-bootstrap';
+import { Spinner, Alert } from 'react-bootstrap';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState("");
@@ -60,20 +60,20 @@ const ForgotPassword = () => {
 
                 <div className="form-group">
                     {error &&
-                        <ReactBootstrap.Alert show={showMsg} variant="danger" className="mt-2">
+                        <Alert show={showMsg} variant="danger" className="mt-2">
                             {error}
-                        </ReactBootstrap.Alert>
+                        </Alert>
                     }
                     {msg &&
-                        <ReactBootstrap.Alert show={showMsg} variant="success" className="mt-2">
+                        <Alert show={showMsg} variant="success" className="mt-2">
                             {msg}
-                        </ReactBootstrap.Alert>
+                        </Alert>
                     }
 
                     <div className="form-group py-2 mt-2">
                         <input type="submit" value="Submit" className="btn btn-primary" />
                         <span className="m-2 p-2">
-                            {isLoading ? <ReactBootstrap.Spinner animation="border" size="sm" variant="secondary" /> : ""}
+                            {isLoading ? <Spinner animation="border" size="sm" variant="secondary" /> : ""}
                         </span>
                     </div>
                 </div>
