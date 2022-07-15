@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Fragment } from "react/cjs/react.production.min";
 import React from "react";
-import * as ReactBootstrap from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 
 const EmailVerify = () => {
 	const [validUrl, setValidUrl] = useState(true);
@@ -29,9 +29,9 @@ const EmailVerify = () => {
 			{validUrl ? (
 				<div class="container p-4 m-2 mx-auto mt-3 bg-light rounded shadow-lg">
 					<h1>Email verified successfully</h1>
-					<ReactBootstrap.Alert variant="success" className="mt-2">
-						Your Email has been successfully verified, pleace proceed to the <ReactBootstrap.Alert.Link href="/">Login Page</ReactBootstrap.Alert.Link>.
-					</ReactBootstrap.Alert>
+					<Alert variant="success" className="mt-2">
+						Your Email has been successfully verified, pleace proceed to the <Alert.Link href="/">Login Page</Alert.Link>.
+					</Alert>
 				</div>
 			) : (
 				<div class="container p-4 m-2 mx-auto mt-3 bg-light rounded shadow-lg">

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import React from "react";
-import * as ReactBootstrap from 'react-bootstrap';
+import { Spinner, Alert } from 'react-bootstrap';
 
 const Signup = () => {
 	const [data, setData] = useState({
@@ -83,15 +83,15 @@ const Signup = () => {
 						className="form-control"
 					/>
 					<div>
-					<p id='subText'>Use 8 or more characters. Must have at least one Uppercase, Lowercase, Number and a Symbol</p>
+					<p id='subText'>Use 8 or more characters. Must have at least one Uppercase, Lowercase, a Number and a Symbol</p>
 					</div>
 				</div>
 
-				<div className="form-group py-2">
+				<div className="form-group pb-2">
 					<h5>Username</h5>
 					<input
 						type="text"
-						placeholder="User Name"
+						placeholder="Username"
 						name="username"
 						onChange={handleChange}
 						value={data.username}
@@ -104,7 +104,7 @@ const Signup = () => {
 					<h5>Phone Number</h5>
 					<input
 						type="text"
-						placeholder="Phone Number"
+						placeholder="(xxx)-xxx-xxxx"
 						name="phonenumber"
 						onChange={handleChange}
 						value={data.phonenumber}
@@ -117,20 +117,20 @@ const Signup = () => {
 				</div>
 
 				{error &&
-					<ReactBootstrap.Alert show={showMsg} variant="danger" className="mt-2">
+					<Alert show={showMsg} variant="danger" className="mt-2">
 						{error}
-					</ReactBootstrap.Alert>
+					</Alert>
 				}
 				{msg &&
-					<ReactBootstrap.Alert show={showMsg} variant="success" className="mt-2">
+					<Alert show={showMsg} variant="success" className="mt-2">
 						{msg}
-					</ReactBootstrap.Alert>
+					</Alert>
 				}
 
 				<div className="form-group py-2 mt-2">
 					<input type="submit" value="Submit" className="btn btn-primary" />
 					<span className="m-2 p-2">
-						{isLoading ? <ReactBootstrap.Spinner animation="border" size="sm" variant="secondary" /> : ""}
+						{isLoading ? <Spinner animation="border" size="sm" variant="secondary" /> : ""}
 					</span>
 				</div>
 			</form>
