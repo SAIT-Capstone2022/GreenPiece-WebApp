@@ -1,4 +1,5 @@
 import React from 'react';
+import MyImage from './logo.jpg';
 import {
   MDBFooter,
   MDBContainer,
@@ -13,15 +14,20 @@ const Footer = () => {
         <MDBFooter bgColor='green' className='text-center text-lg-left'>
       <div className='container p-4'>
         <MDBRow>
-          <div className='col-lg-6 col-md-12 mb-4 mb-md-0'>
-            <h5 className='text-uppercase'>Green Piece</h5>
+          <div className='col-lg-6 col-md-6 mb-4 mb-md-0'>
 
-            <p>
+            <h5>
               Welcome to Green Piece
+            </h5>
+            <p>
+              (403)xxx-xxxx
+            </p>
+            <p>
+              GreenPiece@GreenPiece.com
             </p>
           </div>
 
-          <div className='col-lg-3 col-md-6 mb-4 mb-md-0'>
+          <div className='col-lg-2 col-md-6 mb-4 mb-md-0'>
             <h5 className='text-uppercase'>Check Weather</h5>
 
             <ul className='list-unstyled mb-0'>
@@ -44,6 +50,20 @@ const Footer = () => {
               </li>
   
             </ul>
+
+          </div>
+
+          <figure>
+              <img src={MyImage} width="15%" alt='Green Piece Logo'></img>
+            </figure>
+
+          <hr />
+
+          <div className='row'>
+            <p className='col-sm'>
+              &copy;{new Date().getFullYear()} GREENPIECE | All rights reserved | Terms Of Service | Privacy
+            </p>
+
           </div>
         </MDBRow>
       </div>
