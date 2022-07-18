@@ -35,10 +35,10 @@ const Login = () => {
 			}
 		}
 	};
-
+	
 	return (
+		
 		<div class="container p-4 m-2 mx-auto mt-3 bg-light rounded shadow-lg" id="signup-component">
-
 			<h3 className="mb-4">Green Piece Login</h3>
 
 			<form onSubmit={handleSubmit}>
@@ -54,7 +54,6 @@ const Login = () => {
 						className="form-control"
 					/>
 				</div>
-
 				<div className="form-group py-2">
 					<h5>Password</h5>
 					<input
@@ -67,7 +66,7 @@ const Login = () => {
 						className="form-control"
 					/>
 				</div>
-
+		
 				<Row className="mt-2">
 					<div class="col-6">
 						<p>Not registered yet? <a href="/Signup">Sign Up</a></p>
@@ -94,7 +93,9 @@ const Login = () => {
 
 			</form>
 		</div>
-
+	
 	);
 };
 export default Login;
+
+
