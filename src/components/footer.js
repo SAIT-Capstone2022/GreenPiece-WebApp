@@ -1,5 +1,5 @@
 import React from 'react';
-import MyImage from './logo.jpg';
+import MyImage from './GPlogo.jpg';
 import {
   MDBFooter,
   MDBContainer,
