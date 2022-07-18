@@ -22,10 +22,10 @@ function App() {
         <Route path="/login" element={[<Bar />, <Login />]} />
         <Route path="/users/:id/verify/:token" element={[<Bar />, <EmailVerify />]} />
         <Route path="/forgot-password" element={[<Bar />, <ForgotPassword />]} />
-        <Route path="/profile" element={[<Bar />, <ProfileUpdate />]} />
+        <Route path="/profile" element={[<Navbar />, <ProfileUpdate />]} />
         <Route path="/password-reset/:id/:token" element={[<Bar />, <PasswordReset />]} />
         {user && <Route path="/Dashboard" element={[<Navbar />, <Dashboard />]} />}
-        <Route path="/" exact element={<Navigate replace to = "/login"/>} />
+        <Route path="/" exact element={<Navigate replace to="/login" />} />
       </Routes>
       <Footer />
     </BrowserRouter>

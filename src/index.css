@@ -8,13 +8,22 @@ body {
 
 }
 
+.center {
+  text-align: center;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 12.5%;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
 nav {
-  background-color: #3f573e;
+  background-color: #546e53;
   align-items: stretch;
 }
 
@@ -27,7 +36,7 @@ nav li.active {
 }
 
 #root {
-  height: 100vh;
+  /* height: 100vh; */
   background-image: url("./images/leave_bg.png"), linear-gradient(white, #dcfbca);
   background-attachment: fixed;
   background-size: cover;
@@ -38,15 +47,15 @@ div #login-container, #signup-component {
 }
 
 #subText {
-  font-size: 13px;
+  font-size: 12px;
   color: rgb(104, 104, 104);
 }
 
 .footer{
   margin-top: 1rem;
   padding: 1rem;
-  background-color: rgb(238, 255, 236);
-  position: fixed;
+  background: linear-gradient(rgb(235, 253, 234), white);
+  /* position: fixed; */
   bottom: 0;
   left: 0;
   width: 100%;
