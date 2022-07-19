@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import GPbarlogo from '../images/logo.jpg';
 
 export default class Navbar extends Component {
     render() {
+
+        const sessionKill = () => {
+        localStorage.clear();
+        }
+
         return (
             <nav className="navbar navbar-expand-lg navbar-dark shadow-lg bg-gradient p-0">
                 <div className="container-fluid align-text-middle">
-                    <text className="navbar-brand">Green Piece</text>
+                    <img src={GPbarlogo} width="125px" alt="Logo" />
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                         aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -24,7 +30,7 @@ export default class Navbar extends Component {
                             </li> */}
                         </ul>
                         <div className="navbar-text">
-                            <Link to="/" className="nav-link" href="index.html">Logout</Link>
+                            <Link to="/" className="nav-link" href="index.html" onClick={sessionKill} >Logout</Link>
                         </div>
                     </div>
                 </div>

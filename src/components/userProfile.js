@@ -1,8 +1,7 @@
 import { useState } from "react";
-import React, { Component } from 'react';
+import React from 'react';
 import axios from "axios";
 import { Spinner, Alert } from 'react-bootstrap';
-
 
 
 //to do verification that we have a user in the first place
@@ -34,8 +33,9 @@ const ProfileUpdate = () => {
     setLoading(true);
     try {
       const url = "http://localhost:5000/users/profile-update";
-      console.log(data);
       const { data: res } = await axios.post(url, data);
+      localStorage.removeItem("user");
+      localStorage.setItem("user", JSON.stringify(res.user));
       setError("");
       setMsg(res.message);
       setShowMsg(true);

@@ -75,11 +75,11 @@ router.post("/profile-update", async (req, res) => {
 
 	console.log(post);
 
-	const user = await User.findOne({ _id: post._id });
+	const updateUser = await User.findOne({ _id: post._id });
 
 	console.log("hit")
 
-	if (!user) {
+	if (!updateUser) {
 		res.status(400).send({ message: "User Error Problem" });
 	};
 
@@ -87,7 +87,10 @@ router.post("/profile-update", async (req, res) => {
 
 	await User.updateOne({ _id: post._id }, { username: post.username, phonenumber: post.phonenumber } );
 
-	res.status(200).send({ message: "Profile successfully updated" });
+	const user = await User.findOne({ _id: post._id });
+
+    res.status(200).send({ message: "Profile successfully updated", user: user });
+
 })
 
 module.exports = router;

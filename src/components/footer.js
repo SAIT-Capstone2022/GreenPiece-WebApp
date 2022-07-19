@@ -1,73 +1,66 @@
 import React from 'react';
-import MyImage from './GPlogo.jpg';
-import {
-  MDBFooter,
-  MDBContainer,
-  MDBCol,
-  MDBRow,
-  MDBIcon
-} from 'mdb-react-ui-kit';
+import MyImage from '../images/logo.jpg';
+import { MDBFooter, MDBCol, MDBRow } from 'mdb-react-ui-kit';
 
 const Footer = () => {
   return (
-    <div className='footer'>
-        <MDBFooter bgColor='green' className='text-center text-lg-left'>
-      <div className='container p-4'>
-        <MDBRow>
-          <div className='col-lg-6 col-md-6 mb-4 mb-md-0'>
+    <div className='footer m-0 p-0'>
+      <MDBFooter bgColor='green' className='text-center text-lg-left'>
+        <div className='container-fluid pt-4 mx-auto'>
 
-            <h5>
-              Welcome to Green Piece
-            </h5>
-            <p>
-              (403)xxx-xxxx
-            </p>
-            <p>
-              GreenPiece@GreenPiece.com
-            </p>
-          </div>
+          <MDBRow className='justify-content-center'>
 
-          <div className='col-lg-2 col-md-6 mb-4 mb-md-0'>
-            <h5 className='text-uppercase'>Check Weather</h5>
+            <MDBCol className='col-lg-2'>
+              <figure>
+                <img src={MyImage} width="200px" alt='Green Piece Logo'></img>
+              </figure>
+            </MDBCol>
 
-            <ul className='list-unstyled mb-0'>
-              <li>
-                <a href='https://www.theweathernetwork.com/ca' target="_blank" className='text-black'>
-                  The Weather Network
-                </a>
-              </li>
-            </ul>
-          </div>
+            <div className='col-lg-2'>
+              <h5>
+                Green Piece
+              </h5>
+              <p>
+                (403) xxx-xxxx
+                <br></br>
+                GreenPiece@GreenPiece.com
+              </p>
+            </div>
 
-          <div className='col-lg-3 col-md-6 mb-4 mb-md-0'>
-            <h5 className='text-uppercase mb-0'>affiliated company</h5>
+            <div className='col-lg-2'>
+              <h5>Check Weather</h5>
+              <ul className='list-unstyled'>
+                <li>
+                  <a href='https://www.theweathernetwork.com/ca' target="_blank" className='text-black'>
+                    The Weather Network
+                  </a>
+                </li>
+              </ul>
+            </div>
 
-            <ul className='list-unstyled'>
-              <li>
-                <a href='http://www.nu-worx.com/' target="_blank" className='text-black'>
-                  Nu-Worx Technology 
-                </a>
-              </li>
-  
-            </ul>
+            <div className='col-lg-2'>
+              <h5>Affiliated company</h5>
+              <ul className='list-unstyled'>
+                <li>
+                  <a href='http://www.nu-worx.com/' target="_blank" className='text-black'>
+                    Nu-Worx Technology
+                  </a>
+                </li>
+              </ul>
+            </div>
 
-          </div>
+            <hr className='col-lg-10' />
 
-          <figure>
-              <img src={MyImage} width="15%" alt='Green Piece Logo'></img>
-            </figure>
+            <div className='row'>
+              <p>
+                &copy;{new Date().getFullYear()} GREENPIECE | All rights reserved | Terms Of Service | Privacy
+              </p>
 
-          <hr />
+            </div>
 
-          <div className='row'>
-            <p className='col-sm'>
-              &copy;{new Date().getFullYear()} GREENPIECE | All rights reserved | Terms Of Service | Privacy
-            </p>
-
-          </div>
-        </MDBRow>
-      </div>
-    </MDBFooter>
+          </MDBRow>
+        </div>
+      </MDBFooter>
     </div>
   );
 };
