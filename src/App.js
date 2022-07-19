@@ -14,7 +14,8 @@ import Footer from "./components/footer";
 import ProfileUpdate from "./components/userProfile"
 
 function App() {
-  const user = localStorage.getItem("token")
+
+  const autheduser = localStorage.getItem("user");
 
   return (
     <BrowserRouter>
@@ -23,10 +24,10 @@ function App() {
         <Route path="/login" element={[<Bar />, <Login />]} />
         <Route path="/users/:id/verify/:token" element={[<Bar />, <EmailVerify />]} />
         <Route path="/forgot-password" element={[<Bar />, <ForgotPassword />]} />
-        <Route path="/profile" element={[<Navbar />, <ProfileUpdate />]} />
         <Route path="/water" element={[<Navbar />, <Water />]} />
+        {autheduser && <Route path="/profile" element={[<Navbar />, <ProfileUpdate />]} /> }
         <Route path="/password-reset/:id/:token" element={[<Bar />, <PasswordReset />]} />
-        {user && <Route path="/Dashboard" element={[<Navbar />, <Dashboard />]} />}
+        {autheduser && <Route path="/Dashboard" element={[<Navbar />, <Dashboard />]} />}
         <Route path="/" exact element={<Navigate replace to="/login" />} />
       </Routes>
       <Footer />

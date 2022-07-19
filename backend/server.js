@@ -5,6 +5,7 @@ const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const waterRouter = require('./routes/water');
 const passwordResetRoutes = require("./routes/passwordReset");
+const retrieveDataRouter = require("./routes/retrieveData")
 require('dotenv').config();
 
 const app = express();
@@ -28,7 +29,7 @@ app.use('/water', waterRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/password-reset', passwordResetRoutes);
-
+app.use('/data', retrieveDataRouter);
 
 app.listen(port, () => {
   console.log('Server is running');
