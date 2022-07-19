@@ -52,7 +52,7 @@ const Signup = () => {
 	};
 
 	return (
-		<div class="container p-4 m-2 mx-auto mt-3 bg-light rounded shadow-lg" id="signup-component">
+		<div class="container p-4 m-2 mx-auto my-3 bg-light rounded shadow-lg" id="signup-component">
 
 			<h3 className="mb-4">Sign Up</h3>
 
