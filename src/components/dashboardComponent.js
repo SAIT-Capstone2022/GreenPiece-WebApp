@@ -29,12 +29,13 @@ console.log(userObject.email);
     return (
       <div /*onLoad={getChartData}*/ className="container p-4 m-3 mx-auto bg-light rounded shadow-lg">
         <h2> {username} 's Dashboard</h2>
+
         <div className="my-3">
           <Row className='my-3 p-3'>
-            <div id="chart-container" className="mx-auto col-8">
+            <div id="chart-container" className="mx-auto col-lg-8">
               {chart}
             </div>
-            <div className='col-4 rounded shadow-lg'>
+            <div className='col-lg-4 rounded shadow-lg'>
               <Card.Body className='p-3'>
                 <Card.Title>Weather Header</Card.Title>
                 <hr />

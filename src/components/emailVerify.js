@@ -27,7 +27,7 @@ const EmailVerify = () => {
 	return (
 		<Fragment>
 			{validUrl ? (
-				<div class="container p-4 m-2 mx-auto mt-3 bg-light rounded shadow-lg">
+				<div class="container p-4 m-2 mx-auto my-3 bg-light rounded shadow-lg">
 					<h1>Email verified successfully</h1>
 					<Alert variant="success" className="mt-2">
 						Your Email has been successfully verified, pleace proceed to the <Alert.Link href="/">Login Page</Alert.Link>.
