@@ -25,6 +25,9 @@ export default class Navbar extends Component {
                             <li className="nav-item py-2">
                                 <Link to="/profile" className="nav-link" href="profile.html">Profile</Link>
                             </li>
+                            <li className="nav-item py-2">
+                                <Link to="/water" className="nav-link" href="water.html">Water</Link>
+                            </li>
                             {/* <li className="nav-item">
                                 <Link to="/settings" className="nav-link" href="settings.html">Settings</Link>
                             </li> */}
