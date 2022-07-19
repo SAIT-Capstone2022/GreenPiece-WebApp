@@ -8,6 +8,7 @@ import Dashboard from "./components/dashboardComponent";
 import Bar from "./components/logoBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ForgotPassword from "./components/forgotPassword";
+import Water from "./components/waterComponent";
 import PasswordReset from "./components/passwordReset";
 import Footer from "./components/footer";
 import ProfileUpdate from "./components/userProfile"
@@ -23,6 +24,7 @@ function App() {
         <Route path="/login" element={[<Bar />, <Login />]} />
         <Route path="/users/:id/verify/:token" element={[<Bar />, <EmailVerify />]} />
         <Route path="/forgot-password" element={[<Bar />, <ForgotPassword />]} />
+        <Route path="/water" element={[<Navbar />, <Water />]} />
         {autheduser && <Route path="/profile" element={[<Navbar />, <ProfileUpdate />]} /> }
         <Route path="/password-reset/:id/:token" element={[<Bar />, <PasswordReset />]} />
         {autheduser && <Route path="/Dashboard" element={[<Navbar />, <Dashboard />]} />}
