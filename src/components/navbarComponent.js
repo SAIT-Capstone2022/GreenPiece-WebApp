@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 
 export default class Navbar extends Component {
     render() {
+
+        const sessionKill = () => {
+        localStorage.clear();
+        }
+
         return (
             <nav className="navbar navbar-expand-lg navbar-dark shadow-lg bg-gradient p-0">
                 <div className="container-fluid align-text-middle">
@@ -24,7 +29,7 @@ export default class Navbar extends Component {
                             </li> */}
                         </ul>
                         <div className="navbar-text">
-                            <Link to="/" className="nav-link" href="index.html">Logout</Link>
+                            <Link to="/" className="nav-link" href="index.html" onClick={sessionKill} >Logout</Link>
                         </div>
                     </div>
                 </div>

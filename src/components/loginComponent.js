@@ -20,7 +20,7 @@ const Login = () => {
 		try {
 			const url = "http://localhost:5000/auth";
 			const { data: res } = await axios.post(url, data);
-			localStorage.setItem("token", res.data);
+			localStorage.clear();
 			localStorage.setItem("user", JSON.stringify(res.user));
 			window.location = "/Dashboard";
 		} catch (error) {

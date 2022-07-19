@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const passwordResetRoutes = require("./routes/passwordReset");
+const retrieveDataRouter = require("./routes/retrieveData")
 require('dotenv').config();
 
 const app = express();
@@ -26,7 +27,7 @@ connection.once('open', () => {
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/password-reset', passwordResetRoutes);
-
+app.use('/data', retrieveDataRouter);
 
 app.listen(port, () => {
   console.log('Server is running');
