@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Navigate } from 'react-router-dom';
 import React from 'react';
 import axios from "axios";
 import { Spinner, Alert } from 'react-bootstrap';
@@ -14,6 +15,12 @@ const ProfileUpdate = () => {
 
   const user = localStorage.getItem("user");
   const userobject = JSON.parse(user);
+
+  if (userobject == null) {
+    return (
+      <Navigate to="/login" replace={true} />
+    );
+  }
 
   const [data, setData] = useState({
     _id: userobject._id,
@@ -55,7 +62,7 @@ const ProfileUpdate = () => {
 
   return (
 
-    <div className="container p-4 m-2 mb-5 mx-auto mt-3 bg-light rounded shadow-lg" style={{maxWidth: "600px"}}>
+    <div className="container p-4 m-2 mb-5 mx-auto mt-3 bg-light rounded shadow-lg" style={{ maxWidth: "600px" }}>
       <form onSubmit={handleSubmit}>
         <h1>Profile Information</h1>
         <div className="form-group py-2">
