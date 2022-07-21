@@ -28,7 +28,7 @@ console.log(userObject.email);
 
     return (
       <div /*onLoad={getChartData}*/ className="container p-4 m-3 mx-auto bg-light rounded shadow-lg">
-        <h2> {username} 's Dashboard</h2>
+        <h2> {username}'s Dashboard</h2>
 
         <div className="my-3">
           <Row className='my-3 p-3'>
