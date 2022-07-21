@@ -128,7 +128,7 @@ const Signup = () => {
 				}
 
 				<div className="form-group py-2 mt-2">
-					<input type="submit" value="Submit" className="btn btn-primary" />
+					<input type="submit" value="Submit" className="btn btn-success" />
 					<span className="m-2 p-2">
 						{isLoading ? <Spinner animation="border" size="sm" variant="secondary" /> : ""}
 					</span>

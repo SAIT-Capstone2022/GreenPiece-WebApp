@@ -36,10 +36,12 @@ const userSchema = new Schema({
         trim: true,
         minlength: 3
     },
-    
-    verified: { 
-        type: Boolean, 
-        default: false 
+
+    waterHistoryLog: [Object],
+
+    verified: {
+        type: Boolean,
+        default: false
     },
 
 }, {
@@ -63,4 +65,4 @@ const validate = (data) => {
     return schema.validate(data);
 };
 
-module.exports = {User, validate};
+module.exports = { User, validate };
