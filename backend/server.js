@@ -3,7 +3,6 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
-const waterRouter = require('./routes/water');
 const passwordResetRoutes = require("./routes/passwordReset");
 const retrieveDataRouter = require("./routes/retrieveData")
 require('dotenv').config();
@@ -25,7 +24,6 @@ connection.once('open', () => {
 })
 
 // Routes
-app.use('/water', waterRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/password-reset', passwordResetRoutes);

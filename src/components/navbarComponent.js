@@ -6,7 +6,7 @@ export default class Navbar extends Component {
     render() {
 
         const sessionKill = () => {
-        localStorage.clear();
+            localStorage.clear();
         }
 
         return (

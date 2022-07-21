@@ -10,9 +10,9 @@ router.post("/", async (req, res) => {
 	try {
 		const { error } = validate(req.body);
 		if (error)
-      //  console.log(error);
+			//  console.log(error);
 			return res.status(400).send({ message: error.details[0].message });
-     
+
 
 		let user = await User.findOne({ email: req.body.email });
 		if (user)
@@ -51,7 +51,7 @@ router.get("/:id/verify/:token/", async (req, res) => {
 			userId: user._id,
 			token: req.params.token,
 		});
-		
+
 		if (!token) return res.status(400).send({ message: "Invalid link" });
 
 		await User.updateOne({ _id: user._id }, { verified: true });
@@ -85,12 +85,22 @@ router.post("/profile-update", async (req, res) => {
 
 	console.log("hit 2")
 
-	await User.updateOne({ _id: post._id }, { username: post.username, phonenumber: post.phonenumber } );
+	await User.updateOne({ _id: post._id }, { username: post.username, phonenumber: post.phonenumber });
 
 	const user = await User.findOne({ _id: post._id });
 
-    res.status(200).send({ message: "Profile successfully updated", user: user });
+	res.status(200).send({ message: "Profile successfully updated", user: user });
 
-})
+});
+
+router.post("/water-update", async (req, res) => {
+	const post = req.body;
+
+	const date = new Date();
+	const wateredAt = { "day": date.getDate(), "month": (date.getMonth() + 1), "year": date.getFullYear() };
+	await User.findOneAndUpdate({ _id: post._id }, { $addToSet: { waterHistoryLog: wateredAt } });
+
+	res.status(201).send({ message: "Successfully updated watering log." });
+});
 
 module.exports = router;
