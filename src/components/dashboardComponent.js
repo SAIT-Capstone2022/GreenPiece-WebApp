@@ -37,6 +37,12 @@ const DashboardComponent = () => {
       <h2> {username}'s Dashboard</h2>
 
       <div className="my-3">
+        <Alert variant='danger'>
+          <h5>Test Alert</h5>
+          <hr />
+          <p>Alert: Temp may be too high.</p>
+        </Alert>
+        
         <Row className='my-3 p-3'>
           <div id="chart-container" className="mx-auto col-lg-8">
             {chart}
@@ -49,12 +55,6 @@ const DashboardComponent = () => {
             </Card.Body>
           </div>
         </Row>
-
-        <Alert variant='danger'>
-          <h5>Test Alert</h5>
-          <hr />
-          <p>Alert: Temp may be too high.</p>
-        </Alert>
       </div>
     </div>
   );
