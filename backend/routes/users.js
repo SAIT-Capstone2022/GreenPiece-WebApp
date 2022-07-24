@@ -93,6 +93,8 @@ router.post("/profile-update", async (req, res) => {
 
 });
 
+//Water update method
+
 router.post("/water-update", async (req, res) => {
 	const post = req.body;
 
@@ -101,6 +103,23 @@ router.post("/water-update", async (req, res) => {
 	await User.findOneAndUpdate({ _id: post._id }, { $addToSet: { waterHistoryLog: wateredAt } });
 
 	res.status(201).send({ message: "Successfully updated watering log." });
+});
+
+//Greenhouse variable alert update method
+
+router.post("/GreenhouseAlertValues", async (req, res) => {
+
+	const user = await User.findOneAndUpdate({ _id: req.body._id }, {
+		 prefMaxTemp: req.body.prefMaxTemp, prefMinTemp: req.body.prefMinTemp, 
+			prefMaxHumidity: req.body.prefMaxHumidity, prefMinHumidity: req.body.prefMinHumidity,
+			prefMaxMoisture: req.body.prefMaxMoisture, prefMinMoisture: req.body.prefMinMoisture}, {
+				returnDocument: "after"
+			}
+		);
+
+	
+
+	res.status(201).send({ message: "Successfully updated watering log.", user: user  });
 });
 
 module.exports = router;

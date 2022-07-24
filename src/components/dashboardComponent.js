@@ -4,6 +4,7 @@ import { Card, Row, Alert } from 'react-bootstrap';
 import axios from "axios";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
+import { LiveDataFeed } from './live-feed/LiveDataFeed';
 
 const chart = <iframe title="Dashboard Graph" width="800" height="500" src="https://charts.mongodb.com/charts-greenhouse-project-zfldl/embed/dashboards?id=62bb709e-5246-46c9-801d-18966de071e1&theme=light&autoRefresh=true&maxDataAge=60&showTitleAndDesc=false&scalingWidth=fixed&scalingHeight=fixed"></iframe>;
 
@@ -106,6 +107,16 @@ const DashboardComponent = () => {
   return (
     <div className="container p-4 m-3 mx-auto bg-light rounded shadow-lg">
       <h2> {username}'s Dashboard</h2>
+      
+      <div>
+        <LiveDataFeed retrieveData={ async () => {
+          const url = "http://localhost:5000/data/getSensorData";
+          const { data: res } = await axios.post(url, sentData);
+          console.log(res.UsersData);
+          console.log(res.UsersData[res.UsersData.length - 1]);
+          return res.UsersData[res.UsersData.length - 1];
+        } } />
+      </div>
 
       <div>Times: {JSON.stringify(timeArray)}
            Temperatures: {JSON.stringify(temperatureArray)}

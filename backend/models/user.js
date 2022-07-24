@@ -30,11 +30,34 @@ const userSchema = new Schema({
         minlength: 3
     },
 
-    phonenumber: {
+    prefMaxTemp: {
         type: String,
-        require: true,
         trim: true,
-        minlength: 3
+    },
+
+    prefMinTemp: {
+        type: String,
+        trim: true,
+    },
+
+    prefMaxHumidity: {
+        type: String,
+        trim: true,
+    },
+
+    prefMinHumidity: {
+        type: String,
+        trim: true,
+    },
+
+    prefMaxMoisture: {
+        type: String,
+        trim: true,
+    },
+
+    prefMinMoisture: {
+        type: String,
+        trim: true,
     },
 
     waterHistoryLog: [Object],

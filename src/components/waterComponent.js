@@ -28,8 +28,6 @@ const Water = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		setMsg("");
-		setLoading(true);
 		try {
 			const url = "http://localhost:5000/users/water-update";
 			const { data: res } = await axios.post(url, data);

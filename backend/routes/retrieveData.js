@@ -5,8 +5,6 @@ router.post("/getSensorData", async (req, res) => {
 
     const usersData = await sensorData.find({ email: req.body.email });
 
-    console.log(usersData);
-
     if (!usersData) return res.status(400).send({ message: "No data for this user yet!" });
 
     res.status(200).send({ UsersData: usersData });
