@@ -18,7 +18,7 @@ module.exports = async (email, subject, text) => {
 			from: process.env.USER,
 			to: email,
 			subject: subject,
-			text: text,
+			text: text + " Click this link to change the password",
 		});
 		console.log("email sent successfully");
 	} catch (error) {
