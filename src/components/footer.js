@@ -23,7 +23,7 @@ const Footer = () => {
               <p>
                 (403) xxx-xxxx
                 <br></br>
-                GreenPiece@GreenPiece.com
+                GreenPieceContact22@gmail.com
               </p>
             </div>
 
