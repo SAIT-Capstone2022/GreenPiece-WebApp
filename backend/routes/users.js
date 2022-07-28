@@ -69,23 +69,15 @@ router.get("/:id/verify/:token/", async (req, res) => {
 
 router.post("/profile-update", async (req, res) => {
 
-	console.log("pre post");
-
 	const post = req.body;
 
-	console.log(post);
-
 	const updateUser = await User.findOne({ _id: post._id });
-
-	console.log("hit")
 
 	if (!updateUser) {
 		res.status(400).send({ message: "User Error Problem" });
 	};
 
-	console.log("hit 2")
-
-	await User.updateOne({ _id: post._id }, { username: post.username, phonenumber: post.phonenumber });
+	await User.updateOne({ _id: post._id }, { username: post.username, phonenumber: post.phonenumber , city: post.city});
 
 	const user = await User.findOne({ _id: post._id });
 

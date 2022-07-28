@@ -30,11 +30,7 @@ const sensorDataSchema = new Schema({
         type: String,
         require: true,
     },
-
-    time: {
-        type: String,
-        require: true,
-    },
+    
 });
 
     const sensorData =  mongoose.model('sensorData', sensorDataSchema);

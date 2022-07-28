@@ -22,7 +22,6 @@ export const LiveDataFeed = ({
     const updateData = useCallback(async () => {
         if (!retrieveData) return;
         const newData = await retrieveData();
-        console.log(newData);
         setData(newData)
         setLastUpdated(new Date().toString())
     }, [retrieveData]);

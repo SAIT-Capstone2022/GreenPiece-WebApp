@@ -30,6 +30,11 @@ const userSchema = new Schema({
         minlength: 3
     },
 
+    city: {
+        type: String,
+        trim: true,
+    },
+
     prefMaxTemp: {
         type: String,
         trim: true,
