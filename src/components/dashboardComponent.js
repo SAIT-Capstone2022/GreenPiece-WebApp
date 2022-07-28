@@ -10,7 +10,7 @@ import { LineGraphs } from './avg-line-graph/LineGraphs';
 const chart = <iframe title="Dashboard Graph" width="800" height="500" src="https://charts.mongodb.com/charts-greenhouse-project-zfldl/embed/dashboards?id=62bb709e-5246-46c9-801d-18966de071e1&theme=light&autoRefresh=true&maxDataAge=60&showTitleAndDesc=false&scalingWidth=fixed&scalingHeight=fixed"></iframe>;
 
 const DashboardComponent = () => {
-  
+
   const thisUser = localStorage.getItem("user");
   const userObject = JSON.parse(thisUser);
 
@@ -53,6 +53,7 @@ const DashboardComponent = () => {
     email: userObject.email,
   });
 
+
   return (
     <div className="container p-4 m-3 mx-auto bg-light rounded shadow-lg">
       <h2> {username}'s Dashboard</h2>
@@ -71,14 +72,14 @@ const DashboardComponent = () => {
           <hr />
           <p>Alert: Temp may be too high.</p>
         </Alert>
-        
+
         <Row className='my-3 p-3'>
           <div id="chart-container" className="mx-auto col-lg-8">
             {chart}
           </div>
           <div className='col-lg-4 rounded shadow-lg'>
             <Card.Body className='p-3'>
-              <Card.Title>Weather Header</Card.Title>
+              <Card.Title>Weather Forecast</Card.Title>
               <hr />
 
               <div className='container'>
@@ -101,7 +102,7 @@ const DashboardComponent = () => {
                   </>
                 )}
               </div>
-              
+
             </Card.Body>
           </div>
         </Row>
