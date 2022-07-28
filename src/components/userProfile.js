@@ -43,6 +43,7 @@ const ProfileUpdate = () => {
       const { data: res } = await axios.post(url, data);
       localStorage.removeItem("user");
       localStorage.setItem("user", JSON.stringify(res.user));
+      console.log(res);
       setError("");
       setMsg(res.message);
       setShowMsg(true);

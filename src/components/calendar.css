@@ -111,6 +111,13 @@
     background-color: #e6e6e6;
 }
 
+
+.highlight {
+    color: rgb(0, 170, 212);
+    background:rgb(222, 248, 255);
+    font-weight: bolder;
+}
+
 .react-calendar__tile--now {
     background: #b1dfb9;
 }
