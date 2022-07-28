@@ -69,29 +69,23 @@ router.get("/:id/verify/:token/", async (req, res) => {
 
 router.post("/profile-update", async (req, res) => {
 
-	console.log("pre post");
-
 	const post = req.body;
 
-	console.log(post);
-
 	const updateUser = await User.findOne({ _id: post._id });
-
-	console.log("hit")
 
 	if (!updateUser) {
 		res.status(400).send({ message: "User Error Problem" });
 	};
 
-	console.log("hit 2")
-
-	await User.updateOne({ _id: post._id }, { username: post.username, phonenumber: post.phonenumber });
+	await User.updateOne({ _id: post._id }, { username: post.username, phonenumber: post.phonenumber , city: post.city});
 
 	const user = await User.findOne({ _id: post._id });
 
 	res.status(200).send({ message: "Profile successfully updated", user: user });
 
 });
+
+//Water update method
 
 router.post("/water-update", async (req, res) => {
 	const post = req.body;
@@ -103,6 +97,23 @@ router.post("/water-update", async (req, res) => {
 	const user = await User.findOne({ _id: post._id });
 
 	res.status(201).send({ message: "Successfully updated watering log.", user: user });
+});
+
+//Greenhouse variable alert update method
+
+router.post("/GreenhouseAlertValues", async (req, res) => {
+
+	const user = await User.findOneAndUpdate({ _id: req.body._id }, {
+		 prefMaxTemp: req.body.prefMaxTemp, prefMinTemp: req.body.prefMinTemp, 
+			prefMaxHumidity: req.body.prefMaxHumidity, prefMinHumidity: req.body.prefMinHumidity,
+			prefMaxMoisture: req.body.prefMaxMoisture, prefMinMoisture: req.body.prefMinMoisture}, {
+				returnDocument: "after"
+			}
+		);
+
+	
+
+	res.status(201).send({ message: "Successfully updated watering log.", user: user  });
 });
 
 module.exports = router;

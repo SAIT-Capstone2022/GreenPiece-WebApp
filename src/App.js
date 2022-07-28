@@ -11,11 +11,10 @@ import ForgotPassword from "./components/forgotPassword";
 import Water from "./components/waterComponent";
 import PasswordReset from "./components/passwordReset";
 import Footer from "./components/footer";
-import ProfileUpdate from "./components/userProfile"
+import ProfileUpdate from "./components/userProfile";
+import GreenHousePage from "./components/greenHouse";
 
 function App() {
-
-  const autheduser = localStorage.getItem("user");
 
   return (
     <BrowserRouter>
@@ -25,9 +24,10 @@ function App() {
         <Route path="/users/:id/verify/:token" element={[<Bar />, <EmailVerify />]} />
         <Route path="/forgot-password" element={[<Bar />, <ForgotPassword />]} />
         <Route path="/water" element={[<Navbar />, <Water />]} />
-        {autheduser && <Route path="/profile" element={[<Navbar />, <ProfileUpdate />]} /> }
+        <Route path="/profile" element={[<Navbar />, <ProfileUpdate />]} />
         <Route path="/password-reset/:id/:token" element={[<Bar />, <PasswordReset />]} />
-        {autheduser && <Route path="/Dashboard" element={[<Navbar />, <Dashboard />]} />}
+        <Route path="/Dashboard" element={[<Navbar />, <Dashboard />]} />
+        <Route path="/MyGreenhouse" element={[<Navbar />, <GreenHousePage />]} />
         <Route path="/" exact element={<Navigate replace to="/login" />} />
       </Routes>
       <Footer />
