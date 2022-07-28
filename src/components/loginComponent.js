@@ -39,9 +39,9 @@ const Login = () => {
 	};
 
 	return (
-		<div className="container-fluid my-5">
+		<div className="container-fluid mt-5">
 			<Row className="justify-content-center mb-3">
-				<div className="col-lg-5 p-5 my-3">
+				<div className="col-lg-5 pt-5 my-3">
 					<h3>Welcome Green Piece</h3>
 					<p className="pe-5" style={{ fontSize: '20px' }}>
 						Here at Green Piece, we believe in giving 110%. By providing a Greenhouse Monitoring System,
@@ -102,7 +102,7 @@ const Login = () => {
 				</div>
 			</Row>
 			<Row className="justify-content-center mt-5 py-5 bg-light">
-				<div className="col-lg-4 px-5 pt-3">
+				<div className="col-lg-5 pe-5 pt-3">
 					<h5>Greenhouse for Sustainability</h5>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -120,7 +120,7 @@ const Login = () => {
 				<div className="col-lg-3 justify-content-center my-auto">
 					<img className="shadow-lg" src={GroupImage} width="100%" height="auto" alt="" />
 				</div>
-				<div className="col-lg-5 px-5 pt-3">
+				<div className="col-lg-5 ps-5 pt-3">
 					<h5>About the Team</h5>
 					<p>
 						A ragtag group of student developers with hopes of someday making it big, these rascals banded together to try and make

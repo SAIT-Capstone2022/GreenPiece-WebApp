@@ -25,7 +25,8 @@ const ProfileUpdate = () => {
   const [data, setData] = useState({
     _id: userobject._id,
     username: userobject.username,
-    phonenumber: userobject.phonenumber
+    phonenumber: userobject.phonenumber,
+    city: userobject.city,
   });
 
   const handleChange = ({ currentTarget: input }) => {
@@ -43,6 +44,7 @@ const ProfileUpdate = () => {
       const { data: res } = await axios.post(url, data);
       localStorage.removeItem("user");
       localStorage.setItem("user", JSON.stringify(res.user));
+      console.log(res);
       setError("");
       setMsg(res.message);
       setShowMsg(true);
@@ -110,6 +112,19 @@ const ProfileUpdate = () => {
             name="phonenumber"
             onChange={handleChange}
             defaultValue={userobject.phonenumber}
+            required
+            className="form-control"
+          />
+        </div>
+
+        <div className="form-group py-2">
+          <h5>Your Town / City</h5>
+          <input
+            type="city"
+            placeholder="The City of Your Greenhouse"
+            name="city"
+            onChange={handleChange}
+            defaultValue={userobject.city}
             required
             className="form-control"
           />

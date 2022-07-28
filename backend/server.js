@@ -4,7 +4,10 @@ const mongoose = require('mongoose');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const passwordResetRoutes = require("./routes/passwordReset");
-const retrieveDataRouter = require("./routes/retrieveData")
+const retrieveDataRouter = require("./routes/retrieveData");
+const { sensorData } = require('./models/sensorData');
+const { User } = require('./models/user');
+const { date } = require('joi');
 require('dotenv').config();
 
 const app = express();
@@ -19,9 +22,73 @@ const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {}
 );
 const connection = mongoose.connection;
-connection.once('open', () => {
+connection.once('open', () => { 
+
+   /* User.find({}, (err, users) => {
+
+    function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  const emails = users.map(({email}) => email);
+
+  const sensorDataPoints = emails.flatMap((email) => {
+    return [...new Array(48 * 4)].map((val, index) => {
+      const currentDate = new Date();
+      if (index === 0) {
+      currentDate.setUTCHours(0);
+      }
+      else {
+      currentDate.setUTCHours(Math.abs(Math.floor((index / 2) - 24)));
+      }
+      return {
+      email,
+       date: currentDate.toISOString(),
+       temperature: getRandomInt(5, 45),
+       humidity: getRandomInt(20, 90),
+       moistureLevel: getRandomInt(30, 100),
+      }
+   });
+  })
+
+  sensorData.insertMany(sensorDataPoints);
+
+    })/*
+
+//Create 3 new booleans on user data to track if they have been alerted for trips in temp, humidity and soil moisture 
+//Then for user alerts create long lived process which pulls the most recent sensor data for the user (every 10 minutes) compare data with prefered ranges 
+//If value is outside of range (send email to user with the event, and push new event object in users data) if user has not been alerted for this value in the last 3 hours
+//Create front end alert component that displays the users most recent alert (timestamp for time)
+
+//Send email alert to user
+//Live feed data hack
+/*setInterval(() => {
+  User.find({}, (err, users) => {
+    function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+    const emails = users.map(({email}) => email);
+    console.log(emails);
+    const sensorDataPoints = emails.map((email) => {
+      return {
+        email, 
+        temperature: getRandomInt(10, 45),
+        humidity: getRandomInt(0, 100),
+        moistureLevel: getRandomInt(0, 100),
+        date: new Date().getUTCDate(),
+      }
+    })
+    sensorData.insertMany(sensorDataPoints);
+    console.log("Created new sensordata")
+  })
+}, 10000); */
+
   console.log("MongoDB database now connected successfully");
-})
+});
 
 // Routes
 app.use('/users', usersRouter);
@@ -29,7 +96,7 @@ app.use('/auth', authRouter);
 app.use('/password-reset', passwordResetRoutes);
 app.use('/data', retrieveDataRouter);
 
-app.listen(port, () => {
+app.listen(port, () => { 
   console.log('Server is running');
 });
 
