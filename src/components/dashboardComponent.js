@@ -8,11 +8,11 @@ import { Chart as ChartJS } from "chart.js/auto";
 const chart = <iframe title="Dashboard Graph" width="800" height="500" src="https://charts.mongodb.com/charts-greenhouse-project-zfldl/embed/dashboards?id=62bb709e-5246-46c9-801d-18966de071e1&theme=light&autoRefresh=true&maxDataAge=60&showTitleAndDesc=false&scalingWidth=fixed&scalingHeight=fixed"></iframe>;
 
 const DashboardComponent = () => {
-  
+
   const thisUser = localStorage.getItem("user");
   const userObject = JSON.parse(thisUser);
 
-  const fahrenheitToCelsius = fahrenheit => (fahrenheit - 32) * 5/9;
+  const fahrenheitToCelsius = fahrenheit => (fahrenheit - 32) * 5 / 9;
   const apiKey = 'eec71e5fec24c1771c39631c716db4aa';
   const [weatherData, setWeatherData] = useState([{}]);
   const [city, setCity] = useState("");
@@ -47,43 +47,43 @@ const DashboardComponent = () => {
   ]);
 
   const [temperatureArray, setTemperatureArray] = useState(
-   [1, 2, 3]
+    [1, 2, 3]
   );
 
   const [humidityArray, setHumidityArray] = useState(
-  [1, 2, 3]
+    [1, 2, 3]
   );
 
   const [moistureArray, setMoistureArray] = useState(
-  [1, 2, 3]
+    [1, 2, 3]
   );
 
   const [temperatureGraphData, setTemperatureGraphData] = useState({
     labels: timeArray,
     datasets: [
-        {
-          label: "Temperature for the last 7 hours",
-          data: temperatureArray
-        }],
-      });
+      {
+        label: "Temperature for the last 7 hours",
+        data: temperatureArray
+      }],
+  });
 
-      const [humidityGraphData, setHumidityGraphData] = useState({
-        labels: timeArray,
-        datasets: [
-            {
-              label: "Percentage humidity for the last 7 hours",
-              data: humidityArray,
-            }]
-          });
+  const [humidityGraphData, setHumidityGraphData] = useState({
+    labels: timeArray,
+    datasets: [
+      {
+        label: "Percentage humidity for the last 7 hours",
+        data: humidityArray,
+      }]
+  });
 
-          const [moistureGraphData, setMoistureGraphData] = useState({
-            labels: timeArray,
-            datasets: [
-                {
-                  label: "Percentage soil moisture for the last 7 hours",
-                  data: moistureArray,
-                }]
-              });
+  const [moistureGraphData, setMoistureGraphData] = useState({
+    labels: timeArray,
+    datasets: [
+      {
+        label: "Percentage soil moisture for the last 7 hours",
+        data: moistureArray,
+      }]
+  });
 
   const getChartData = async (e) => {
     e.preventDefault();
@@ -98,37 +98,37 @@ const DashboardComponent = () => {
     setTemperatureGraphData({
       labels: timeArray,
       datasets: [
-          {
-            label: "Temperature for the last 7 hours",
-            data: temperatureArray,
-          }],
-        });
+        {
+          label: "Temperature for the last 7 hours",
+          data: temperatureArray,
+        }],
+    });
     setHumidityGraphData({
       labels: timeArray,
       datasets: [
-          {
-            label: "Percentage humidity for the last 7 hours",
-            data: humidityArray,
-          }]
-        });
-        setMoistureGraphData({
-          labels: timeArray,
-          datasets: [
-              {
-                label: "Percentage soil moisture for the last 7 hours",
-                data: moistureArray,
-              }]
-            });
-    };
+        {
+          label: "Percentage humidity for the last 7 hours",
+          data: humidityArray,
+        }]
+    });
+    setMoistureGraphData({
+      labels: timeArray,
+      datasets: [
+        {
+          label: "Percentage soil moisture for the last 7 hours",
+          data: moistureArray,
+        }]
+    });
+  };
 
   return (
     <div className="container p-4 m-3 mx-auto bg-light rounded shadow-lg">
       <h2> {username}'s Dashboard</h2>
 
       <div>Times: {JSON.stringify(timeArray)}
-           Temperatures: {JSON.stringify(temperatureArray)}
-           Humidity Levels: {JSON.stringify(humidityArray)}
-           Moisture Levels: {JSON.stringify(moistureArray)} </div>
+        Temperatures: {JSON.stringify(temperatureArray)}
+        Humidity Levels: {JSON.stringify(humidityArray)}
+        Moisture Levels: {JSON.stringify(moistureArray)} </div>
 
       <div className="my-3">
         <Alert variant='danger'>
@@ -136,14 +136,14 @@ const DashboardComponent = () => {
           <hr />
           <p>Alert: Temp may be too high.</p>
         </Alert>
-        
+
         <Row className='my-3 p-3'>
           <div id="chart-container" className="mx-auto col-lg-8">
             {chart}
           </div>
           <div className='col-lg-4 rounded shadow-lg'>
             <Card.Body className='p-3'>
-              <Card.Title>Weather Header</Card.Title>
+              <Card.Title>Weather Forecast</Card.Title>
               <hr />
 
               <div className='container'>
@@ -171,27 +171,27 @@ const DashboardComponent = () => {
                   </>
                 )}
               </div>
-              
+
             </Card.Body>
           </div>
         </Row>
       </div>
 
-    <div>
-      <button onClick={getChartData} type="submit">Click Me!</button>
-    </div>
+      <div>
+        <button onClick={getChartData} type="submit">Click Me!</button>
+      </div>
 
-    <div>
-    <Line data={temperatureGraphData}/>
-    </div>
+      <div>
+        <Line data={temperatureGraphData} />
+      </div>
 
-    <div>
-    <Line data={humidityGraphData}/>
-    </div>
+      <div>
+        <Line data={humidityGraphData} />
+      </div>
 
-    <div>
-    <Line data={moistureGraphData}/>
-    </div>
+      <div>
+        <Line data={moistureGraphData} />
+      </div>
 
     </div>
   );

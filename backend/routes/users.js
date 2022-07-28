@@ -100,7 +100,9 @@ router.post("/water-update", async (req, res) => {
 	const wateredAt = { "day": date.getDate(), "month": (date.getMonth() + 1), "year": date.getFullYear() };
 	await User.findOneAndUpdate({ _id: post._id }, { $addToSet: { waterHistoryLog: wateredAt } });
 
-	res.status(201).send({ message: "Successfully updated watering log." });
+	const user = await User.findOne({ _id: post._id });
+
+	res.status(201).send({ message: "Successfully updated watering log.", user: user });
 });
 
 module.exports = router;
