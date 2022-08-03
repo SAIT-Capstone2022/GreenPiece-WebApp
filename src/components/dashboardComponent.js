@@ -53,6 +53,61 @@ const DashboardComponent = () => {
     email: userObject.email,
   });
 
+  const [sensorData, setSensorData] = useState({});
+
+  const Alerts = () => {
+    return(<div>
+        {(sensorData.temperature > userObject.prefMaxTemp) && 
+        (<div>
+          <Alert variant='danger'>
+          <h5>Temperature Alert!</h5>
+          <hr />
+          <p>Your Temperature is {sensorData.temperature - userObject.prefMaxTemp}C over your maximum temperature of {userObject.prefMaxTemp}C</p>
+        </Alert>
+        </div>)}
+        {(sensorData.temperature < userObject.prefMinTemp) && 
+        (<div>
+          <Alert variant='danger'>
+          <h5>Temperature Alert!</h5>
+          <hr />
+          <p>Your Temperature is {userObject.prefMinTemp - sensorData.temperature}C bellow your mininum temperature of {userObject.prefMinTemp}C</p>
+        </Alert>
+        </div>)}
+        {(sensorData.humidity > userObject.prefMaxHumidity) && 
+        (<div>
+          <Alert variant='danger'>
+          <h5>Humidity Alert!</h5>
+          <hr />
+          <p>Your Humidity is {sensorData.humidity - userObject.prefMaxHumidity}% over your maximum humidity of {userObject.prefMaxHumidity}%</p>
+        </Alert>
+        </div>)}
+        {(sensorData.humidity < userObject.prefMinHumidity) && 
+        (<div>
+          <Alert variant='danger'>
+          <h5>Humidity Alert!</h5>
+          <hr />
+          <p>Your Humidity is {userObject.prefMinHumidity - sensorData.humidity}% bellow your mininum humidity of {userObject.prefMinHumidity}%</p>
+        </Alert>
+        </div>)}
+        {(sensorData.moistureLevel > userObject.prefMaxMoisture) && 
+        (<div>
+          <Alert variant='danger'>
+          <h5>Soil Moisture Alert!</h5>
+          <hr />
+          <p>Your soil moisture is {sensorData.moistureLevel - userObject.prefMaxMoisture}% over your maximum soil moisture level of {userObject.prefMaxMoisture}%</p>
+        </Alert>
+        </div>)}
+        {(sensorData.moistureLevel < userObject.prefMinMoisture) && 
+        (<div>
+          <Alert variant='danger'>
+          <h5>Soil Moisture Alert!</h5>
+          <hr />
+          <p>Your soil moisture {userObject.prefMinMoisture - sensorData.moistureLevel}% over your mininum soil moisture level of {userObject.prefMinMoisture}%</p>
+        </Alert>
+        </div>)}
+    </div>)
+  };
+
   return (
     <div className="container p-4 m-3 mx-auto bg-light rounded shadow-lg">
       <h2> {username}'s Dashboard</h2>
@@ -62,16 +117,13 @@ const DashboardComponent = () => {
           const url = "http://localhost:5000/data/getSensorData";
           const { data: res } = await axios.post(url, sentData);
           return res.UsersData[res.UsersData.length - 1];
-        } } />
+        } }
+        onDataUpdated = {setSensorData} />
       </div>
+   
+      <Alerts/>
 
       <div className="my-3">
-        <Alert variant='danger'>
-          <h5>Test Alert</h5>
-          <hr />
-          <p>Alert: Temp may be too high.</p>
-        </Alert>
-        
         <Row className='my-3 p-3'>
           <div id="chart-container" className="mx-auto col-lg-8">
             {chart}
