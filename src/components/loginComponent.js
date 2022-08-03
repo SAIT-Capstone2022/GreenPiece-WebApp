@@ -41,7 +41,7 @@ const Login = () => {
 	return (
 		<div className="container-fluid mt-5">
 			<Row className="justify-content-center mb-3">
-				<div className="col-lg-5 p-5 my-3">
+				<div className="col-lg-5 pt-5 my-3">
 					<h3>Welcome Green Piece</h3>
 					<p className="pe-5" style={{ fontSize: '20px' }}>
 						Here at Green Piece, we believe in giving 110%. By providing a Greenhouse Monitoring System,

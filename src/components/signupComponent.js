@@ -107,6 +107,7 @@ const Signup = () => {
 					<input
 						type="text"
 						placeholder="(xxx)-xxx-xxxx"
+						pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$"
 						name="phonenumber"
 						onChange={handleChange}
 						value={data.phonenumber}
