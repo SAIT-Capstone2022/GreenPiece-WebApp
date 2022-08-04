@@ -23,7 +23,7 @@ code {
 }
 
 nav {
-  background-color: #71976f;
+  background-color: #aacba8;
   align-items: stretch;
 }
 
@@ -59,4 +59,39 @@ div #login-container, #signup-component {
   bottom: 0;
   left: 0;
   width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 25px;
+}
+
+.input {
+  padding: 15px;
+  width: 80%;
+  margin: auto;
+  border: 1px solid lightgray; 
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.weather-data {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.city {
+  font-size: 20px;
+}
+
+.temp {
+font-size: 30px;
+}
+
+.weather {
+font-size: 20px;
 }

@@ -23,7 +23,7 @@ const Footer = () => {
               <p>
                 (403) xxx-xxxx
                 <br></br>
-                GreenPiece@GreenPiece.com
+                GreenPieceContact22@gmail.com
               </p>
             </div>
 
@@ -31,7 +31,7 @@ const Footer = () => {
               <h5>Check Weather</h5>
               <ul className='list-unstyled'>
                 <li>
-                  <a href='https://www.theweathernetwork.com/ca' target="_blank" className='text-black'>
+                  <a href='https://www.theweathernetwork.com/ca' target="_blank" rel="noopener noreferrer" className='text-black'>
                     The Weather Network
                   </a>
                 </li>
@@ -42,7 +42,7 @@ const Footer = () => {
               <h5>Affiliated company</h5>
               <ul className='list-unstyled'>
                 <li>
-                  <a href='http://www.nu-worx.com/' target="_blank" className='text-black'>
+                  <a href='http://www.nu-worx.com/' target="_blank" rel="noopener noreferrer" className='text-black'>
                     Nu-Worx Technology
                   </a>
                 </li>

@@ -30,13 +30,14 @@ const sensorDataSchema = new Schema({
         type: String,
         require: true,
     },
-
-    time: {
-        type: String,
-        require: true,
-    },
+    
 });
 
     const sensorData =  mongoose.model('sensorData', sensorDataSchema);
 
-    module.exports = sensorData;
+    /*const dataEvent = sensorData.Watch();
+    dataEvent.on('change', change => console.log(JSON.stringify(change)));*/
+
+
+
+    module.exports = { sensorData }; 

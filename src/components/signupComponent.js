@@ -8,7 +8,8 @@ const Signup = () => {
 		email: "",
 		password: "",
 		username: "",
-		phonenumber: ""
+		phonenumber: "", 
+		city: "",
 	});
 	const [error, setError] = useState("");
 	const [msg, setMsg] = useState("");
@@ -36,7 +37,8 @@ const Signup = () => {
 				email: "",
 				password: "",
 				username: "",
-				phonenumber: ""
+				phonenumber: "",
+				city: "",
 			});
 		} catch (error) {
 			if (
@@ -105,6 +107,7 @@ const Signup = () => {
 					<input
 						type="text"
 						placeholder="(xxx)-xxx-xxxx"
+						pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$"
 						name="phonenumber"
 						onChange={handleChange}
 						value={data.phonenumber}
@@ -112,6 +115,19 @@ const Signup = () => {
 						className="form-control"
 					/>
 				</div>
+
+				<div className="form-group py-2">
+					<h5>City / Town Where Greenhouse is Located</h5>
+					<input
+						type="text"
+						name="city"
+						onChange={handleChange}
+						value={data.city}
+						required
+						className="form-control"
+					/>
+				</div>
+
 				<div class="mb-3">
 					<p>Already have an account? <a href="/">Log In</a></p>
 				</div>
@@ -128,7 +144,7 @@ const Signup = () => {
 				}
 
 				<div className="form-group py-2 mt-2">
-					<input type="submit" value="Submit" className="btn btn-primary" />
+					<input type="submit" value="Submit" className="btn btn-success" />
 					<span className="m-2 p-2">
 						{isLoading ? <Spinner animation="border" size="sm" variant="secondary" /> : ""}
 					</span>
