@@ -2,12 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { Card, Row, Alert } from 'react-bootstrap';
 import axios from "axios";
-import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import { LiveDataFeed } from './live-feed/LiveDataFeed';
 import { LineGraphs } from './avg-line-graph/LineGraphs';
-
-const chart = <iframe title="Dashboard Graph" width="800" height="500" src="https://charts.mongodb.com/charts-greenhouse-project-zfldl/embed/dashboards?id=62bb709e-5246-46c9-801d-18966de071e1&theme=light&autoRefresh=true&maxDataAge=60&showTitleAndDesc=false&scalingWidth=fixed&scalingHeight=fixed"></iframe>;
 
 const DashboardComponent = () => {
 
@@ -18,23 +15,26 @@ const DashboardComponent = () => {
     userObject.city
   );
 
-  const fahrenheitToCelsius = fahrenheit => (fahrenheit - 32) * 5/9;
+  const fahrenheitToCelsius = fahrenheit => (fahrenheit - 32) * 5 / 9;
   const apiKey = 'eec71e5fec24c1771c39631c716db4aa';
   const [weatherData, setWeatherData] = useState([{}]);
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=${apiKey}`
+  const [weatherIcon, setWeatherIcon] = useState("");
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=${apiKey}`;
+  
   const getWeather = () => {
     fetch(url).then(
       response => response.json()
     ).then(
       data => {
-        setWeatherData(data)
-        setCity(city)
+        setWeatherData(data);
+        setCity(city);
+        setWeatherIcon(`http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`);
       }
     )
   };
 
-  useEffect(() => {getWeather()}, []);
-
+  useEffect(() => { getWeather() }, []);
+  
   const handleEvent = (event) => {
     if (event.key == ("Enter")) {
       getWeather()
