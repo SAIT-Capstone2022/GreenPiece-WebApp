@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Navigate } from 'react-router-dom';
 import axios from "axios";
 import React from "react";
+import { Spinner, Alert } from 'react-bootstrap';
 
 const GreenhouseUpdate = () => {
-  
+    const [isLoading, setLoading] = useState(false);
+
     const user = localStorage.getItem("user");
     const userobject = JSON.parse(user);
 
@@ -44,82 +46,107 @@ const GreenhouseUpdate = () => {
   
       <div className="container p-4 m-2 mb-5 mx-auto mt-3 bg-light rounded shadow-lg" style={{ maxWidth: "600px" }}>
         <form onSubmit={handleSubmit}>
-          <h1>Greenhouse Information</h1>
+          <h1 class="text-center">Greenhouse Information</h1>
 
           <div className="form-group py-2">
             <h5>Preferred Max Temperature</h5>
             <input
-              type="number"
+              type="range"
               name="prefMaxTemp"
+              min={10}
+              max={40}
               onChange={handleChange}
-              value={userobject.prefMaxTemp}
+              defaultValue={userobject.prefMaxTemp}
               required
               className="form-control"
             />
+            <h5 class="text-center">10°C - 40°C</h5>
+            <p class="text-center">{userobject.prefMaxTemp}</p>
           </div>
 
           <div className="form-group py-2">
             <h5>Preferred Min Temperature</h5>
             <input
-              type="number"
+              type="range"
               name="prefMinTemp"
+              min={10}
+              max={40}
               onChange={handleChange}
-              value={userobject.prefMinTemp}
+              defaultValue={userobject.prefMinTemp}
               required
               className="form-control"
             />
+            <h5 class="text-center">10°C - 40°C</h5>
+            <p class="text-center">{userobject.prefMinTemp}</p>
           </div>
   
           <div className="form-group py-2">
             <h5>Preferred Max Humidity</h5>
             <input
-              type="number"
+              type="range"
               name="prefMaxHumidity"
+              min={0}
+              max={100}
               onChange={handleChange}
               defaultValue={userobject.prefMaxHumidity}
               required
               className="form-control"
             />
+            <h5 class="text-center">0% - 100%</h5>
+            <p class="text-center">{userobject.prefMaxHumidity}</p>
           </div>
 
           <div className="form-group py-2">
             <h5>Preferred Min Humidity</h5>
             <input
-              type="number"
+              type="range"
               name="prefMinHumidity"
+              min={0}
+              max={100}
               onChange={handleChange}
               defaultValue={userobject.prefMinHumidity}
               required
               className="form-control"
             />
+            <h5 class="text-center">0% - 100%</h5>
+            <p class="text-center">{userobject.prefMinHumidity}</p>
           </div>
   
           <div className="form-group py-2">
             <h5>Preferred Max Moisture</h5>
             <input
-              type="number"
+              type="range"
               name="prefMaxMoisture"
+              min={0}
+              max={100}
               onChange={handleChange}
               defaultValue={userobject.prefMaxMoisture}
               required
               className="form-control"
             />
+            <h5 class="text-center">0% - 100%</h5>
+            <p class="text-center">{userobject.prefMaxMoisture}</p>
           </div>
 
           <div className="form-group py-2">
             <h5>Preferred Min Moisture</h5>
             <input
-              type="number"
+              type="range"
               name="prefMinMoisture"
+              min={0}
+              max={100}
               onChange={handleChange}
               defaultValue={userobject.prefMinMoisture}
               required
               className="form-control"
             />
+            <h5 class="text-center">0% - 100%</h5>
+            <p class="text-center">{userobject.prefMinMoisture}</p>
           </div>
 
           <div className="form-group pt-2">
             <input type="submit" value="Save" className="btn btn-primary" />
+            {isLoading ? <Spinner animation="border" size="sm" variant="secondary" /> : ""}
           </div>
 
           <span>

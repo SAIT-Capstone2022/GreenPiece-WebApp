@@ -29,11 +29,8 @@ export default class Navbar extends Component {
                                 <Link to="/water" className="nav-link" href="water.html">Water</Link>
                             </li>
                             <li className="nav-item py-2">
-                                <Link to="/mygreenhouse" className="nav-link" href="mygreenhouse.html">My Greenhouse</Link>
+                                <Link to="/mygreenhouse" className="nav-link" href="mygreenhouse.html">MyGreenhouse</Link>
                             </li>
-                            {/* <li className="nav-item">
-                                <Link to="/settings" className="nav-link" href="settings.html">Settings</Link>
-                            </li> */}
                         </ul>
                         <div className="navbar-text">
                             <Link to="/" className="nav-link" href="index.html" onClick={sessionKill} >Logout</Link>
