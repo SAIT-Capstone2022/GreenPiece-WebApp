@@ -65,6 +65,20 @@ const userSchema = new Schema({
         trim: true,
     },
 
+    /*alerts: [
+        new Schema({
+            date: {
+                type: String
+            },
+            type: {
+                type: String
+            },
+            message: {
+                type: String
+            }
+        })
+    ], */
+
     waterHistoryLog: [Object],
 
     verified: {
