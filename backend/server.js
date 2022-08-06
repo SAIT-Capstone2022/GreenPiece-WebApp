@@ -8,6 +8,7 @@ const retrieveDataRouter = require("./routes/retrieveData");
 const { sensorData } = require('./models/sensorData');
 const { User } = require('./models/user');
 const { date } = require('joi');
+const sendEmail = require('./utils/sendEmail');
 require('dotenv').config();
 
 const app = express();
@@ -22,7 +23,62 @@ const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {}
 );
 const connection = mongoose.connection;
+
+const startAlertTask = () => {
+  setInterval( async () => {
+    User.find({}, (err, users) => { 
+      users.forEach( async ( {
+        email, prefMaxTemp, prefMinTemp, prefMaxHumidity, prefMinHumidity, prefMaxMoisture, prefMinMoisture, //alerts
+      }) => {
+        if (!prefMaxTemp && !prefMinTemp && !prefMaxHumidity && !prefMinHumidity && !prefMaxMoisture && !prefMinMoisture) return;
+        const [thisSensorData] = await sensorData.find({email: email}).sort({_id: -1}).limit(1);
+        console.log(thisSensorData);
+        let alert;
+        let alertValue;
+        if (thisSensorData.temperature > prefMaxTemp || thisSensorData.temperature < prefMinTemp ) {
+          alert = "Temperature";
+          alertValue = thisSensorData.temperature;
+          sendEmail(email, "Temperature Alert!", `${alert} was alerted to be ${alertValue} at ${new Date().toString()}`);
+        }
+        if (thisSensorData.humidity > prefMaxHumidity || thisSensorData.humidity < prefMinHumidity ) {
+          alert = "Humidity";
+          alertValue = thisSensorData.humidity;
+          sendEmail(email, "Humidity Alert!", `${alert} was alerted to be ${alertValue} at ${new Date().toString()}`);
+        }
+        if (thisSensorData.moistureLevel > prefMaxMoisture || thisSensorData.moistureLevel < prefMinMoisture ) {
+          alert = "Moisture"; 
+          alertValue = thisSensorData.moistureLevel;
+          sendEmail(email, "Moisture Alert!", `${alert} was alerted to be ${alertValue} at ${new Date().toString()}`);
+        }
+
+        /*if (!alert) return;
+        let index;
+        const foundAlert = alerts.find(({type}, i) => {
+          index = i;
+          return type === alert;
+        }); 
+        if (foundAlert) {
+          const date = new Date(foundAlert.date);
+          if (date.getHours() < (new Date().getHours() - 3)) {
+            delete alerts[i];
+            alerts.push({
+              date: new Date().toISOString(),
+              type: alert,
+              message: `${alert} was alerted to be ${alertValue} at ${new Date().toString()}`
+            });
+          }
+        }*/
+
+        console.log("Check");
+
+      });
+    });
+  }, 60000 * 5);
+}
+
 connection.once('open', () => { 
+
+  startAlertTask();
 
    /* User.find({}, (err, users) => {
 

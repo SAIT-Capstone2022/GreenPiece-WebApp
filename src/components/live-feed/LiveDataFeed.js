@@ -3,7 +3,8 @@ import React, { useCallback, useEffect, useState } from "react"
 
 export const LiveDataFeed = ({
     retrieveData, // promise/async function that calls server for new data
-    updateFrequency = 10000
+    updateFrequency = 10000,
+    onDataUpdated,
 }) => {
 
     const [data, setData] = useState({
@@ -24,6 +25,9 @@ export const LiveDataFeed = ({
         const newData = await retrieveData();
         setData(newData)
         setLastUpdated(new Date().toString())
+        if (onDataUpdated) {
+            onDataUpdated(newData);
+        }
     }, [retrieveData]);
 
     // refresh data from the server every 2.5 seconds
