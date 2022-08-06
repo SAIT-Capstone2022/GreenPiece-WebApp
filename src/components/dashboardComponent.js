@@ -111,55 +111,50 @@ const DashboardComponent = () => {
   return (
     <div className="container p-4 m-3 mx-auto bg-light rounded shadow-lg">
       <h2> {username}'s Dashboard</h2>
-      
-      <div>
-        <LiveDataFeed retrieveData={ async () => {
-          const url = "http://localhost:5000/data/getSensorData";
-          const { data: res } = await axios.post(url, sentData);
-          return res.UsersData[res.UsersData.length - 1];
-        } }
-        onDataUpdated = {setSensorData} />
-      </div>
    
       <Alerts/>
 
-      <div className="my-3">
-        <Row className='my-3 p-3'>
-          <div id="chart-container" className="mx-auto col-lg-8">
-            {chart}
-          </div>
-          <div className='col-lg-4 rounded shadow-lg'>
-            <Card.Body className='p-3'>
-              <Card.Title>Weather Forecast</Card.Title>
-              <hr />
+      <Row className='my-3 mx-0'>
+        <div className='col-lg-3 rounded shadow-lg mb-4 bg-gradient' style={{background: "#bfcfbe"}}>
+          <Card.Body className='p-3'>
+            <Card.Title>Weather Forecast</Card.Title>
+            <hr />
 
-              <div className='container'>
-                {typeof weatherData.main === 'undefined' ? (
-                  <div>
-                    <p>Enter in a city to get the weather of.</p>
-                  </div>
-                ) : (
-                  <div className='weather-data'>
-                    <p className='city'>{weatherData.name}</p>
-                    <p className='temp'>{(Math.round(fahrenheitToCelsius(weatherData.main.temp)))}°C</p>
-                    <p className='weather'>{weatherData.weather[0].main}</p>
-                  </div>
-                )}
+            <div className='container p-0'>
+              {typeof weatherData.main === 'undefined' ? (
+                <div>
+                  <p>Enter in a city to get the current weather.</p>
+                </div>
+              ) : (
+                <div className='weather-data m-0'>
+                  <img src={weatherIcon}></img>
+                  <p className='weather'>{weatherData.weather[0].main}</p>
+                  <p className='temp'>{(Math.round(fahrenheitToCelsius(weatherData.main.temp)))}°C</p>
+                  <p className='city'>{weatherData.name}</p>
+                </div>
+              )}
 
-                {weatherData.cod === "404" ? (
-                  <p>City not found</p>
-                ) : (
-                  <>
-                  </>
-                )}
-              </div>
+              {weatherData.cod === "404" ? (
+                <p>City not found</p>
+              ) : (
+                <>
+                </>
+              )}
+            </div>
+          </Card.Body>
+        </div>
 
-            </Card.Body>
-          </div>
-        </Row>
-      </div>
+        <div className="mx-auto col-lg-9">
+          <LiveDataFeed className="mx-0" retrieveData={async () => {
+            const url = "http://localhost:5000/data/getSensorData";
+            const { data: res } = await axios.post(url, sentData);
+            return res.UsersData[res.UsersData.length - 1];
+          }} />
+        </div>
 
-    <LineGraphs/>
+      </Row>
+
+      <LineGraphs />
 
     </div>
   );
