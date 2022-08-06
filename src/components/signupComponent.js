@@ -8,7 +8,8 @@ const Signup = () => {
 		email: "",
 		password: "",
 		username: "",
-		phonenumber: ""
+		phonenumber: "", 
+		city: "",
 	});
 	const [error, setError] = useState("");
 	const [msg, setMsg] = useState("");
@@ -36,7 +37,8 @@ const Signup = () => {
 				email: "",
 				password: "",
 				username: "",
-				phonenumber: ""
+				phonenumber: "",
+				city: "",
 			});
 		} catch (error) {
 			if (
@@ -113,6 +115,19 @@ const Signup = () => {
 						className="form-control"
 					/>
 				</div>
+
+				<div className="form-group py-2">
+					<h5>City / Town Where Greenhouse is Located</h5>
+					<input
+						type="text"
+						name="city"
+						onChange={handleChange}
+						value={data.city}
+						required
+						className="form-control"
+					/>
+				</div>
+
 				<div class="mb-3">
 					<p>Already have an account? <a href="/">Log In</a></p>
 				</div>
