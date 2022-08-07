@@ -9,7 +9,10 @@ const { sensorData } = require('./models/sensorData');
 const { User } = require('./models/user');
 const { date } = require('joi');
 const sendEmail = require('./utils/sendEmail');
+const { request } = require('express');
+const path = require('path');
 require('dotenv').config();
+
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -151,6 +154,15 @@ app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/password-reset', passwordResetRoutes);
 app.use('/data', retrieveDataRouter);
+
+//Server static assets if in production
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static('../bulid'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'greenpiece-webapp', 'build', 'index.html'));
+  });
+}
 
 app.listen(port, () => { 
   console.log('Server is running');
