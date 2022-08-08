@@ -14,11 +14,8 @@ const ProfileUpdate = () => {
   const [showMsg, setShowMsg] = useState(true);
   const [password, setPassword] = useState("");
 
-  
   const user = localStorage.getItem("user");
   const userobject = JSON.parse(user);
-
-  
 
   if (userobject == null) {
     return (
@@ -90,9 +87,8 @@ const ProfileUpdate = () => {
             type="password"
             placeholder="password"
             name="password"
-            onChange={handleChange}
-            defaultValue={userobject.password}
-            required
+            defaultValue="12345678"
+            readOnly
             className="form-control"
           />
         </div>

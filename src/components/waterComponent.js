@@ -15,6 +15,12 @@ const Water = () => {
 	const userobject = JSON.parse(user);
 	const mark = [];
 
+	if (userobject == null) {
+		return (
+			<Navigate to="/login" replace={true} />
+		);
+	}
+
 	for (const d of userobject.waterHistoryLog) {
 		const day = String(d.day).padStart(2, '0');
 		const month = String(d.month).padStart(2, '0');
@@ -27,12 +33,6 @@ const Water = () => {
 	const [disabled, setDisabled] = useState(mark.includes(today));
 	const [msg, setMsg] = useState(disabled ? "Plants have already been watered for today." : "");
 	const [showMsg, setShowMsg] = useState(disabled);
-
-	if (userobject == null) {
-		return (
-			<Navigate to="/login" replace={true} />
-		);
-	}
 
 	const [data, setData] = useState({
 		_id: userobject._id
