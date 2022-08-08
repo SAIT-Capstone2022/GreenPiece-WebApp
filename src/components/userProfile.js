@@ -88,7 +88,6 @@ const ProfileUpdate = () => {
             placeholder="password"
             name="password"
             defaultValue="12345678"
-            readOnly
             className="form-control"
           />
         </div>

@@ -24,7 +24,7 @@ export const LiveDataFeed = ({
         if (!retrieveData) return;
         const newData = await retrieveData();
         setData(newData)
-        setLastUpdated(new Date().toString())
+        setLastUpdated(new Date().toLocaleString())
         if (onDataUpdated) {
             onDataUpdated(newData);
         }
@@ -39,9 +39,9 @@ export const LiveDataFeed = ({
     }, [updateData, updateFrequency]);
 
     return <div>
-        <h2>Live data (Last updated: {lastUpdated})</h2>
+        <h2>Last updated: {lastUpdated}</h2>
+        <h3>Temperature: {temperature}°C</h3>
         <h3>Humidity: {humidity}%</h3>
-        <h3>Temperature: {temperature}</h3>
-        <h3>Soil Moisture: {moistureLevel}</h3>
+        <h3>Soil Moisture: {moistureLevel}%</h3>
     </div>
 }
