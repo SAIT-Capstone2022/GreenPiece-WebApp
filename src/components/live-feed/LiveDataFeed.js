@@ -23,7 +23,7 @@ export const LiveDataFeed = ({
     const updateData = useCallback(async () => {
         if (!retrieveData) return;
         const newData = await retrieveData();
-        if (newData) {
+        if (newData.temperature) {
         setData(newData)
         }
         setLastUpdated(new Date().toLocaleString())
@@ -43,7 +43,7 @@ export const LiveDataFeed = ({
     if (temperature === NO_DATA) {
         return null;
     };
-    
+
     return <div>
         <h2>Last updated: {lastUpdated}</h2>
         <h3>Temperature: {temperature}°C</h3>
