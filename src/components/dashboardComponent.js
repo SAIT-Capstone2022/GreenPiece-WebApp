@@ -11,6 +11,12 @@ const DashboardComponent = () => {
   const thisUser = localStorage.getItem("user");
   const userObject = JSON.parse(thisUser);
 
+  if (userObject === null) {
+    return (
+      <Navigate to="/login" replace={true} />
+    );
+  }
+
   const [city, setCity] = useState(
     userObject.city
   );
@@ -20,7 +26,7 @@ const DashboardComponent = () => {
   const [weatherData, setWeatherData] = useState([{}]);
   const [weatherIcon, setWeatherIcon] = useState("");
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=${apiKey}`;
-  
+
   const getWeather = () => {
     fetch(url).then(
       response => response.json()
@@ -34,18 +40,12 @@ const DashboardComponent = () => {
   };
 
   useEffect(() => { getWeather() }, []);
-  
+
   const handleEvent = (event) => {
     if (event.key == ("Enter")) {
       getWeather()
     }
   };
-
-  if (userObject === null) {
-    return (
-      <Navigate to="/login" replace={true} />
-    );
-  }
 
   const username = userObject.username;
 
@@ -56,54 +56,54 @@ const DashboardComponent = () => {
   const [sensorData, setSensorData] = useState({});
 
   const Alerts = () => {
-    return(<div>
-        {(sensorData.temperature > userObject.prefMaxTemp) && 
+    return (<div>
+      {(sensorData.temperature > userObject.prefMaxTemp) &&
         (<div>
           <Alert variant='danger'>
-          <h5>Temperature Alert!</h5>
-          <hr />
-          <p>Your Temperature is {sensorData.temperature - userObject.prefMaxTemp}C over your maximum temperature of {userObject.prefMaxTemp}C</p>
-        </Alert>
+            <h5>Temperature Alert!</h5>
+            <hr />
+            <p>Your Temperature is {sensorData.temperature - userObject.prefMaxTemp}C over your maximum temperature of {userObject.prefMaxTemp}C</p>
+          </Alert>
         </div>)}
-        {(sensorData.temperature < userObject.prefMinTemp) && 
+      {(sensorData.temperature < userObject.prefMinTemp) &&
         (<div>
           <Alert variant='danger'>
-          <h5>Temperature Alert!</h5>
-          <hr />
-          <p>Your Temperature is {userObject.prefMinTemp - sensorData.temperature}C bellow your mininum temperature of {userObject.prefMinTemp}C</p>
-        </Alert>
+            <h5>Temperature Alert!</h5>
+            <hr />
+            <p>Your Temperature is {userObject.prefMinTemp - sensorData.temperature}C bellow your mininum temperature of {userObject.prefMinTemp}C</p>
+          </Alert>
         </div>)}
-        {(sensorData.humidity > userObject.prefMaxHumidity) && 
+      {(sensorData.humidity > userObject.prefMaxHumidity) &&
         (<div>
           <Alert variant='danger'>
-          <h5>Humidity Alert!</h5>
-          <hr />
-          <p>Your Humidity is {sensorData.humidity - userObject.prefMaxHumidity}% over your maximum humidity of {userObject.prefMaxHumidity}%</p>
-        </Alert>
+            <h5>Humidity Alert!</h5>
+            <hr />
+            <p>Your Humidity is {sensorData.humidity - userObject.prefMaxHumidity}% over your maximum humidity of {userObject.prefMaxHumidity}%</p>
+          </Alert>
         </div>)}
-        {(sensorData.humidity < userObject.prefMinHumidity) && 
+      {(sensorData.humidity < userObject.prefMinHumidity) &&
         (<div>
           <Alert variant='danger'>
-          <h5>Humidity Alert!</h5>
-          <hr />
-          <p>Your Humidity is {userObject.prefMinHumidity - sensorData.humidity}% bellow your mininum humidity of {userObject.prefMinHumidity}%</p>
-        </Alert>
+            <h5>Humidity Alert!</h5>
+            <hr />
+            <p>Your Humidity is {userObject.prefMinHumidity - sensorData.humidity}% bellow your mininum humidity of {userObject.prefMinHumidity}%</p>
+          </Alert>
         </div>)}
-        {(sensorData.moistureLevel > userObject.prefMaxMoisture) && 
+      {(sensorData.moistureLevel > userObject.prefMaxMoisture) &&
         (<div>
           <Alert variant='danger'>
-          <h5>Soil Moisture Alert!</h5>
-          <hr />
-          <p>Your soil moisture is {sensorData.moistureLevel - userObject.prefMaxMoisture}% over your maximum soil moisture level of {userObject.prefMaxMoisture}%</p>
-        </Alert>
+            <h5>Soil Moisture Alert!</h5>
+            <hr />
+            <p>Your soil moisture is {sensorData.moistureLevel - userObject.prefMaxMoisture}% over your maximum soil moisture level of {userObject.prefMaxMoisture}%</p>
+          </Alert>
         </div>)}
-        {(sensorData.moistureLevel < userObject.prefMinMoisture) && 
+      {(sensorData.moistureLevel < userObject.prefMinMoisture) &&
         (<div>
           <Alert variant='danger'>
-          <h5>Soil Moisture Alert!</h5>
-          <hr />
-          <p>Your soil moisture {userObject.prefMinMoisture - sensorData.moistureLevel}% over your mininum soil moisture level of {userObject.prefMinMoisture}%</p>
-        </Alert>
+            <h5>Soil Moisture Alert!</h5>
+            <hr />
+            <p>Your soil moisture {userObject.prefMinMoisture - sensorData.moistureLevel}% over your mininum soil moisture level of {userObject.prefMinMoisture}%</p>
+          </Alert>
         </div>)}
     </div>)
   };
@@ -111,11 +111,11 @@ const DashboardComponent = () => {
   return (
     <div className="container p-4 m-3 mx-auto bg-light rounded shadow-lg">
       <h2> {username}'s Dashboard</h2>
-   
-      <Alerts/>
+
+      <Alerts />
 
       <Row className='my-3 mx-0'>
-        <div className='col-lg-3 rounded shadow-lg mb-4 bg-gradient' style={{background: "#bfcfbe"}}>
+        <div className='col-lg-3 rounded shadow-lg mb-4 bg-gradient' style={{ background: "#bfcfbe" }}>
           <Card.Body className='p-3'>
             <Card.Title>Weather Forecast</Card.Title>
             <hr />

@@ -113,7 +113,7 @@ router.post("/GreenhouseAlertValues", async (req, res) => {
 
 	
 
-	res.status(201).send({ message: "Successfully updated watering log.", user: user  });
+	res.status(201).send({ message: "Successfully updated prefered alert values.", user: user  });
 });
 
 module.exports = router;
