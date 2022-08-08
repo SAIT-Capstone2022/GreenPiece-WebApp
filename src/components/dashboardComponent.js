@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { Card, Row, Alert } from 'react-bootstrap';
 import axios from "axios";
 import { Chart as ChartJS } from "chart.js/auto";
-import { LiveDataFeed } from './live-feed/LiveDataFeed';
+import { LiveDataFeed, NO_DATA } from './live-feed/LiveDataFeed';
 import { LineGraphs } from './avg-line-graph/LineGraphs';
 
 const DashboardComponent = () => {
