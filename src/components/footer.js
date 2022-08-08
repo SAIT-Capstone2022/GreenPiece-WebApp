@@ -28,22 +28,32 @@ const Footer = () => {
             </div>
 
             <div className='col-lg-2'>
-              <h5>Check Weather</h5>
+              <h5>External Links</h5>
               <ul className='list-unstyled'>
                 <li>
                   <a href='https://www.theweathernetwork.com/ca' target="_blank" rel="noopener noreferrer" className='text-black'>
                     The Weather Network
                   </a>
                 </li>
+                <li>
+                  <a href='https://www.gardeningknowhow.com/special/greenhouses/greenhouse-gardening.htm"' target="_blank" rel="noopener noreferrer" className='text-black'>
+                    Greenhouse Tips
+                  </a>
+                </li>
               </ul>
             </div>
 
             <div className='col-lg-2'>
-              <h5>Affiliated company</h5>
+              <h5>Affiliated Company</h5>
               <ul className='list-unstyled'>
                 <li>
                   <a href='http://www.nu-worx.com/' target="_blank" rel="noopener noreferrer" className='text-black'>
                     Nu-Worx Technology
+                  </a>
+                </li>
+                <li>
+                  <a href='https://www.sait.ca/' target="_blank" rel="noopener noreferrer" className='text-black'>
+                    Southern Alberta Institude of Technology (SAIT)
                   </a>
                 </li>
               </ul>

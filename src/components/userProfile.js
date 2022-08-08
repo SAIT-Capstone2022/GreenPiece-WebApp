@@ -12,6 +12,7 @@ const ProfileUpdate = () => {
   const [error, setError] = useState("");
   const [msg, setMsg] = useState("");
   const [showMsg, setShowMsg] = useState(true);
+  const [password, setPassword] = useState("");
 
   const user = localStorage.getItem("user");
   const userobject = JSON.parse(user);
@@ -25,6 +26,7 @@ const ProfileUpdate = () => {
   const [data, setData] = useState({
     _id: userobject._id,
     username: userobject.username,
+    password: userobject.password,
     phonenumber: userobject.phonenumber,
     city: userobject.city,
   });
@@ -85,8 +87,8 @@ const ProfileUpdate = () => {
             type="password"
             placeholder="password"
             name="password"
+            defaultValue="12345678"
             readOnly
-            value={"temp"}
             className="form-control"
           />
         </div>

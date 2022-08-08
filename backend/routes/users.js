@@ -77,7 +77,7 @@ router.post("/profile-update", async (req, res) => {
 		res.status(400).send({ message: "User Error Problem" });
 	};
 
-	await User.updateOne({ _id: post._id }, { username: post.username, phonenumber: post.phonenumber , city: post.city});
+	await User.updateOne({ _id: post._id }, { username: post.username, password: post.password, phonenumber: post.phonenumber , city: post.city});
 
 	const user = await User.findOne({ _id: post._id });
 
@@ -113,7 +113,7 @@ router.post("/GreenhouseAlertValues", async (req, res) => {
 
 	
 
-	res.status(201).send({ message: "Successfully updated watering log.", user: user  });
+	res.status(201).send({ message: "Successfully updated prefered alert values.", user: user  });
 });
 
 module.exports = router;

@@ -105,11 +105,12 @@ const Login = () => {
 				<div className="col-lg-5 pe-5 pt-3">
 					<h5>Greenhouse for Sustainability</h5>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-						aliqua. Purus ut faucibus pulvinar elementum integer enim. Integer quis auctor elit sed. Malesuada bibendum arcu
-						vitae elementum curabitur. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod. Imperdiet nulla malesuada
-						pellentesque elit eget. Dolor magna eget est lorem ipsum dolor sit amet consectetur. Odio euismod lacinia at quis risus
-						sed. Dignissim sodales ut eu sem integer vitae justo. Fusce ut placerat orci nulla. <a href="https://www.gardeningknowhow.com/special/greenhouses/greenhouse-gardening.htm" target="_blank" rel="noopener noreferrer">Learn More</a>
+					Greenhouse gardening is an efficient way to grow food on a relatively small piece of property without compromising soil quality. 
+					Greenhouses help keep surrounding areas undisturbed, preserving the ecosystems and wildlife that live there. 
+					Compared to conventional farming, growing in greenhouses is a more sustainable method of food production. 
+					But if designed without sustainability in mind, greenhouses can be quite energy and water intensive. 
+					From their construction to operation, sustainable greenhouses are designed to preserve resources and have a low environmental impact...  
+					<a href="https://www.gardeningknowhow.com/special/greenhouses/greenhouse-gardening.htm" target="_blank" rel="noopener noreferrer">Learn More</a>
 					</p>
 				</div>
 				<div className="col-lg-3 justify-content-center my-auto">
