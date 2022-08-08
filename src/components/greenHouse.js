@@ -55,14 +55,14 @@ const GreenhouseUpdate = () => {
           <input
             type="range"
             name="prefMaxTemp"
-            min={10}
-            max={40}
+            min={20}
+            max={50}
             onChange={handleChange}
             defaultValue={userobject.prefMaxTemp}
             required
             className="form-control"
           />
-          <h5 class="text-center">10°C - 40°C</h5>
+          <h5 class="text-center">20°C - 50°C</h5>
           <p class="text-center">{userobject.prefMaxTemp}</p>
         </div>
 
@@ -72,13 +72,13 @@ const GreenhouseUpdate = () => {
             type="range"
             name="prefMinTemp"
             min={10}
-            max={40}
+            max={20}
             onChange={handleChange}
             defaultValue={userobject.prefMinTemp}
             required
             className="form-control"
           />
-          <h5 class="text-center">10°C - 40°C</h5>
+          <h5 class="text-center">10°C - 20°C</h5>
           <p class="text-center">{userobject.prefMinTemp}</p>
         </div>
 
@@ -87,14 +87,14 @@ const GreenhouseUpdate = () => {
           <input
             type="range"
             name="prefMaxHumidity"
-            min={0}
+            min={50}
             max={100}
             onChange={handleChange}
             defaultValue={userobject.prefMaxHumidity}
             required
             className="form-control"
           />
-          <h5 class="text-center">0% - 100%</h5>
+          <h5 class="text-center">50% - 100%</h5>
           <p class="text-center">{userobject.prefMaxHumidity}</p>
         </div>
 
@@ -104,13 +104,13 @@ const GreenhouseUpdate = () => {
             type="range"
             name="prefMinHumidity"
             min={0}
-            max={100}
+            max={50}
             onChange={handleChange}
             defaultValue={userobject.prefMinHumidity}
             required
             className="form-control"
           />
-          <h5 class="text-center">0% - 100%</h5>
+          <h5 class="text-center">0% - 50%</h5>
           <p class="text-center">{userobject.prefMinHumidity}</p>
         </div>
 
@@ -119,14 +119,14 @@ const GreenhouseUpdate = () => {
           <input
             type="range"
             name="prefMaxMoisture"
-            min={0}
+            min={50}
             max={100}
             onChange={handleChange}
             defaultValue={userobject.prefMaxMoisture}
             required
             className="form-control"
           />
-          <h5 class="text-center">0% - 100%</h5>
+          <h5 class="text-center">50% - 100%</h5>
           <p class="text-center">{userobject.prefMaxMoisture}</p>
         </div>
 
@@ -136,13 +136,13 @@ const GreenhouseUpdate = () => {
             type="range"
             name="prefMinMoisture"
             min={0}
-            max={100}
+            max={50}
             onChange={handleChange}
             defaultValue={userobject.prefMinMoisture}
             required
             className="form-control"
           />
-          <h5 class="text-center">0% - 100%</h5>
+          <h5 class="text-center">0% - 50%</h5>
           <p class="text-center">{userobject.prefMinMoisture}</p>
         </div>
 
