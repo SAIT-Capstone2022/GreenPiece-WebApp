@@ -118,11 +118,6 @@ const DashboardComponent = () => {
             <Card.Title>Weather Forecast</Card.Title>
             <hr />
 
-            <div>
-              {console.log(sensorData.moistureLevel)}
-              {console.log(userObject.prefMinMoisture)}
-            </div>
-
             <div className='container p-0'>
               {typeof weatherData.main === 'undefined' ? (
                 <div>

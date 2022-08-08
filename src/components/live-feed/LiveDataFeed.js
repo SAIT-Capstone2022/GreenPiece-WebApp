@@ -40,6 +40,10 @@ export const LiveDataFeed = ({
         return () => clearInterval(interval);
     }, [updateData, updateFrequency]);
 
+    if (temperature === NO_DATA) {
+        return null;
+    };
+    
     return <div>
         <h2>Last updated: {lastUpdated}</h2>
         <h3>Temperature: {temperature}°C</h3>
