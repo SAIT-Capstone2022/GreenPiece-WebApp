@@ -35,7 +35,7 @@ const GreenhouseUpdate = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = "http://localhost:5000/users/GreenhouseAlertValues";
+    const url = `${process.env.REACT_APP_BASE_URL}/users/GreenhouseAlertValues`;
     const { data: res } = await axios.post(url, data);
     localStorage.removeItem("user");
     localStorage.setItem("user", JSON.stringify(res.user));

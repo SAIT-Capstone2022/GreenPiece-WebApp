@@ -27,7 +27,7 @@ const Signup = () => {
 		setMsg("");
 		setLoading(true);
 		try {
-			const url = "http://localhost:5000/users";
+			const url = `${process.env.REACT_APP_BASE_URL}/users`;
 			const { data: res } = await axios.post(url, data);
 			setError("");
 			setMsg(res.message);

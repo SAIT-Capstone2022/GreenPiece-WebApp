@@ -149,7 +149,7 @@ const DashboardComponent = () => {
 
         <div className="mx-auto col-lg-9">
           <LiveDataFeed className="mx-0" retrieveData={async () => {
-            const url = "http://localhost:5000/data/getSensorData";
+            const url = `${process.env.REACT_APP_BASE_URL}/data/getSensorData`;
             const { data: res } = await axios.post(url, sentData);
             return res.UsersData[res.UsersData.length - 1];
           }} 
