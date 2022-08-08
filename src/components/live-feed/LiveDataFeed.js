@@ -23,7 +23,7 @@ export const LiveDataFeed = ({
     const updateData = useCallback(async () => {
         if (!retrieveData) return;
         const newData = await retrieveData();
-        if (newData.temperature) {
+        if (typeof newData === "undefined") {
         setData(newData)
         }
         setLastUpdated(new Date().toLocaleString())
