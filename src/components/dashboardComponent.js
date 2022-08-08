@@ -102,7 +102,7 @@ const DashboardComponent = () => {
           <Alert variant='danger'>
             <h5>Soil Moisture Alert!</h5>
             <hr />
-            <p>Your soil moisture {userObject.prefMinMoisture - sensorData.moistureLevel}% over your mininum soil moisture level of {userObject.prefMinMoisture}%</p>
+            <p>Your soil moisture is {userObject.prefMinMoisture - sensorData.moistureLevel}% under your mininum soil moisture level of {userObject.prefMinMoisture}%</p>
           </Alert>
         </div>)}
     </div>)
@@ -112,18 +112,21 @@ const DashboardComponent = () => {
     <div className="container p-4 m-3 mx-auto bg-light rounded shadow-lg">
       <h2> {username}'s Dashboard</h2>
 
-      <Alerts />
-
       <Row className='my-3 mx-0'>
         <div className='col-lg-3 rounded shadow-lg mb-4 bg-gradient' style={{ background: "#bfcfbe" }}>
           <Card.Body className='p-3'>
             <Card.Title>Weather Forecast</Card.Title>
             <hr />
 
+            <div>
+              {console.log(sensorData.moistureLevel)}
+              {console.log(userObject.prefMinMoisture)}
+            </div>
+
             <div className='container p-0'>
               {typeof weatherData.main === 'undefined' ? (
                 <div>
-                  <p>Enter in a city to get the current weather.</p>
+                  <p>Enter in a city to get the current weather.</p> 
                 </div>
               ) : (
                 <div className='weather-data m-0'>
@@ -149,10 +152,13 @@ const DashboardComponent = () => {
             const url = "http://localhost:5000/data/getSensorData";
             const { data: res } = await axios.post(url, sentData);
             return res.UsersData[res.UsersData.length - 1];
-          }} />
+          }} 
+          onDataUpdated = {setSensorData}/>
         </div>
 
       </Row>
+
+      <Alerts/>
 
       <LineGraphs />
 
