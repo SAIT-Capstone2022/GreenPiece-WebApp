@@ -158,7 +158,7 @@ const DashboardComponent = () => {
 
       </Row>
 
-      <Alerts/>
+      { sensorData.temperature != NO_DATA && <Alerts/> }
 
       <LineGraphs />
 
