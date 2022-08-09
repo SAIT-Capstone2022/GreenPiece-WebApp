@@ -54,16 +54,30 @@ const GreenhouseUpdate = () => {
         <div className="form-group py-2">
           <h5>Preferred Max Temperature (current: {userobject.prefMaxTemp})</h5>
           <h5 class="text-center text-success">{data.prefMaxTemp}</h5>
-          <input
-            type="range"
-            name="prefMaxTemp"
-            min={20}
-            max={50}
-            onChange={handleChange}
-            defaultValue={userobject.prefMaxTemp}
-            required
-            className="form-control"
-          />
+          <div className="col-lg-6">
+            <input
+              type="range"
+              name="prefMaxTemp"
+              min={20}
+              max={50}
+              onChange={handleChange}
+              defaultValue={userobject.prefMaxTemp}
+              required
+              className="form-control"
+            />
+          </div>
+          <div className="col-lg-6">
+            <input
+              type="range"
+              name="prefMaxTemp"
+              min={20}
+              max={50}
+              onChange={handleChange}
+              defaultValue={userobject.prefMaxTemp}
+              required
+              className="form-control"
+            />
+          </div>
           <h5 class="text-center">20°C - 50°C</h5>
         </div>
 
