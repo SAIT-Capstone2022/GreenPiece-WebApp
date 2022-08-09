@@ -125,7 +125,7 @@ const DashboardComponent = () => {
             <div className='container p-0'>
               {typeof weatherData.main === 'undefined' ? (
                 <div>
-                  <p>Enter in a city to get the current weather.</p>
+                  <p>City was not found, please update your Location.</p>
                 </div>
               ) : (
                 <div className='weather-data m-0'>
@@ -137,7 +137,7 @@ const DashboardComponent = () => {
               )}
 
               {weatherData.cod === "404" ? (
-                <p>City was not found, please update.</p>
+                <p></p>
               ) : (
                 <>
                 </>
