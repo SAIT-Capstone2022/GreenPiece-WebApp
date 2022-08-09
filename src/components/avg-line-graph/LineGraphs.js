@@ -33,7 +33,7 @@ export const LineGraphs = () => {
   const getLabels = () => {
     const currentDate = new Date();
     const datesArray = [];
-    for (let i = 24; i > 0; i--) {
+    for (let i = 12; i > 0; i--) {
       currentDate.setUTCHours(-i);
       datesArray.push(currentDate.toLocaleTimeString(navigator.language, { hour: "2-digit" }));
     }
@@ -74,7 +74,7 @@ export const LineGraphs = () => {
   return (
     <>
 
-      <div className="m-5">
+      <div className="m-3">
         <Line data={{
           labels: getLabels(),
           datasets: [
@@ -90,7 +90,7 @@ export const LineGraphs = () => {
         }} />
       </div>
 
-      <div className="m-5">
+      <div className="m-3">
         <Line data={{
           labels: getLabels(),
           datasets: [
@@ -106,7 +106,7 @@ export const LineGraphs = () => {
         }} />
       </div>
 
-      <div className="m-5">
+      <div className="m-3">
         <Line data={{
           labels: getLabels(),
           datasets: [
