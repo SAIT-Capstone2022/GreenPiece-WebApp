@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { Card, Row, Alert } from 'react-bootstrap';
 import axios from "axios";
 import { Chart as ChartJS } from "chart.js/auto";
-import { LiveDataFeed } from './live-feed/LiveDataFeed';
+import { LiveDataFeed, NO_DATA } from './live-feed/LiveDataFeed';
 import { LineGraphs } from './avg-line-graph/LineGraphs';
 
 const DashboardComponent = () => {
@@ -118,11 +118,6 @@ const DashboardComponent = () => {
             <Card.Title>Weather Forecast</Card.Title>
             <hr />
 
-            <div>
-              {console.log(sensorData.moistureLevel)}
-              {console.log(userObject.prefMinMoisture)}
-            </div>
-
             <div className='container p-0'>
               {typeof weatherData.main === 'undefined' ? (
                 <div>
@@ -149,7 +144,7 @@ const DashboardComponent = () => {
 
         <div className="mx-auto col-lg-9">
           <LiveDataFeed className="mx-0" retrieveData={async () => {
-            const url = "http://localhost:5000/data/getSensorData";
+            const url = `${process.env.REACT_APP_BASE_URL}/data/getSensorData`;
             const { data: res } = await axios.post(url, sentData);
             return res.UsersData[res.UsersData.length - 1];
           }} 
@@ -158,7 +153,7 @@ const DashboardComponent = () => {
 
       </Row>
 
-      <Alerts/>
+      { sensorData.temperature != NO_DATA ? <Alerts/>: null }
 
       <LineGraphs />
 

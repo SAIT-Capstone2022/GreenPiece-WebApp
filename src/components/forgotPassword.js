@@ -17,7 +17,7 @@ const ForgotPassword = () => {
         setMsg("");
         setLoading(true);
         try {
-            const url = "http://localhost:5000/password-reset";
+            const url = `${process.env.REACT_APP_BASE_URL}/password-reset`;
             const { data } = await axios.post(url, { email });
             setError("");
             setMsg(data.message);
