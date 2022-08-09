@@ -42,7 +42,7 @@ const ProfileUpdate = () => {
     setMsg("");
     setLoading(true);
     try {
-      const url = "http://localhost:5000/users/profile-update";
+      const url = `${process.env.REACT_APP_BASE_URL}/users/profile-update`;
       const { data: res } = await axios.post(url, data);
       localStorage.removeItem("user");
       localStorage.setItem("user", JSON.stringify(res.user));

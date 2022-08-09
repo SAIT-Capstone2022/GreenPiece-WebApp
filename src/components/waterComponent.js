@@ -41,7 +41,7 @@ const Water = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:5000/users/water-update";
+			const url = `${process.env.REACT_APP_BASE_URL}/users/water-update`;
 			const { data: res } = await axios.post(url, data);
 			localStorage.removeItem("user");
 			localStorage.setItem("user", JSON.stringify(res.user));

@@ -18,7 +18,7 @@ export const LineGraphs = () => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const url = "http://localhost:5000/data/getSensorData/graph";
+      const url = `${process.env.REACT_APP_BASE_URL}/data/getSensorData/graph`;
       const { data: res } = await axios.post(url, data);
       setResponseData(res.data);
       setLoading(false);
@@ -95,7 +95,9 @@ export const LineGraphs = () => {
               label: "% Humidity over the last 24 hours",
               data: filterData.map((value, index) => {
                 return value.avgHumidity
-              })
+              }),
+              backgroundColor: "green",
+              fill: "green"
             }]
         }} />
       </div>
