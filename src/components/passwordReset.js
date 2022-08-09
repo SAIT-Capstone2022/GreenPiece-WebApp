@@ -13,7 +13,7 @@ const PasswordReset = () => {
     const [showMsg, setShowMsg] = useState(true);
     const [isLoading, setLoading] = useState(false);
     const param = useParams();
-    const url = `http://localhost:5000/password-reset/${param.id}/${param.token}`
+    const url = `${process.env.REACT_APP_BASE_URL}/password-reset/${param.id}/${param.token}`
 
     useEffect(() => {
         const verifyUrl = async () => {

@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react"
 
-
+export const NO_DATA = 9999;
 export const LiveDataFeed = ({
     retrieveData, // promise/async function that calls server for new data
     updateFrequency = 10000,
@@ -8,9 +8,9 @@ export const LiveDataFeed = ({
 }) => {
 
     const [data, setData] = useState({
-        humidity: 0,
-        temperature: 0,
-        moistureLevel: 0,
+        humidity: NO_DATA,
+        temperature: NO_DATA,
+        moistureLevel: NO_DATA,
 });
     const [lastUpdated, setLastUpdated] = useState(null);
 
@@ -23,11 +23,13 @@ export const LiveDataFeed = ({
     const updateData = useCallback(async () => {
         if (!retrieveData) return;
         const newData = await retrieveData();
+        if (typeof newData != "undefined") {
         setData(newData)
-        setLastUpdated(new Date().toLocaleString())
         if (onDataUpdated) {
             onDataUpdated(newData);
         }
+        }
+        setLastUpdated(new Date().toLocaleString())
     }, [retrieveData]);
 
     // refresh data from the server every 2.5 seconds
@@ -37,6 +39,10 @@ export const LiveDataFeed = ({
         }, updateFrequency);
         return () => clearInterval(interval);
     }, [updateData, updateFrequency]);
+
+    if (temperature === NO_DATA) {
+        return null;
+    };
 
     return <div>
         <h2>Last updated: {lastUpdated}</h2>

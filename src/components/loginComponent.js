@@ -20,7 +20,7 @@ const Login = () => {
 		setShowErr(false);
 		setLoading(true);
 		try {
-			const url = "http://localhost:5000/auth";
+			const url = `${process.env.REACT_APP_BASE_URL}/auth`;
 			const { data: res } = await axios.post(url, data);
 			localStorage.clear();
 			localStorage.setItem("user", JSON.stringify(res.user));
