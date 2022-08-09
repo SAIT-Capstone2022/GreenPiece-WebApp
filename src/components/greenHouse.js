@@ -31,6 +31,7 @@ const GreenhouseUpdate = () => {
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
+
   };
 
   const handleSubmit = async (e) => {
@@ -48,10 +49,11 @@ const GreenhouseUpdate = () => {
 
     <div className="container p-4 m-2 mb-5 mx-auto mt-3 bg-light rounded shadow-lg" style={{ maxWidth: "600px" }}>
       <form onSubmit={handleSubmit}>
-        <h1 class="text-center">Greenhouse Information</h1>
+        <h1 class="text-center ">Greenhouse Information</h1>
 
         <div className="form-group py-2">
           <h5>Preferred Max Temperature</h5>
+          <h6 class="text-center text-success">{this.data.prefMaxTemp}</h6>
           <input
             type="range"
             name="prefMaxTemp"
@@ -63,11 +65,11 @@ const GreenhouseUpdate = () => {
             className="form-control"
           />
           <h5 class="text-center">20°C - 50°C</h5>
-          <p class="text-center">{userobject.prefMaxTemp}</p>
         </div>
 
         <div className="form-group py-2">
           <h5>Preferred Min Temperature</h5>
+          <h6 class="text-center text-success">{this.data.prefMinTemp}</h6>
           <input
             type="range"
             name="prefMinTemp"
@@ -79,11 +81,11 @@ const GreenhouseUpdate = () => {
             className="form-control"
           />
           <h5 class="text-center">10°C - 20°C</h5>
-          <p class="text-center">{userobject.prefMinTemp}</p>
         </div>
 
         <div className="form-group py-2">
           <h5>Preferred Max Humidity</h5>
+          <h6 class="text-center text-success">{this.data.prefMaxHumidity}</h6>
           <input
             type="range"
             name="prefMaxHumidity"
@@ -95,11 +97,11 @@ const GreenhouseUpdate = () => {
             className="form-control"
           />
           <h5 class="text-center">50% - 100%</h5>
-          <p class="text-center">{userobject.prefMaxHumidity}</p>
         </div>
 
         <div className="form-group py-2">
           <h5>Preferred Min Humidity</h5>
+          <h6 class="text-center text-success">{this.data.prefMinHumidity}</h6>
           <input
             type="range"
             name="prefMinHumidity"
@@ -111,11 +113,11 @@ const GreenhouseUpdate = () => {
             className="form-control"
           />
           <h5 class="text-center">0% - 50%</h5>
-          <p class="text-center">{userobject.prefMinHumidity}</p>
         </div>
 
         <div className="form-group py-2">
           <h5>Preferred Max Moisture</h5>
+          <h6 class="text-center text-success">{this.data.prefMaxMoisture}</h6>
           <input
             type="range"
             name="prefMaxMoisture"
@@ -127,11 +129,11 @@ const GreenhouseUpdate = () => {
             className="form-control"
           />
           <h5 class="text-center">50% - 100%</h5>
-          <p class="text-center">{userobject.prefMaxMoisture}</p>
         </div>
 
         <div className="form-group py-2">
           <h5>Preferred Min Moisture</h5>
+          <h6 class="text-center text-success">{this.data.prefMinMoisture}</h6>
           <input
             type="range"
             name="prefMinMoisture"
@@ -143,7 +145,6 @@ const GreenhouseUpdate = () => {
             className="form-control"
           />
           <h5 class="text-center">0% - 50%</h5>
-          <p class="text-center">{userobject.prefMinMoisture}</p>
         </div>
 
 
