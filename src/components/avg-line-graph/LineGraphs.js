@@ -95,7 +95,9 @@ export const LineGraphs = () => {
               label: "% Humidity over the last 24 hours",
               data: filterData.map((value, index) => {
                 return value.avgHumidity
-              })
+              }),
+              backgroundColor: "green",
+              fill: "green"
             }]
         }} />
       </div>
