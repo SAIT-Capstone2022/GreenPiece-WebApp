@@ -45,11 +45,10 @@ const Login = () => {
 				<div className="col-lg-5 pt-5 my-3">
 					<h3>Welcome to Green Piece</h3>
 					<p className="pe-5" style={{ fontSize: '20px' }}>
-						This is the Green Piece web application page! Go ahead and sign in if you are already set up
-						to gain access to your own personalized greenhouse and user pages. If you are just getting started
-						and have not yet signed up or registered, please go ahead, and click the sign-up button and follow
-						the prompts on the following page. If you are new here, please feel free to read up on us, our product,
-						this application, and our vision bellow!
+						Go ahead and sign in if you are already set up to gain access to your own personalized greenhouse and 
+						user pages. If you are just getting started and have not yet signed up or registered, please go ahead, 
+						and click the sign-up button and follow the prompts on the following page. If you are new here, please 
+						feel free to read up on us, our product, this application, and our vision bellow!
 					</p>
 				</div>
 
@@ -104,7 +103,8 @@ const Login = () => {
 					</form>
 				</div>
 			</Row>
-			<Row className="justify-content-center py-5 bg-light">
+
+			<Row className="justify-content-center mt-5 py-5 bg-light">
 				<div className="col-lg-5 ps-5 pt-3">
 					<h5>The Green Piece Product</h5>
 					<p>
@@ -121,7 +121,8 @@ const Login = () => {
 					<img className="shadow-lg" src={GreenSoftwareImage} width="100%" height="auto" alt="" />
 				</div>
 			</Row>
-			<Row className="justify-content-center mt-5 py-5 bg-light">
+
+			<Row className="justify-content-center py-5 bg-light">
 				<div className="col-lg-3 justify-content-center my-auto">
 					<img className="shadow-lg" src={GreenhouseImage} width="100%" height="auto" alt="" />
 				</div>
@@ -135,10 +136,11 @@ const Login = () => {
 						preserving the ecosystems and wildlife that live there. Compared to conventional farming, growing in greenhouses is a more sustainable
 						method of food production. But if designed without sustainability in mind, greenhouses can be quite energy and water intensive. From their
 						construction to operation, sustainable greenhouses are designed to preserve resources and have a low environmental impact...
-						<a href="https://www.gardeningknowhow.com/special/greenhouses/greenhouse-gardening.htm" target="_blank" rel="noopener noreferrer">Learn More</a>
+						<a href="https://www.gardeningknowhow.com/special/greenhouses/greenhouse-gardening.htm" target="_blank" rel="noopener noreferrer"> Learn More</a>
 					</p>
 				</div>
 			</Row>
+
 			<Row className="justify-content-center py-5 bg-light">
 				<div className="col-lg-5 ps-5 pt-3">
 					<h5>About Our Team</h5>
