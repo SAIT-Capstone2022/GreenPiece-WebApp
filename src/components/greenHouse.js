@@ -53,7 +53,7 @@ const GreenhouseUpdate = () => {
 
         <div className="form-group py-2">
           <h5>Preferred Max Temperature</h5>
-          <h6 class="text-center text-success">{this.data.prefMaxTemp}</h6>
+          <h6 class="text-center text-success" value={this.data.prefMaxTemp}></h6>
           <input
             type="range"
             name="prefMaxTemp"
@@ -69,7 +69,7 @@ const GreenhouseUpdate = () => {
 
         <div className="form-group py-2">
           <h5>Preferred Min Temperature</h5>
-          <h6 class="text-center text-success">{this.data.prefMinTemp}</h6>
+          <h6 class="text-center text-success" value={this.data.prefMinTemp}></h6>
           <input
             type="range"
             name="prefMinTemp"
@@ -85,7 +85,7 @@ const GreenhouseUpdate = () => {
 
         <div className="form-group py-2">
           <h5>Preferred Max Humidity</h5>
-          <h6 class="text-center text-success">{this.data.prefMaxHumidity}</h6>
+          <h6 class="text-center text-success" value={this.data.prefMaxHumidity}></h6>
           <input
             type="range"
             name="prefMaxHumidity"
@@ -101,7 +101,7 @@ const GreenhouseUpdate = () => {
 
         <div className="form-group py-2">
           <h5>Preferred Min Humidity</h5>
-          <h6 class="text-center text-success">{this.data.prefMinHumidity}</h6>
+          <h6 class="text-center text-success" value={this.data.prefMinHumidity}></h6>
           <input
             type="range"
             name="prefMinHumidity"
@@ -117,7 +117,7 @@ const GreenhouseUpdate = () => {
 
         <div className="form-group py-2">
           <h5>Preferred Max Moisture</h5>
-          <h6 class="text-center text-success">{this.data.prefMaxMoisture}</h6>
+          <h6 class="text-center text-success" value={this.data.prefMaxMoisture}></h6>
           <input
             type="range"
             name="prefMaxMoisture"
@@ -133,7 +133,7 @@ const GreenhouseUpdate = () => {
 
         <div className="form-group py-2">
           <h5>Preferred Min Moisture</h5>
-          <h6 class="text-center text-success">{this.data.prefMinMoisture}</h6>
+          <h6 class="text-center text-success" value={this.data.prefMinMoisture}></h6>
           <input
             type="range"
             name="prefMinMoisture"
