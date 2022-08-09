@@ -96,8 +96,9 @@ export const LineGraphs = () => {
               data: filterData.map((value, index) => {
                 return value.avgHumidity
               }),
-              backgroundColor: "green",
-              fill: "green"
+              borderColor: 'rgb(193, 240, 193)',
+              fill: true,
+              tension: 0.1
             }]
         }} />
       </div>
