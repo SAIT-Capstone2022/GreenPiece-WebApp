@@ -34,7 +34,9 @@ const DashboardComponent = () => {
       data => {
         setWeatherData(data);
         setCity(city);
-        setWeatherIcon(`http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`);
+        if (data.weather[0] != "undefined") {
+          setWeatherIcon(`http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`);
+        }
       }
     )
   };
@@ -112,6 +114,8 @@ const DashboardComponent = () => {
     <div className="container p-4 m-3 mx-auto bg-light rounded shadow-lg">
       <h2> {username}'s Dashboard</h2>
 
+      {sensorData.temperature != NO_DATA ? <Alerts /> : null}
+
       <Row className='my-3 mx-0'>
         <div className='col-lg-3 rounded shadow-lg mb-4 bg-gradient' style={{ background: "#bfcfbe" }}>
           <Card.Body className='p-3'>
@@ -121,7 +125,7 @@ const DashboardComponent = () => {
             <div className='container p-0'>
               {typeof weatherData.main === 'undefined' ? (
                 <div>
-                  <p>Enter in a city to get the current weather.</p> 
+                  <p>Enter in a city to get the current weather.</p>
                 </div>
               ) : (
                 <div className='weather-data m-0'>
@@ -133,7 +137,7 @@ const DashboardComponent = () => {
               )}
 
               {weatherData.cod === "404" ? (
-                <p>City not found</p>
+                <p>City was not found, please update.</p>
               ) : (
                 <>
                 </>
@@ -147,13 +151,11 @@ const DashboardComponent = () => {
             const url = `${process.env.REACT_APP_BASE_URL}/data/getSensorData`;
             const { data: res } = await axios.post(url, sentData);
             return res.UsersData[res.UsersData.length - 1];
-          }} 
-          onDataUpdated = {setSensorData}/>
+          }}
+            onDataUpdated={setSensorData} />
         </div>
 
       </Row>
-
-      { sensorData.temperature != NO_DATA ? <Alerts/>: null }
 
       <LineGraphs />
 

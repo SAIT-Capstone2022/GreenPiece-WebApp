@@ -74,7 +74,7 @@ export const LineGraphs = () => {
   return (
     <>
 
-      <div>
+      <div className="m-3">
         <Line data={{
           labels: getLabels(),
           datasets: [
@@ -90,7 +90,7 @@ export const LineGraphs = () => {
         }} />
       </div>
 
-      <div>
+      <div className="m-3">
         <Line data={{
           labels: getLabels(),
           datasets: [
@@ -106,7 +106,7 @@ export const LineGraphs = () => {
         }} />
       </div>
 
-      <div>
+      <div className="m-3">
         <Line data={{
           labels: getLabels(),
           datasets: [
@@ -116,8 +116,9 @@ export const LineGraphs = () => {
                 return value.avgSoilMoisture
               }),
               fill: true,
-              borderColor: 'rgba(51, 255, 255, 0.8)',
-              backgroundColor: 'rgba(0, 255, 255, 0.5)'
+              borderColor: 'rgba(0, 204, 204, 0.8)',
+              backgroundColor: 'rgba(0, 255, 255, 0.5)',
+
             }]
         }} />
       </div>
