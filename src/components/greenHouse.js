@@ -64,16 +64,6 @@ const GreenhouseUpdate = () => {
               required
               className="form-control col-lg-6"
             />
-            <input
-              type="range"
-              name="prefMaxTemp"
-              min={20}
-              max={50}
-              onChange={handleChange}
-              defaultValue={userobject.prefMaxTemp}
-              required
-              className="form-control col-lg-6"
-            />
           <h5 class="text-center">20°C - 50°C</h5>
         </div>
 
