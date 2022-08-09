@@ -25,11 +25,11 @@ export const LiveDataFeed = ({
         const newData = await retrieveData();
         if (typeof newData === "undefined") {
         setData(newData)
-        }
-        setLastUpdated(new Date().toLocaleString())
         if (onDataUpdated) {
             onDataUpdated(newData);
         }
+        }
+        setLastUpdated(new Date().toLocaleString())
     }, [retrieveData]);
 
     // refresh data from the server every 2.5 seconds
