@@ -81,9 +81,7 @@ const startAlertTask = () => {
 
 connection.once('open', () => { 
 
-  startAlertTask();
-
-   /* User.find({}, (err, users) => {
+  /*User.find({}, (err, users) => {
 
     function getRandomInt(min, max) {
       min = Math.ceil(min);
@@ -112,9 +110,13 @@ connection.once('open', () => {
    });
   })
 
+  console.log(sensorDataPoints);
+
   sensorData.insertMany(sensorDataPoints);
 
-    })/*
+  }); */
+
+  startAlertTask();
 
 //Create 3 new booleans on user data to track if they have been alerted for trips in temp, humidity and soil moisture 
 //Then for user alerts create long lived process which pulls the most recent sensor data for the user (every 10 minutes) compare data with prefered ranges 
