@@ -34,7 +34,7 @@ const DashboardComponent = () => {
       data => {
         setWeatherData(data);
         setCity(city);
-        if (data.weather[0] != "undefined") {
+        if (typeof data.weather[0] != 'undefined') {
           setWeatherIcon(`http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`);
         }
       }
