@@ -43,18 +43,18 @@ const Login = () => {
 		<div className="container-fluid mt-5">
 			<Row className="justify-content-center mb-3">
 				<div className="col-lg-5 pt-5 my-3">
-					<h3>Welcome to Green Piece!</h3>
+					<h2>Welcome to Green Piece!</h2>
 					<p className="pe-5" style={{ fontSize: '20px' }}>
-						This is the home page for Green Piece and the sign in page for our 
-						Greenhouse Monitoring System. We help our clients access organic level fresh
-						vegetables and improve their physical health and spirit.
+						This is the home page for Green Piece and the sign in page for our Greenhouse
+						Monitoring System. We help our clients access organic level fresh vegetables 
+						and improve their physical health and spirit.
 					</p>
-					<p className="pe-5" style={{ fontSize: '18px' }}>
-						Go ahead and sign in if you are already set up to gain access to your 
-						own personalized greenhouse and user pages. If you are just getting started
-						and have not yet signed up or registered, please go ahead, and click the 
-						sign-up button and follow the prompts on the following page. If you are new
-						here, please feel free to read up on us, our product, this application, and
+					<p className="pe-5" style={{ fontSize: '17px' }}>
+						Go ahead and sign in if you are already set up to gain 
+						access to your own personalized greenhouse and user pages.
+						If you are just getting started and please sign up. If you 
+						are new here, please feel free to read up on us, our 
+						product, this application, and
 						our vision below!
 					</p>
 				</div>
@@ -125,7 +125,7 @@ const Login = () => {
 					</p>
 				</div>
 				<div className="col-lg-3 justify-content-center my-auto">
-					<img className="shadow-lg" src={GreenSoftwareImage} width="100%" height="125%" alt="" />
+					<img className="shadow-lg" src={GreenSoftwareImage} size width="100%" height="277px" alt="" />
 				</div>
 			</Row>
 
