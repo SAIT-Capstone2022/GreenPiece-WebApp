@@ -23,7 +23,7 @@ export const LiveDataFeed = ({
     const updateData = useCallback(async () => {
         if (!retrieveData) return;
         const newData = await retrieveData();
-        if (typeof newData === "undefined") {
+        if (typeof newData != "undefined") {
         setData(newData)
         if (onDataUpdated) {
             onDataUpdated(newData);
