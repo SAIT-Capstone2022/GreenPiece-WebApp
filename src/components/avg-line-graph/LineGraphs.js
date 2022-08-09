@@ -35,7 +35,7 @@ export const LineGraphs = () => {
     const datesArray = [];
     for (let i = 24; i > 0; i--) {
       currentDate.setUTCHours(-i);
-      datesArray.push(currentDate.toLocaleTimeString(navigator.language, {hour: "2-digit"}));
+      datesArray.push(currentDate.toLocaleTimeString(navigator.language, { hour: "2-digit" }));
     }
     return datesArray;
   }
@@ -82,7 +82,10 @@ export const LineGraphs = () => {
               label: "Temperature in Celsius over the last 24 hours",
               data: filterData.map((value, index) => {
                 return value.avgTemperature
-              })
+              }),
+              fill: true,
+              borderColor: 'rgba(204, 102, 0, 0.8)',
+              backgroundColor: 'rgba(255, 204, 153, 0.5)'
             }]
         }} />
       </div>
@@ -96,9 +99,9 @@ export const LineGraphs = () => {
               data: filterData.map((value, index) => {
                 return value.avgHumidity
               }),
-              borderColor: 'rgb(193, 240, 193)',
               fill: true,
-              tension: 0.1
+              borderColor: 'rgba(0, 153, 0, 0.8)',
+              backgroundColor: 'rgba(204, 255, 204, 0.5)'
             }]
         }} />
       </div>
@@ -111,7 +114,10 @@ export const LineGraphs = () => {
               label: "% Soil Moisture over the last 24 hours",
               data: filterData.map((value, index) => {
                 return value.avgSoilMoisture
-              })
+              }),
+              fill: true,
+              borderColor: 'rgba(51, 255, 255, 0.8)',
+              backgroundColor: 'rgba(0, 255, 255, 0.5)'
             }]
         }} />
       </div>
