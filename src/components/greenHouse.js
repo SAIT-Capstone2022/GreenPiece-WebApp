@@ -52,8 +52,8 @@ const GreenhouseUpdate = () => {
         <h1 class="text-center ">Greenhouse Information</h1>
 
         <div className="form-group py-2">
-          <h5>Preferred Max Temperature</h5>
-          <h6 class="text-center text-success">{data.prefMaxTemp}</h6>
+          <h5>Preferred Max Temperature (current: {userobject.prefMaxTemp})</h5>
+          <h5 class="text-center text-success">{data.prefMaxTemp}</h5>
           <input
             type="range"
             name="prefMaxTemp"
@@ -68,8 +68,8 @@ const GreenhouseUpdate = () => {
         </div>
 
         <div className="form-group py-2">
-          <h5>Preferred Min Temperature</h5>
-          <h6 class="text-center text-success">{data.prefMinTemp}</h6>
+          <h5>Preferred Min Temperature (current: {userobject.prefMinTemp})</h5>
+          <h5 class="text-center text-success">{data.prefMinTemp}</h5>
           <input
             type="range"
             name="prefMinTemp"
@@ -84,8 +84,8 @@ const GreenhouseUpdate = () => {
         </div>
 
         <div className="form-group py-2">
-          <h5>Preferred Max Humidity</h5>
-          <h6 class="text-center text-success">{data.prefMaxHumidity}</h6>
+          <h5>Preferred Max Humidity (current: {userobject.prefMaxHumidity})</h5>
+          <h5 class="text-center text-success">{data.prefMaxHumidity}</h5>
           <input
             type="range"
             name="prefMaxHumidity"
@@ -100,8 +100,8 @@ const GreenhouseUpdate = () => {
         </div>
 
         <div className="form-group py-2">
-          <h5>Preferred Min Humidity</h5>
-          <h6 class="text-center text-success">{data.prefMinHumidity}</h6>
+          <h5>Preferred Min Humidity (current: {userobject.prefMinHumidity})</h5>
+          <h5 class="text-center text-success">{data.prefMinHumidity}</h5>
           <input
             type="range"
             name="prefMinHumidity"
@@ -116,8 +116,8 @@ const GreenhouseUpdate = () => {
         </div>
 
         <div className="form-group py-2">
-          <h5>Preferred Max Moisture</h5>
-          <h6 class="text-center text-success">{data.prefMaxMoisture}</h6>
+          <h5>Preferred Max Moisture (current: {userobject.prefMaxMoisture})</h5>
+          <h5 class="text-center text-success">{data.prefMaxMoisture}</h5>
           <input
             type="range"
             name="prefMaxMoisture"
@@ -132,8 +132,8 @@ const GreenhouseUpdate = () => {
         </div>
 
         <div className="form-group py-2">
-          <h5>Preferred Min Moisture</h5>
-          <h6 class="text-center text-success">{data.prefMinMoisture}</h6>
+          <h5>Preferred Min Moisture (current: {userobject.prefMinMoisture})</h5>
+          <h5 class="text-center text-success">{data.prefMinMoisture}</h5>
           <input
             type="range"
             name="prefMinMoisture"
