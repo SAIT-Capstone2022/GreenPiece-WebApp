@@ -94,7 +94,7 @@ export const LineGraphs = () => {
             backgroundColor: 'rgba(255, 204, 153, 0.5)'
           }] 
       }}
-      width={"500px"} height={"250px"}
+      width={"1000px"} height={"500px"}
        />
        </div>
 
@@ -114,8 +114,8 @@ export const LineGraphs = () => {
             backgroundColor: 'rgba(204, 255, 204, 0.5)'
           }]
       }} 
+      width={"1000px"} height={"500px"}
       />
-      
       </div>
 
       <div className="col-md-4">
@@ -135,6 +135,7 @@ export const LineGraphs = () => {
 
           }]
       }} 
+      width={"1000px"} height={"500px"}
       />
       </div>
 
