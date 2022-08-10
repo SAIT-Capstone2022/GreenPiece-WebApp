@@ -113,7 +113,7 @@ export const LineGraphs = () => {
             borderColor: 'rgba(0, 153, 0, 0.8)',
             backgroundColor: 'rgba(204, 255, 204, 0.5)'
           }]
-      }}  width={this.state.width} height={this.state.height}
+      }} 
       />
       
       </div>
@@ -134,7 +134,7 @@ export const LineGraphs = () => {
             backgroundColor: 'rgba(0, 255, 255, 0.5)',
 
           }]
-      }}  width={this.state.width} height={this.state.height}
+      }} 
       />
       </div>
 
