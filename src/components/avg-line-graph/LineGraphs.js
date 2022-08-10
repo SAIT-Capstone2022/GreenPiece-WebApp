@@ -35,11 +35,11 @@ export const LineGraphs = () => {
   }
 
   const getLabels = () => {
-    const currentDate = new Date();
+    const datenow = new Date();
     const datesArray = [];
     for (let i = 12; i > 0; i--) {
-      currentDate.setUTCHours(-i);
-      datesArray.push(currentDate.toLocaleTimeString(navigator.language, { hour: "2-digit" }));
+      datenow.setUTCHours(-i);
+      datesArray.push(datenow.toLocaleTimeString(navigator.language, { hour: "2-digit" }));
     }
     return datesArray;
   }
@@ -77,7 +77,7 @@ export const LineGraphs = () => {
 
   return (
     <>
-      <h5 className="pt-2 mt-3 text-center">
+      <h5 className="container pt-2 mt-3 text-center">
         <u>Hourly Temperature Averages</u>
       </h5>
       <div className="mx-3 mb-1 mx-auto">
