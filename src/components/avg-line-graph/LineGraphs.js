@@ -94,7 +94,7 @@ export const LineGraphs = () => {
             backgroundColor: 'rgba(255, 204, 153, 0.5)'
           }] 
       }}
-      width={"1000px"} height={"500px"}
+       height={"500px"} width={"1000px"}
        />
        </div>
 
@@ -114,7 +114,7 @@ export const LineGraphs = () => {
             backgroundColor: 'rgba(204, 255, 204, 0.5)'
           }]
       }} 
-      width={"1000px"} height={"500px"}
+       height={"500px"} width={"1000px"}
       />
       </div>
 
@@ -135,7 +135,7 @@ export const LineGraphs = () => {
 
           }]
       }} 
-      width={"1000px"} height={"500px"}
+      height={"500px"} width={"1000px"} 
       />
       </div>
 
