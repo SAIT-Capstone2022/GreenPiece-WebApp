@@ -159,7 +159,7 @@ const DashboardComponent = () => {
 
       <div className='container m-3 mx-auto bg-light rounded shadow-lg'>
         <div>
-          <h4 className="container m-3 mx-auto align-middle">
+          <h4 className="container m-3 mx-auto text-center">
             <u>Hourly Average</u>
           </h4>
         </div>
