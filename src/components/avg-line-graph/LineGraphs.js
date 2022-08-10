@@ -93,9 +93,7 @@ export const LineGraphs = () => {
           }] 
       }}
        />
-       </div>
 
-       <div className="chartbox">
       <Line
        options={{
         maintainAspectRatio: false,
@@ -113,9 +111,7 @@ export const LineGraphs = () => {
             backgroundColor: 'rgba(204, 255, 204, 0.5)'
           }]
       }} />
-    </div>
 
-      <div>
       <Line 
        options={{
         maintainAspectRatio: false,
