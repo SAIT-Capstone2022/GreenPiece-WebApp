@@ -74,11 +74,8 @@ export const LineGraphs = () => {
   return (
     <>
 
-      <div>
+    <div className="graphContainer">
       <Line
-      options={{
-        maintainAspectRatio: false,
-      }}
       data={{
         labels: getLabels(),
         datasets: [
@@ -95,11 +92,8 @@ export const LineGraphs = () => {
        />
        </div>
 
-       <div>
+       <div className="graphContainer">
       <Line
-       options={{
-        maintainAspectRatio: false,
-      }}
        data={{
         labels: getLabels(),
         datasets: [
@@ -115,11 +109,8 @@ export const LineGraphs = () => {
       }} />
       </div>
 
-      <div>
+      <div className="graphContainer">
       <Line 
-       options={{
-        maintainAspectRatio: false,
-      }}
       data={{
         labels: getLabels(),
         datasets: [
