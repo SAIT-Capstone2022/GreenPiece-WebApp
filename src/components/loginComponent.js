@@ -115,13 +115,10 @@ const Login = () => {
 				<div className="col-lg-5 ps-5 pt-3">
 					<h5>The Green Piece Product</h5>
 					<p>
-						The Green Piece Greenhouse Monitoring System is a software and hardware development project. This project was designed to be able
-						to give gardeners remote access to exact live information about the climatological conditions of their gardening environment.
-						With our “Green Piece” you can be afforded peace of mind on whether or not you have to attend to your plants. You can garden,
-						yet still have the time to live your busy life away from the garden. For those of us who may have felt they were too forgetful
-						to get into gardening, this product will also serve helpful alerts and reminders to make sure that your plants are receiving the
-						exact amount of care that they really need. If you are any further interested in our product, please consider contacting us through
-						one of our links below.
+					With our “Green Piece” you can be afforded peace of mind on whether you must attend to your plants. 
+					You can garden, yet still have the time to live your busy life away from the garden. For those of us who may have felt they were too forgetful to get into gardening, 
+					this product will provide helpful alerts and reminders to make sure that your plants are receiving the exact amount of care that they need. 
+					If you are interested in learning more about our product, please contact us through email at greenpiececontact22@gmail.com
 					</p>
 				</div>
 				<div className="col-lg-3 justify-content-center my-auto">
@@ -152,14 +149,10 @@ const Login = () => {
 					<div className="col-lg-5 ps-5 pt-3">
 						<h5>About Our Team</h5>
 						<p>
-							The Green Piece team is a ragtag group of student software developers taking a software development diploma from
-							<i><a href="https://www.sait.ca/" target="_blank" rel="noopener noreferrer">The Southern Alberta Institute of Technology. </a></i>
-							Sait has a final semester course, “The Capstone Project.” This project has its students grouping up to implement the summation of all
-							of their program specific knowledge to develop a web application for their portfolio. We are Victor, Jae, Jin-Young, Kevin, Rei and
-							David, and this project is a representation of our passion for software development and green technologies. More than just a web
-							application we have implemented a hardware component which reads and sends sensor data through an Arduino. Despite lacking any
-							background in electrical engineering, wiring and circuitry, or coding hardware, our hardware component works as an integrated part of
-							our system. We are very proud of our finished product.
+						A group of ragtag software development students out of Calgary, Alberta came together in our final semester to create Green Piece.
+						 The members of our team aligned with our values on sustainability, innovative products, and making green everywhere we go! 
+						 The team consists of Victor, Jae, Jin-Young, Rei, David, and Kevin. Each of us have a unique technical background, 
+						 and together we were able to create a product that integrates accurate readings, and an easy-to-use application.
 						</p>
 					</div>
 					<div className="col-lg-3 justify-content-center my-auto">
