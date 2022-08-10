@@ -157,9 +157,9 @@ const DashboardComponent = () => {
 
       </Row>
 
-      <div className='container m-3 mx-auto bg-light rounded shadow-lg'>
+      <div className='container m-5 bg-light rounded shadow-lg'>
         <div>
-          <h4 className="container m-3 mx-auto text-center">
+          <h4 className="container text-center">
             <u>Hourly Climatological Averages</u>
           </h4>
         </div>
