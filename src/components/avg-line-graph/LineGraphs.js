@@ -74,7 +74,7 @@ export const LineGraphs = () => {
   return (
     <>
 
-      <div className="m-3">
+      <div class="chartbox">
         <Line data={{
           labels: getLabels(),
           datasets: [
@@ -90,7 +90,7 @@ export const LineGraphs = () => {
         }} />
       </div>
 
-      <div className="m-3">
+      <div className="chartbox">
         <Line data={{
           labels: getLabels(),
           datasets: [
@@ -106,7 +106,7 @@ export const LineGraphs = () => {
         }} />
       </div>
 
-      <div className="m-3">
+      <div className="chartbox">
         <Line data={{
           labels: getLabels(),
           datasets: [
