@@ -74,7 +74,7 @@ export const LineGraphs = () => {
   return (
     <>
 
-      <div className="chartbox">
+      <div>
       <Line
       options={{
         maintainAspectRatio: false,
@@ -95,7 +95,7 @@ export const LineGraphs = () => {
        />
        </div>
 
-       <div className="chartbox">
+       <div>
       <Line
        options={{
         maintainAspectRatio: false,
@@ -115,7 +115,7 @@ export const LineGraphs = () => {
       }} />
       </div>
 
-      <div className="chartbox">
+      <div>
       <Line 
        options={{
         maintainAspectRatio: false,
@@ -135,7 +135,7 @@ export const LineGraphs = () => {
           }]
       }} />
       </div>
-      
+
     </>
   )
 };
