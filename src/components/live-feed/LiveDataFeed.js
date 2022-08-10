@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react"
 export const NO_DATA = 9999;
 export const LiveDataFeed = ({
     retrieveData, // promise/async function that calls server for new data
-    updateFrequency = 500,
+    updateFrequency = 3000,
     onDataUpdated,
 }) => {
 
@@ -19,14 +19,8 @@ export const LiveDataFeed = ({
         temperature,
         moistureLevel,
     } = data;
-
-    const [firstUpdate, setFirstUpdate] = useState(true);
     
     const updateData = useCallback(async () => {
-        if (firstUpdate) {
-            LiveDataFeed.updateFrequency = 10000;
-            setFirstUpdate(false);
-        };
         if (!retrieveData) return;
         const newData = await retrieveData();
         if (typeof newData != "undefined") {
