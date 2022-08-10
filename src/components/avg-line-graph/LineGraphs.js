@@ -77,7 +77,7 @@ export const LineGraphs = () => {
 
   return (
     <>
-      <h5 className="text-center">
+      <h5 className="mt-1 text-center">
         <u>Hourly Temperature Averages</u>
       </h5>
       <div className="mx-3 mb-1 mx-auto">
@@ -95,11 +95,11 @@ export const LineGraphs = () => {
                 borderColor: 'rgba(204, 102, 0, 0.8)',
                 backgroundColor: 'rgba(255, 204, 153, 0.5)'
               }]
-          }} height={"400px"} width={"800px"}
+          }} height={"330px"} width={"750px"}
         />
       </div>
 
-      <h5 className="text-center">
+      <h5 className="mt-1 text-center">
         <u>Hourly Humidity Averages</u>
       </h5>
       <div className="mx-3 mb-1 mx-auto">
@@ -118,11 +118,11 @@ export const LineGraphs = () => {
                 backgroundColor: 'rgba(204, 255, 204, 0.5)'
               }]
           }}
-          height={"400px"} width={"800px"}
+          height={"330px"} width={"750px"}
         />
       </div>
 
-      <h5 className="container text-center">
+      <h5 className="mt-1 text-center">
         <u>Hourly Soil Moisture Averages</u>
       </h5>
       <div className="mx-3 mb-1 mx-auto">
@@ -142,7 +142,7 @@ export const LineGraphs = () => {
 
               }]
           }}
-          height={"400px"} width={"800px"}
+          height={"330px"} width={"750px"}
         />
       </div>
 

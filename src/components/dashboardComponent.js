@@ -157,7 +157,7 @@ const DashboardComponent = () => {
 
       </Row>
 
-      <div className='container mx-auto bg-light rounded shadow-lg'>
+      <div className='container-lg mx-auto bg-light rounded shadow-lg'>
         <LineGraphs />
       </div>
 
