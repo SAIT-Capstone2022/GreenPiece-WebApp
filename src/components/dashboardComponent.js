@@ -157,7 +157,9 @@ const DashboardComponent = () => {
 
       </Row>
       
+      <div className='container p-4 m-3 mx-auto bg-light rounded shadow-lg'>
       <LineGraphs />
+      </div>
 
     </div>
   );
