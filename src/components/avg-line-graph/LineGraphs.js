@@ -33,9 +33,9 @@ export const LineGraphs = () => {
   const getLabels = () => {
     const currentDate = new Date();
     const datesArray = [];
-    for (let i = 24; i > 0; i--) {
+    for (let i = 12; i > 0; i--) {
       currentDate.setUTCHours(-i);
-      datesArray.push(currentDate.toLocaleTimeString(navigator.language, {hour: "2-digit"}));
+      datesArray.push(currentDate.toLocaleTimeString(navigator.language, { hour: "2-digit" }));
     }
     return datesArray;
   }
@@ -75,19 +75,48 @@ export const LineGraphs = () => {
     <>
 
       <div>
-        <Line data={{
-          labels: getLabels(),
-          datasets: [
-            {
-              label: "Temperature in Celsius over the last 24 hours",
-              data: filterData.map((value, index) => {
-                return value.avgTemperature
-              })
-            }]
-        }} />
+      <Line
+      options={{
+        maintainAspectRatio: false,
+      }}
+      data={{
+        labels: getLabels(),
+        datasets: [
+          {
+            label: "Temperature in Celsius over the last 24 hours",
+            data: filterData.map((value, index) => {
+              return value.avgTemperature
+            }),
+            fill: true,
+            borderColor: 'rgba(204, 102, 0, 0.8)',
+            backgroundColor: 'rgba(255, 204, 153, 0.5)'
+          }] 
+      }}
+       />
+       </div>
+
+       <div>
+      <Line
+       options={{
+        maintainAspectRatio: false,
+      }}
+       data={{
+        labels: getLabels(),
+        datasets: [
+          {
+            label: "% Humidity over the last 24 hours",
+            data: filterData.map((value, index) => {
+              return value.avgHumidity
+            }),
+            fill: true,
+            borderColor: 'rgba(0, 153, 0, 0.8)',
+            backgroundColor: 'rgba(204, 255, 204, 0.5)'
+          }]
+      }} />
       </div>
 
       <div>
+<<<<<<< HEAD
         <Line data={{
           labels: getLabels(),
           datasets: [
@@ -101,18 +130,26 @@ export const LineGraphs = () => {
             }]
         }} />
       </div>
+=======
+      <Line 
+       options={{
+        maintainAspectRatio: false,
+      }}
+      data={{
+        labels: getLabels(),
+        datasets: [
+          {
+            label: "% Soil Moisture over the last 24 hours",
+            data: filterData.map((value, index) => {
+              return value.avgSoilMoisture
+            }),
+            fill: true,
+            borderColor: 'rgba(0, 204, 204, 0.8)',
+            backgroundColor: 'rgba(0, 255, 255, 0.5)',
+>>>>>>> a12e5b8d8152cf23e6e7a5863e2e852f38e099b6
 
-      <div>
-        <Line data={{
-          labels: getLabels(),
-          datasets: [
-            {
-              label: "% Soil Moisture over the last 24 hours",
-              data: filterData.map((value, index) => {
-                return value.avgSoilMoisture
-              })
-            }]
-        }} />
+          }]
+      }} />
       </div>
 
     </>

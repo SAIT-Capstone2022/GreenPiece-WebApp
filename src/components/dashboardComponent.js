@@ -34,7 +34,9 @@ const DashboardComponent = () => {
       data => {
         setWeatherData(data);
         setCity(city);
-        setWeatherIcon(`http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`);
+        if (typeof data.weather != 'undefined') {
+          setWeatherIcon(`http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`);
+        }
       }
     )
   };
@@ -110,7 +112,9 @@ const DashboardComponent = () => {
 
   return (
     <div className="container p-4 m-3 mx-auto bg-light rounded shadow-lg">
-      <h2> {username}'s Dashboard</h2>
+      <h1> {username}'s Dashboard</h1>
+
+      {sensorData.temperature != NO_DATA ? <Alerts /> : null}
 
       <Row className='my-3 mx-0'>
         <div className='col-lg-3 rounded shadow-lg mb-4 bg-gradient' style={{ background: "#bfcfbe" }}>
@@ -121,7 +125,7 @@ const DashboardComponent = () => {
             <div className='container p-0'>
               {typeof weatherData.main === 'undefined' ? (
                 <div>
-                  <p>Enter in a city to get the current weather.</p> 
+                  <p>City was not found, please update your Location.</p>
                 </div>
               ) : (
                 <div className='weather-data m-0'>
@@ -133,7 +137,7 @@ const DashboardComponent = () => {
               )}
 
               {weatherData.cod === "404" ? (
-                <p>City not found</p>
+                <p></p>
               ) : (
                 <>
                 </>
@@ -147,15 +151,20 @@ const DashboardComponent = () => {
             const url = `${process.env.REACT_APP_BASE_URL}/data/getSensorData`;
             const { data: res } = await axios.post(url, sentData);
             return res.UsersData[res.UsersData.length - 1];
-          }} 
-          onDataUpdated = {setSensorData}/>
+          }}
+            onDataUpdated={setSensorData} />
         </div>
 
       </Row>
 
-      { sensorData.temperature != NO_DATA ? <Alerts/>: null }
-
-      <LineGraphs />
+      <div className='container p-4 m-3 mx-auto bg-light rounded shadow-lg'>
+        <div>
+          <h4>
+            <u className="title">Average Hourly Climatological Data</u>
+          </h4>
+        </div>
+        <LineGraphs />
+      </div>
 
     </div>
   );
