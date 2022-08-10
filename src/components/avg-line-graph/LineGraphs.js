@@ -78,7 +78,7 @@ export const LineGraphs = () => {
   return (
     <>
 
-    <div className="container mx-5 mx-auto">
+    <div className="mx-5 mx-auto">
       <Line 
        options={{ maintainAspectRatio: false }}
       data={{
@@ -93,7 +93,7 @@ export const LineGraphs = () => {
             borderColor: 'rgba(204, 102, 0, 0.8)',
             backgroundColor: 'rgba(255, 204, 153, 0.5)'
           }] 
-      }} height={"400px"}
+      }} height={"400px"} width={"800px"}
        />
        </div>
 
@@ -113,7 +113,7 @@ export const LineGraphs = () => {
             backgroundColor: 'rgba(204, 255, 204, 0.5)'
           }]
       }} 
-      width={"400px"}
+      height={"400px"} width={"800px"}
       />
       </div>
 
@@ -134,7 +134,7 @@ export const LineGraphs = () => {
 
           }]
       }} 
-      width={"400px"}
+      height={"400px"} width={"800px"}
       />
       </div>
 
