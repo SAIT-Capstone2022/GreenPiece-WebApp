@@ -15,9 +15,9 @@ export const LineGraphs = () => {
 
   const [responseData, setResponseData] = useState({});
 
-  const height = useState(255);
+  const [height] = useState(255);
 
-  const width = useState(500);
+  const [width] = useState(500);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -94,7 +94,7 @@ export const LineGraphs = () => {
             backgroundColor: 'rgba(255, 204, 153, 0.5)'
           }] 
       }}
-      width={this.state.width} height={this.state.height}
+      width={"500px"} height={"250px"}
        />
        </div>
 
