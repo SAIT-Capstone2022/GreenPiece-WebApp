@@ -64,7 +64,7 @@ const DashboardComponent = () => {
           <Alert variant='danger'>
             <h5>Temperature Alert!</h5>
             <hr />
-            <p>Your Temperature is {sensorData.temperature - userObject.prefMaxTemp}C over your maximum temperature of {userObject.prefMaxTemp}C</p>
+            <p>Your Temperature is {sensorData.temperature - userObject.prefMaxTemp}°C over your maximum temperature of {userObject.prefMaxTemp}°C</p>
           </Alert>
         </div>)}
       {(sensorData.temperature < userObject.prefMinTemp) &&
@@ -72,7 +72,7 @@ const DashboardComponent = () => {
           <Alert variant='danger'>
             <h5>Temperature Alert!</h5>
             <hr />
-            <p>Your Temperature is {userObject.prefMinTemp - sensorData.temperature}C bellow your mininum temperature of {userObject.prefMinTemp}C</p>
+            <p>Your Temperature is {userObject.prefMinTemp - sensorData.temperature}°C below your mininum temperature of {userObject.prefMinTemp}°C</p>
           </Alert>
         </div>)}
       {(sensorData.humidity > userObject.prefMaxHumidity) &&
@@ -88,7 +88,7 @@ const DashboardComponent = () => {
           <Alert variant='danger'>
             <h5>Humidity Alert!</h5>
             <hr />
-            <p>Your Humidity is {userObject.prefMinHumidity - sensorData.humidity}% bellow your mininum humidity of {userObject.prefMinHumidity}%</p>
+            <p>Your Humidity is {userObject.prefMinHumidity - sensorData.humidity}% below your mininum humidity of {userObject.prefMinHumidity}%</p>
           </Alert>
         </div>)}
       {(sensorData.moistureLevel > userObject.prefMaxMoisture) &&
@@ -104,7 +104,7 @@ const DashboardComponent = () => {
           <Alert variant='danger'>
             <h5>Soil Moisture Alert!</h5>
             <hr />
-            <p>Your soil moisture is {userObject.prefMinMoisture - sensorData.moistureLevel}% under your mininum soil moisture level of {userObject.prefMinMoisture}%</p>
+            <p>Your soil moisture is {userObject.prefMinMoisture - sensorData.moistureLevel}% below your mininum soil moisture level of {userObject.prefMinMoisture}%</p>
           </Alert>
         </div>)}
     </div>)
@@ -146,7 +146,7 @@ const DashboardComponent = () => {
           </Card.Body>
         </div>
 
-        <div className="mx-auto col-lg-9">
+        <div className="mx-auto p-3 col-lg-9">
           <LiveDataFeed className="mx-0" retrieveData={async () => {
             const url = `${process.env.REACT_APP_BASE_URL}/data/getSensorData`;
             const { data: res } = await axios.post(url, sentData);
