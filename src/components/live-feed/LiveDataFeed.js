@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react"
 export const NO_DATA = 9999;
 export const LiveDataFeed = ({
     retrieveData, // promise/async function that calls server for new data
-    updateFrequency = 2000,
+    updateFrequency = 3000,
     onDataUpdated,
 }) => {
 
