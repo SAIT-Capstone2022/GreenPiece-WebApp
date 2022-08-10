@@ -21,8 +21,6 @@ const Footer = () => {
                 Green Piece
               </h5>
               <p>
-                (403) xxx-xxxx
-                <br></br>
                 GreenPieceContact22@gmail.com
               </p>
             </div>
@@ -46,11 +44,6 @@ const Footer = () => {
             <div className='col-lg-2'>
               <h5>Affiliated Company</h5>
               <ul className='list-unstyled'>
-                <li>
-                  <a href='http://www.nu-worx.com/' target="_blank" rel="noopener noreferrer" className='text-black'>
-                    Nu-Worx Technology
-                  </a>
-                </li>
                 <li>
                   <a href='https://www.sait.ca/' target="_blank" rel="noopener noreferrer" className='text-black'>
                     Southern Alberta Institude of Technology (SAIT)
