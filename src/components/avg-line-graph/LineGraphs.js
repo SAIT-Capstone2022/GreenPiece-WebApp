@@ -78,7 +78,7 @@ export const LineGraphs = () => {
   return (
     <>
 
-    <div className="col-md-4">
+    <div className="container mx-auto">
       <Line 
        options={{ maintainAspectRatio: false }}
       data={{
@@ -98,7 +98,7 @@ export const LineGraphs = () => {
        />
        </div>
 
-       <div className="col-md-4">
+       <div className="container mx-auto">
       <Line 
         options={{ maintainAspectRatio: false }}
        data={{
@@ -118,7 +118,7 @@ export const LineGraphs = () => {
       />
       </div>
 
-      <div className="col-md-4">
+      <div className="container mx-auto">
       <Line 
       options={{ maintainAspectRatio: false }}
       data={{
