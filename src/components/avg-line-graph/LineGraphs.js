@@ -95,6 +95,7 @@ export const LineGraphs = () => {
        />
        </div>
 
+       <div className="chartbox">
       <Line data={{
         labels: getLabels(),
         datasets: [
@@ -108,8 +109,9 @@ export const LineGraphs = () => {
             backgroundColor: 'rgba(204, 255, 204, 0.5)'
           }]
       }} />
+    </div>
 
-
+      <div>
       <Line data={{
         labels: getLabels(),
         datasets: [
@@ -125,7 +127,7 @@ export const LineGraphs = () => {
           }]
       }} />
 
-
+      </div>
     </>
   )
 };
