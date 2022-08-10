@@ -74,8 +74,12 @@ export const LineGraphs = () => {
   return (
     <>
 
-    <div className="chartbox">
-      <Line data={{
+      <div className="chartbox">
+      <Line
+      options={{
+        maintainAspectRatio: false,
+      }}
+      data={{
         labels: getLabels(),
         datasets: [
           {
@@ -86,13 +90,10 @@ export const LineGraphs = () => {
             fill: true,
             borderColor: 'rgba(204, 102, 0, 0.8)',
             backgroundColor: 'rgba(255, 204, 153, 0.5)'
-          }],
-        options: {
-          maintainAspectRatio: false,
-        } 
-      }} />
-      </div>
-
+          }] 
+      }}
+       />
+       </div>
 
       <Line data={{
         labels: getLabels(),
