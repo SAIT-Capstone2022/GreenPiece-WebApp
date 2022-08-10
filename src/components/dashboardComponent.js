@@ -157,12 +157,7 @@ const DashboardComponent = () => {
 
       </Row>
 
-      <div className='container mx-auto m-5 bg-light rounded shadow-lg'>
-        <div>
-          <h4 className="container text-center">
-            <u>Hourly Climatological Averages</u>
-          </h4>
-        </div>
+      <div className='container mx-auto bg-light rounded shadow-lg'>
         <LineGraphs />
       </div>
 

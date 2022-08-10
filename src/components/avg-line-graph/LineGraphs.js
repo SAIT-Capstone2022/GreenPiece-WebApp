@@ -77,65 +77,73 @@ export const LineGraphs = () => {
 
   return (
     <>
-
-    <div className="mx-5 mx-auto">
-      <Line 
-       options={{ maintainAspectRatio: false }}
-      data={{
-        labels: getLabels(),
-        datasets: [
-          {
-            label: "Temperature in Celsius over the last 12 hours",
-            data: filterData.map((value, index) => {
-              return value.avgTemperature
-            }),
-            fill: true,
-            borderColor: 'rgba(204, 102, 0, 0.8)',
-            backgroundColor: 'rgba(255, 204, 153, 0.5)'
-          }] 
-      }} height={"400px"} width={"800px"}
-       />
-       </div>
-
-       <div className="mx-5 mx-auto">
-      <Line 
-        options={{ maintainAspectRatio: false }}
-       data={{
-        labels: getLabels(),
-        datasets: [
-          {
-            label: "% Humidity over the last 12 hours",
-            data: filterData.map((value, index) => {
-              return value.avgHumidity
-            }),
-            fill: true,
-            borderColor: 'rgba(0, 153, 0, 0.8)',
-            backgroundColor: 'rgba(204, 255, 204, 0.5)'
-          }]
-      }} 
-      height={"400px"} width={"800px"}
-      />
+      <h5 className="text-center">
+        <u>Hourly Temperature Averages</u>
+      </h5>
+      <div className="mx-3 mb-1 mx-auto">
+        <Line
+          options={{ maintainAspectRatio: false }}
+          data={{
+            labels: getLabels(),
+            datasets: [
+              {
+                label: "Temperature in Celsius over the last 12 hours",
+                data: filterData.map((value, index) => {
+                  return value.avgTemperature
+                }),
+                fill: true,
+                borderColor: 'rgba(204, 102, 0, 0.8)',
+                backgroundColor: 'rgba(255, 204, 153, 0.5)'
+              }]
+          }} height={"400px"} width={"800px"}
+        />
       </div>
 
-      <div className="mx-5 mx-auto">
-      <Line 
-      options={{ maintainAspectRatio: false }}
-      data={{
-        labels: getLabels(),
-        datasets: [
-          {
-            label: "% Soil Moisture over the last 12 hours",
-            data: filterData.map((value, index) => {
-              return value.avgSoilMoisture
-            }),
-            fill: true,
-            borderColor: 'rgba(0, 204, 204, 0.8)',
-            backgroundColor: 'rgba(0, 255, 255, 0.5)',
+      <h5 className="text-center">
+        <u>Hourly Humidity Averages</u>
+      </h5>
+      <div className="mx-3 mb-1 mx-auto">
+        <Line
+          options={{ maintainAspectRatio: false }}
+          data={{
+            labels: getLabels(),
+            datasets: [
+              {
+                label: "% Humidity over the last 12 hours",
+                data: filterData.map((value, index) => {
+                  return value.avgHumidity
+                }),
+                fill: true,
+                borderColor: 'rgba(0, 153, 0, 0.8)',
+                backgroundColor: 'rgba(204, 255, 204, 0.5)'
+              }]
+          }}
+          height={"400px"} width={"800px"}
+        />
+      </div>
 
-          }]
-      }} 
-      height={"400px"} width={"800px"}
-      />
+      <h5 className="container text-center">
+        <u>Hourly Soil Moisture Averages</u>
+      </h5>
+      <div className="mx-3 mb-1 mx-auto">
+        <Line
+          options={{ maintainAspectRatio: false }}
+          data={{
+            labels: getLabels(),
+            datasets: [
+              {
+                label: "% Soil Moisture over the last 12 hours",
+                data: filterData.map((value, index) => {
+                  return value.avgSoilMoisture
+                }),
+                fill: true,
+                borderColor: 'rgba(0, 204, 204, 0.8)',
+                backgroundColor: 'rgba(0, 255, 255, 0.5)',
+
+              }]
+          }}
+          height={"400px"} width={"800px"}
+        />
       </div>
 
     </>
