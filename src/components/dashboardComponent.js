@@ -157,7 +157,9 @@ const DashboardComponent = () => {
 
       </Row>
 
+      <div className="chartbox">
       <LineGraphs />
+      </div>
 
     </div>
   );
