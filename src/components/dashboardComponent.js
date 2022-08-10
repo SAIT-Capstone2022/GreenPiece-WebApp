@@ -112,7 +112,7 @@ const DashboardComponent = () => {
 
   return (
     <div className="container p-4 m-3 mx-auto bg-light rounded shadow-lg">
-      <h2> {username}'s Dashboard</h2>
+      <h1> {username}'s Dashboard</h1>
 
       {sensorData.temperature != NO_DATA ? <Alerts /> : null}
 
@@ -156,9 +156,14 @@ const DashboardComponent = () => {
         </div>
 
       </Row>
-      
+
       <div className='container p-4 m-3 mx-auto bg-light rounded shadow-lg'>
-      <LineGraphs />
+        <div>
+          <h2 className="title">
+            <u>Average Hourly Climatological Data</u>
+          </h2>
+        </div>
+        <LineGraphs />
       </div>
 
     </div>
