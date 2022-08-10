@@ -80,7 +80,7 @@ export const LineGraphs = () => {
         labels: getLabels(),
         datasets: [
           {
-            label: "Temperature in Celsius over the last 24 hours",
+            label: "Temperature in Celsius over the last 12 hours",
             data: filterData.map((value, index) => {
               return value.avgTemperature
             }),
@@ -98,7 +98,7 @@ export const LineGraphs = () => {
         labels: getLabels(),
         datasets: [
           {
-            label: "% Humidity over the last 24 hours",
+            label: "% Humidity over the last 12 hours",
             data: filterData.map((value, index) => {
               return value.avgHumidity
             }),
@@ -115,7 +115,7 @@ export const LineGraphs = () => {
         labels: getLabels(),
         datasets: [
           {
-            label: "% Soil Moisture over the last 24 hours",
+            label: "% Soil Moisture over the last 12 hours",
             data: filterData.map((value, index) => {
               return value.avgSoilMoisture
             }),
