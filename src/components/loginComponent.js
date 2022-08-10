@@ -109,6 +109,8 @@ const Login = () => {
 				</div>
 			</Row>
 
+			<div class="transparentbackground" >
+
 			<Row className="justify-content-center mt-5 py-5 bg-light">
 				<div className="col-lg-5 ps-5 pt-3">
 					<h5>The Green Piece Product</h5>
@@ -126,8 +128,6 @@ const Login = () => {
 					<img className="shadow-lg" src={GreenSoftwareImage} size width="100%" height="277px" alt="" />
 				</div>
 			</Row>
-
-			<div class="transparentbackground" >
 
 				<Row className="justify-content-center py-5 bg-light">
 					<div className="col-lg-3 justify-content-center my-auto">
