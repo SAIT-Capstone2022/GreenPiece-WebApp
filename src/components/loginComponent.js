@@ -119,7 +119,7 @@ const Login = () => {
 						yet still have the time to live your busy life away from the garden. For those of us who may have felt they were too forgetful
 						to get into gardening, this product will also serve helpful alerts and reminders to make sure that your plants are receiving the
 						exact amount of care that they really need. If you are any further interested in our product, please consider contacting us through
-						one of our links below.
+						one of our links below. HELLO
 					</p>
 				</div>
 				<div className="col-lg-3 justify-content-center my-auto">
