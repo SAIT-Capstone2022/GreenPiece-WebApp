@@ -24,7 +24,7 @@ export const LiveDataFeed = ({
     
     const updateData = useCallback(async () => {
         if (firstUpdate) {
-            LiveDataFeed.updateData = 10000;
+            LiveDataFeed.updateFrequency = 10000;
             setFirstUpdate(false);
         };
         if (!retrieveData) return;
