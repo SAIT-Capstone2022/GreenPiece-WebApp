@@ -44,16 +44,14 @@ const Login = () => {
 			<Row className="justify-content-center mb-3">
 				<div className="col-lg-5 pt-5 my-3">
 					<h2>Welcome to Green Piece!</h2>
-					<p className="pe-5" style={{ fontSize: '20px' }}>
+					<p className="pe-5" style={{ fontSize: '19px' }}>
 						This is the home page for Green Piece and the sign in page for our Greenhouse
-						Monitoring System. We help our clients access organic level fresh vegetables 
+						Monitoring System. We help our clients access organic level fresh vegetables
 						and improve their physical health and spirit.
-					</p>
-					<p className="pe-5" style={{ fontSize: '17px' }}>
-						Go ahead and sign in if you are already set up to gain 
+						Go ahead and sign in if you are already set up to gain
 						access to your own personalized greenhouse and user pages.
-						If you are just getting started and please sign up. If you 
-						are new here, please feel free to read up on us, our 
+						If you are just getting started and please sign up. If you
+						are new here, please feel free to read up on us, our
 						product, this application, and
 						our vision below!
 					</p>
@@ -129,43 +127,46 @@ const Login = () => {
 				</div>
 			</Row>
 
-			<Row className="justify-content-center py-5 bg-light">
-				<div className="col-lg-3 justify-content-center my-auto">
-					<img className="shadow-lg" src={GreenhouseImage} width="100%" height="auto" alt="" />
-				</div>
-				<div className="col-lg-5 pe-5 pt-3">
-					<h5>Gardening and Greenhouses for Sustainability</h5>
-					<p>
-						There are multiple health and environmental benefits to growing and consuming your own food. If you are not growing plants for consumption,
-						the process of gardening alone is positive for your physical and mental health.  There is something intrinsically positive about the
-						gardening process, and now more than ever people in urban environments are getting involved. Greenhouse gardening is an efficient way to
-						grow food on a relatively small piece of property without compromising soil quality. Greenhouses help keep surrounding areas undisturbed,
-						preserving the ecosystems and wildlife that live there. Compared to conventional farming, growing in greenhouses is a more sustainable
-						method of food production. But if designed without sustainability in mind, greenhouses can be quite energy and water intensive. From their
-						construction to operation, sustainable greenhouses are designed to preserve resources and have a low environmental impact...
-						<a href="https://www.gardeningknowhow.com/special/greenhouses/greenhouse-gardening.htm" target="_blank" rel="noopener noreferrer"> Learn More</a>
-					</p>
-				</div>
-			</Row>
+			<div class="transparentbackground" >
 
-			<Row className="justify-content-center py-5 bg-light">
-				<div className="col-lg-5 ps-5 pt-3">
-					<h5>About Our Team</h5>
-					<p>
-						The Green Piece team is a ragtag group of student software developers taking a software development diploma from
-						<i><a href="https://www.sait.ca/" target="_blank" rel="noopener noreferrer">The Southern Alberta Institute of Technology. </a></i>
-						Sait has a final semester course, “The Capstone Project.” This project has its students grouping up to implement the summation of all
-						of their program specific knowledge to develop a web application for their portfolio. We are Victor, Jae, Jin-Young, Kevin, Rei and 
-						David, and this project is a representation of our passion for software development and green technologies. More than just a web 
-						application we have implemented a hardware component which reads and sends sensor data through an Arduino. Despite lacking any
-						background in electrical engineering, wiring and circuitry, or coding hardware, our hardware component works as an integrated part of
-						our system. We are very proud of our finished product. 
-					</p>
-				</div>
-				<div className="col-lg-3 justify-content-center my-auto">
-					<img className="shadow-lg" src={GroupImage} width="100%" height="auto" alt="" />
-				</div>
-			</Row>
+				<Row className="justify-content-center py-5 bg-light">
+					<div className="col-lg-3 justify-content-center my-auto">
+						<img className="shadow-lg" src={GreenhouseImage} width="100%" height="auto" alt="" />
+					</div>
+					<div className="col-lg-5 pe-5 pt-3">
+						<h5>Gardening and Greenhouses for Sustainability</h5>
+						<p>
+							There are multiple health and environmental benefits to growing and consuming your own food. If you are not growing plants for consumption,
+							the process of gardening alone is positive for your physical and mental health.  There is something intrinsically positive about the
+							gardening process, and now more than ever people in urban environments are getting involved. Greenhouse gardening is an efficient way to
+							grow food on a relatively small piece of property without compromising soil quality. Greenhouses help keep surrounding areas undisturbed,
+							preserving the ecosystems and wildlife that live there. Compared to conventional farming, growing in greenhouses is a more sustainable
+							method of food production. But if designed without sustainability in mind, greenhouses can be quite energy and water intensive. From their
+							construction to operation, sustainable greenhouses are designed to preserve resources and have a low environmental impact...
+							<a href="https://www.gardeningknowhow.com/special/greenhouses/greenhouse-gardening.htm" target="_blank" rel="noopener noreferrer"> Learn More</a>
+						</p>
+					</div>
+				</Row>
+
+				<Row className="justify-content-center py-5 bg-light">
+					<div className="col-lg-5 ps-5 pt-3">
+						<h5>About Our Team</h5>
+						<p>
+							The Green Piece team is a ragtag group of student software developers taking a software development diploma from
+							<i><a href="https://www.sait.ca/" target="_blank" rel="noopener noreferrer">The Southern Alberta Institute of Technology. </a></i>
+							Sait has a final semester course, “The Capstone Project.” This project has its students grouping up to implement the summation of all
+							of their program specific knowledge to develop a web application for their portfolio. We are Victor, Jae, Jin-Young, Kevin, Rei and
+							David, and this project is a representation of our passion for software development and green technologies. More than just a web
+							application we have implemented a hardware component which reads and sends sensor data through an Arduino. Despite lacking any
+							background in electrical engineering, wiring and circuitry, or coding hardware, our hardware component works as an integrated part of
+							our system. We are very proud of our finished product.
+						</p>
+					</div>
+					<div className="col-lg-3 justify-content-center my-auto">
+						<img className="shadow-lg" src={GroupImage} width="100%" height="auto" alt="" />
+					</div>
+				</Row>
+			</div>
 		</div>
 	);
 };
