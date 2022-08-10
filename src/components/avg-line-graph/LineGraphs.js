@@ -78,7 +78,7 @@ export const LineGraphs = () => {
   return (
     <>
 
-    <div className="container-lg p-4 mx-4">
+    <div className="container-md p-4 mx-4">
       <Line 
        options={{ maintainAspectRatio: false }}
       data={{
@@ -98,7 +98,7 @@ export const LineGraphs = () => {
        />
        </div>
 
-       <div className="container-lg p4 mx-4">
+       <div className="container-md p4 mx-4">
       <Line 
         options={{ maintainAspectRatio: false }}
        data={{
@@ -118,7 +118,7 @@ export const LineGraphs = () => {
       />
       </div>
 
-      <div className="container-lg p4 mx-4">
+      <div className="container-md p4 mx-4">
       <Line 
       options={{ maintainAspectRatio: false }}
       data={{

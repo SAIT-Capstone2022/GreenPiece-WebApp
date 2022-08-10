@@ -160,7 +160,7 @@ const DashboardComponent = () => {
       <div className='container m-3 mx-auto bg-light rounded shadow-lg'>
         <div>
           <h4 className="container m-3 mx-auto text-center">
-            <u>Hourly Average</u>
+            <u>Hourly Climatological Averages</u>
           </h4>
         </div>
         <LineGraphs />
