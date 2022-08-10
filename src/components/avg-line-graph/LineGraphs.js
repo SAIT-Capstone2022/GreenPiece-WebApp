@@ -15,6 +15,10 @@ export const LineGraphs = () => {
 
   const [responseData, setResponseData] = useState({});
 
+  const height = useState(255);
+
+  const width = useState(500);
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -74,7 +78,7 @@ export const LineGraphs = () => {
   return (
     <>
 
-    <div className="graphContainer">
+    <div className="col-md-4">
       <Line 
        options={{ maintainAspectRatio: false }}
       data={{
@@ -90,10 +94,11 @@ export const LineGraphs = () => {
             backgroundColor: 'rgba(255, 204, 153, 0.5)'
           }] 
       }}
+      width={this.state.width} height={this.state.height}
        />
        </div>
 
-       <div className="graphContainer">
+       <div className="col-md-4">
       <Line 
         options={{ maintainAspectRatio: false }}
        data={{
@@ -108,10 +113,12 @@ export const LineGraphs = () => {
             borderColor: 'rgba(0, 153, 0, 0.8)',
             backgroundColor: 'rgba(204, 255, 204, 0.5)'
           }]
-      }} />
+      }}  width={this.state.width} height={this.state.height}
+      />
+      
       </div>
 
-      <div className="graphContainer">
+      <div className="col-md-4">
       <Line 
       options={{ maintainAspectRatio: false }}
       data={{
@@ -127,7 +134,8 @@ export const LineGraphs = () => {
             backgroundColor: 'rgba(0, 255, 255, 0.5)',
 
           }]
-      }} />
+      }}  width={this.state.width} height={this.state.height}
+      />
       </div>
 
     </>
