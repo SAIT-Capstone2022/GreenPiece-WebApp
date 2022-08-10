@@ -77,7 +77,7 @@ export const LineGraphs = () => {
 
   return (
     <>
-      <h5 className="pt-2 mt-1 text-center">
+      <h5 className="pt-2 mt-3 text-center">
         <u>Hourly Temperature Averages</u>
       </h5>
       <div className="mx-3 mb-1 mx-auto">
@@ -99,7 +99,7 @@ export const LineGraphs = () => {
         />
       </div>
 
-      <h5 className="pt-2 mt-1 text-center">
+      <h5 className="pt-2 mt-3 text-center">
         <u>Hourly Humidity Averages</u>
       </h5>
       <div className="mx-3 mb-1 mx-auto">
@@ -122,7 +122,7 @@ export const LineGraphs = () => {
         />
       </div>
 
-      <h5 className="pt-2 mt-1 text-center">
+      <h5 className="pt-2 mt-3 text-center">
         <u>Hourly Soil Moisture Averages</u>
       </h5>
       <div className="mx-3 mb-1 mx-auto">
