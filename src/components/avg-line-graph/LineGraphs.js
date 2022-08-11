@@ -39,7 +39,8 @@ export const LineGraphs = () => {
     const datesArray = [];
     for (let i = 12; i > 0; i--) {
       datenow.setUTCHours(-i);
-      datesArray.push(datenow.toLocaleString(navigator.language, { hour: "2-digit" }));
+      datesArray.push(datenow.toLocaleTimeString('en-US', { timeZone: 'America/Edmonton'}, {hourCycle: 'h12'}));
+      //navigator.language, { hour: "2-digit" }
     }
     return datesArray;
   }
