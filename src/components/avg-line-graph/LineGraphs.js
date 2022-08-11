@@ -38,7 +38,7 @@ export const LineGraphs = () => {
     const datenow = new Date();
     const datesArray = [];
     for (let i = 12; i > 0; i--) {
-      datenow.setUTCHours();
+      datenow.setUTCHours(1 + i + 5);
       datenow.setUTCHours(-i - 5);
       datesArray.push(datenow.toLocaleTimeString(navigator.language, { hour: "2-digit" }));
     }
